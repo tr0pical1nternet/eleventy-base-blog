@@ -5,11 +5,13 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const pluginEleventySrcset = require("eleventy-plugin-srcset");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginEleventySrcset);
 
   eleventyConfig.setDataDeepMerge(true);
 
@@ -70,7 +72,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
-  eleventyConfig.addPassthroughCopy("img");
+  // eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
 
   /* Markdown Overrides */
@@ -100,6 +102,13 @@ module.exports = function(eleventyConfig) {
       }
     }
   });
+
+  // eleventyConfig.srcsetAutoselector = '.page-body img'
+  // eleventyConfig.srcsetWidths || [ 320, 480, 640, 960, 1280, 1600 ],
+  // eleventyConfig.srcsetFallbackWidth || 640,
+  // eleventyConfig.srcsetFallbackHeight || null,
+  // eleventyConfig.srcsetCreateCaptions || false,
+  // eleventyConfig.resizeOriginal || true,
 
   return {
     templateFormats: [

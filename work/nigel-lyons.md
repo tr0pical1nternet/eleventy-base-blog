@@ -4,6 +4,9 @@ slug: nigel-lyons
 layout: layouts/work-post.njk
 externalURL: https://nigelyons.com
 order: 6
+cover:
+    src: /images/nigel-lyons_cover.png
+    alt: nigelyons.com homepage
 ---
 Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press,  I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to: 
 
