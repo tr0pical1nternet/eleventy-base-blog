@@ -6,5 +6,6 @@ order: 1
 cover:
     src: /images/dactyl-nightmare_cover.png
     alt: Dactyl Nightmare
+tags: [ Adventure Game ]
 ---
-Dactyl Nightmare is a Choose Your Own Adventure game that gives people what they truly want, a terrible death at the hands of a Pterodactyl.
+My first website and possibly my best, Dactyl Nightmare is a Choose Your Own Adventure game that gives people what they truly want, a terrible death at the hands of a Pterodactyl.
