@@ -33,6 +33,41 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
+  // Get a post from a list that has a certain slug.
+  eleventyConfig.addFilter("getPostFromSlug", (postlist, slug) => {
+    return postlist.find(post => post.data.slug === slug);
+  });
+
+  // Get a post from order
+  eleventyConfig.addFilter("getPostIndexFromSlug", (postlist, slug) => {
+    return postlist.findIndex(post => post.data.slug === slug);
+  });
+
+  // Get a post from order
+  eleventyConfig.addFilter("isDefined", (variable) => {
+    return typeof variable !== 'undefined';
+  });
+
+  // // Get a post from a list by it.
+  // eleventyConfig.addFilter("getPostFromSlug", (postlist, slug) => {
+  //   return postlist.find(post => post.data.slug === slug);
+  // });
+
+  // Console log variables during build
+  eleventyConfig.addFilter("log", (whatever) => {
+    console.log(whatever);
+  })
+
+  // Sort posts by data.order
+  eleventyConfig.addFilter("sortByOrder", (postlist, isDSC) => { 
+    const sortDSC = isDSC ? -1 : 1;
+    
+    postlist.sort((a, b) => {
+      return sortDSC * (a.data.order - b.data.order);
+    });
+    return postlist;
+  });
+
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
   eleventyConfig.addPassthroughCopy("img");
@@ -43,11 +78,12 @@ module.exports = function(eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
-  });
+  })
+  // .use(markdownItAnchor, {
+  //   permalink: true,
+  //   permalinkClass: "direct-link",
+  //   permalinkSymbol: "#"
+  // });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides

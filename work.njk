@@ -1,0 +1,12 @@
+---
+title: Work
+layout: layouts/page.njk
+permalink: /work/
+eleventyNavigation:
+  key: work
+  order: 1
+  title: Work
+---
+{% set postslist = (collections.work | sortByOrder(true)) %}
+{% include "postslist.njk" %}
+

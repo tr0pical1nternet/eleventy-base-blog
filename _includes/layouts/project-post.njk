@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-project-post
+---
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | url }}">Home</a></li>
+    <li><a href="{{ '/projects/' | url }}">Projects</a></li>
+    <li><a href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
+  </ol>
+</nav>
+
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+{% include "post-nav.njk" %}
+
+

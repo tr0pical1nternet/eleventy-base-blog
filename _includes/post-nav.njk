@@ -1,0 +1,25 @@
+<div class="post-nav">
+  {% set postlist = (collections[tags[0]] | sortByOrder(true)) %}
+  {% set postIndex = postlist | getPostIndexFromSlug(slug) %}
+
+  {% if (postIndex | isDefined) %}
+    {% if (postIndex > 0) %}
+      {% set prevPost = postlist[postIndex - 1] %}
+    {% else %}
+      {% set prevPost = postlist[postlist.length - 1] %}
+    {% endif %}
+      <div class="post-nav__prev">← <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></div>
+  {% endif%}
+
+  <div class="post-nav__top">↑ <a href="#page-top">Back to top</a></div>
+
+  {% if (postIndex | isDefined) %}
+    {% if (postIndex < postlist.length - 1) %}
+      {% set nextPost = postlist[postIndex + 1] %}
+    {% else %}
+      {% set nextPost = postlist[0] %}
+    {% endif %}
+      <div class="post-nav__next"><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a> →</div>
+  {% endif %}
+
+</div>

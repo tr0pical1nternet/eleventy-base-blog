@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-work-post
+---
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | url }}">Home</a></li>
+    <li><a href="{{ '/work/' | url }}">Work</a></li>
+    <li><a href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
+  </ol>
+</nav>
+
+<h1>{{ title }}</h1>
+<a href="{{ externalURL }}" class="work-post__link">{{ externalURL }}</a>
+
+{{ content | safe }}
+
+{% include "post-nav.njk" %}
+
+
