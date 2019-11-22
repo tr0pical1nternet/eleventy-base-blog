@@ -11,15 +11,17 @@
   </head>
   <body>
     <header id="#page-top">
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      <a href="{{ '/' | url }}"><h1 class="logo">{{ metadata.title }}</h1></a>
 
       {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
-        listClass: "header-nav",
-        listItemClass: "header-nav-item",
-        activeListItemClass: "header-nav-item--active",
-        activeKey: eleventyNavigation.key
-      }) | safe }}
+      <nav>
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+          listClass: "header-nav",
+          listItemClass: "header-nav-item",
+          activeListItemClass: "header-nav-item--active",
+          activeKey: eleventyNavigation.key
+        }) | safe }}
+      </nav>
     </header>
 
     <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>

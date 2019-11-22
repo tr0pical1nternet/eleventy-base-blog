@@ -35,18 +35,18 @@ const browserSync = require('browser-sync');
 function jpg(cb) {
   [360, 480, 640, 800, 1024, 1280, 1600].forEach(function (size) {
     gulp.src('src/images/*.{jpg,jpeg,png}')
-      .pipe(changed('dist/images'))
-      .pipe(imageResize({ height: size, format: jpg }))
+      // .pipe(changed('dist/images'))
+      .pipe(imageResize({ width: size, format: jpg }))
       .pipe(rename(function (path) {
         path.basename = `${path.basename}_${size}`;
         path.extname = '.jpg';
       }))
-      .pipe(imagemin([
-        imageminMozJpeg({
-          quality: 80,
-          progressive: true
-        })
-      ], {verbose: true}))
+      // .pipe(imagemin([
+      //   imageminMozJpeg({
+      //     quality: 80,
+      //     progressive: true
+      //   })
+      // ], {verbose: true}))
       .pipe(gulp.dest('dist/images'))
   });
   cb();
@@ -55,9 +55,9 @@ gulp.task('jpg', jpg);
 
 function webp(cb) {
   [360, 480, 640, 800, 1024, 1280, 1600].forEach(function (size) {
-    gulp.src('src/images/*.{jpg,jpeg,png}')
-      .pipe(changed('dist/images'))
-      .pipe(imageResize({ height: size }))
+    return gulp.src('src/images/*.{jpg,jpeg,png}')
+      // .pipe(changed('dist/images'))
+      .pipe(imageResize({ width: size }))
       .pipe(imagemin([
         imageminWebp({
           quality: 60,
