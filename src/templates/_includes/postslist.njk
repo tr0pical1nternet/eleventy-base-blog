@@ -2,12 +2,8 @@
   {% for post in postslist %}
     <li class="post-item {{ slug }}-item">
       <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-      
-      {# {{ post.data.cover.src }} #}
 
-      {% srcset post.data.cover.src, post.data.cover.alt, "post-cover", 640 %}
-
-      {# <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
+      {# {% srcset post.data.cover.src, post.data.cover.alt, "post-cover", 640 %} #}
       
       {% if (post.data.tags.length > 1) %}
         <ul class="post-taglist">{{ tags }}

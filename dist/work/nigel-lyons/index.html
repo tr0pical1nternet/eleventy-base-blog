@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigel Lyons</title>
+    <meta name="Description" content="The web design portfolio of Charles Robertson">
+    
+    
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Charles Robertson">
+  </head>
+  <body>
+    <header id="#page-top">
+      <h1 class="home"><a href="/">Charles Robertson</a></h1>
+      <ul class="header-nav"><li class="header-nav-item"><a href="/">Home</a></li>
+<li class="header-nav-item"><a href="/work/">Work</a></li>
+<li class="header-nav-item"><a href="/projects/">Projects</a></li></ul>
+    </header>
+
+    <main  class="tmpl-work-post">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/work/">Work</a></li>
+    <li><a href="/work/nigel-lyons/" aria-current="page">Nigel Lyons</a></li>
+  </ol>
+</nav>
+
+<h1>Nigel Lyons</h1>
+<a href="https://nigelyons.com" class="work-post__link">https://nigelyons.com</a>
+
+<p>Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press,  I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to:</p>
+<p>∙ Effectively showcase his video portfolio.<br>
+∙ Build off of his current branding.<br>
+∙ Look natively designed for any device that used it.</p>
+<p>A CMS would have been overkill in this case, even a static site generator seemed a bit much since we didn’t require any routing. While a site of this size can be feasibly written purely in HTML and CSS, I used Node to render the site so that I had the benefit of some modern development tools. I used Pug for the templates and Stylus as a CSS preprocessor. Gulp bundled the assets, and browserSync updated the view on file change. This stack allowed me to retain developer conveniences without giving up granular control over the finished product.</p>
+<p>The first major issue I ran into was the performance of the video embeds. The site had 7 videos hosted on YouTube and Vimeo embedded in iframes. Each video loaded over 300kB of javascript including a mess of cookies and trackers. The total was over 2MB for the entire site.</p>
+<p>[ more content to come ]</p>
+
+
+<div class="post-nav">
+  
+  
+
+  
+    
+      
+    
+      <div class="post-nav__prev">← <a href="/work/sediment-press/">Sediment Press</a></div>
+  
+
+  <div class="post-nav__top">↑ <a href="#page-top">Back to top</a></div>
+
+  
+    
+      
+    
+      <div class="post-nav__next"><a href="/work/center-staging/">Center Staging</a> →</div>
+  
+
+</div>
+
+
+
+    </main>
+    
+    
+    <footer class="footer">
+  <div>
+    <h3 class="footer-heading">Site</h3>
+    <ul class="footer-nav"><li class="footer-nav-item"><a href="/">Home</a></li>
+<li class="footer-nav-item"><a href="/work/">Work</a></li>
+<li class="footer-nav-item"><a href="/projects/">Projects</a></li></ul>
+  </div>
+  <div>
+    <h3 class="footer-heading">Contact</h3>
+    <ul class="footer-nav">
+      <li>Email</li>
+      <li>Twitter</li>
+    </ul>
+  </div>
+  <div>
+    <h3 class="footer-heading">Elsewhere</h3>
+    <ul class="footer-nav">
+      <li>Github</li>
+      <li>Codepen</li>
+      <li>Cocohost</li>
+    </ul>
+  </div>
+</footer>
+
+    <!-- Current page: /work/nigel-lyons/ -->
+  </body>
+</html>

@@ -1,46 +1,17 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const pluginEleventySrcset = require("eleventy-plugin-srcset");
+// const pluginEleventySrcset = require("eleventy-plugin-srcset");
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(pluginEleventySrcset);
 
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  // eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
-  });
-
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
-
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if( n < 0 ) {
-      return array.slice(n);
-    }
-
-    return array.slice(0, n);
-  });
-
-  // Get a post from a list that has a certain slug.
-  eleventyConfig.addFilter("getPostFromSlug", (postlist, slug) => {
-    return postlist.find(post => post.data.slug === slug);
-  });
-
-  // Get a post from order
   eleventyConfig.addFilter("getPostIndexFromSlug", (postlist, slug) => {
     return postlist.findIndex(post => post.data.slug === slug);
   });
@@ -49,16 +20,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("isDefined", (variable) => {
     return typeof variable !== 'undefined';
   });
-
-  // // Get a post from a list by it.
-  // eleventyConfig.addFilter("getPostFromSlug", (postlist, slug) => {
-  //   return postlist.find(post => post.data.slug === slug);
-  // });
-
-  // Console log variables during build
-  eleventyConfig.addFilter("log", (whatever) => {
-    console.log(whatever);
-  })
 
   // Sort posts by data.order
   eleventyConfig.addFilter("sortByOrder", (postlist, isDSC) => { 
@@ -70,29 +31,19 @@ module.exports = function(eleventyConfig) {
     return postlist;
   });
 
-  eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
-
-  // eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
-
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
     linkify: true
   })
-  // .use(markdownItAnchor, {
-  //   permalink: true,
-  //   permalinkClass: "direct-link",
-  //   permalinkSymbol: "#"
-  // });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
+        const content_404 = fs.readFileSync('dist/404.html');
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
@@ -103,13 +54,6 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  // eleventyConfig.srcsetAutoselector = '.page-body img'
-  // eleventyConfig.srcsetWidths || [ 320, 480, 640, 960, 1280, 1600 ],
-  // eleventyConfig.srcsetFallbackWidth || 640,
-  // eleventyConfig.srcsetFallbackHeight || null,
-  // eleventyConfig.srcsetCreateCaptions || false,
-  // eleventyConfig.resizeOriginal || true,
-
   return {
     templateFormats: [
       "md",
@@ -118,25 +62,16 @@ module.exports = function(eleventyConfig) {
       "liquid"
     ],
 
-    // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about those.
-
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for link URLs (it does not affect your file structure)
-    // You can also pass this in on the command line using `--pathprefix`
-
-    // pathPrefix: "/",
-
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
 
     // These are all optional, defaults are shown:
     dir: {
-      input: ".",
+      input: "src/templates",
       includes: "_includes",
       data: "_data",
-      output: "_site"
+      output: "dist"
     }
   };
 };
