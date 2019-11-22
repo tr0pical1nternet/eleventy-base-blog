@@ -4,5 +4,8 @@ slug: sediment-press
 layout: layouts/work-post.njk
 externalURL: https://sedimentpress.com
 order: 1
+cover:
+    src: /images/sediment-press_cover.png
+    alt: sedimentpress.com homepage
 ---
 Sediment Press is a website I made.
