@@ -16,6 +16,8 @@ I help creative teams build websites and apps that are easy to use, fast to load
 
 I often experiment with different facets of web design. You are welcome to take look at those on the [Projects](projects) page.
 
-I have recently closed the doors on my Washington, DC based design company, Sediment Press. More on my skills and experience can be found on the Resume page.
+I have recently closed the doors on my Washington, DC based design company, Sediment Press. More on my skills and experience can be found on the [Resume](resume) page.
 
 I am currently looking for a full time front end development position at a software company or creative agency in New Orleans. If you would like to talk I can be reached at [contact@charlesrobertson.io](mailto:contact@charlesrobertson.io).
+
+Dirt pony rides at dawn
