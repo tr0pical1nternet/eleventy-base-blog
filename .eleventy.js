@@ -1,9 +1,11 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+const sizeOf = require('image-size');
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-// const pluginEleventySrcset = require("eleventy-plugin-srcset");
+
+const imageSizes = [360, 480, 640, 800, 1024, 1280, 1600];
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
@@ -29,6 +31,35 @@ module.exports = function(eleventyConfig) {
       return sortDSC * (a.data.order - b.data.order);
     });
     return postlist;
+  });
+
+  // Image shortcode
+  eleventyConfig.addShortcode("image", function(args) {
+    // slug, classes, title, alt, width, height
+    const srcsetsWebp = new Array(imageSizes.length);
+    const srcsetsJpg = new Array(imageSizes.length);
+    const src = `/images/${args.slug}_${imageSizes[1]}.jpg`;
+
+    imageSizes.forEach((size, index) => {
+      const webp = `/images/${args.slug}_${size}.webp`;
+      const jpg = `/images/${args.slug}_${size}.jpg`;
+
+      if (fs.existsSync('dist/' + webp)) {srcsetsWebp[index] = `${webp} ${size}w`};
+      if (fs.existsSync('dist/' + jpg)) {srcsetsJpg[index] = `${jpg} ${size}w`};
+    });
+    const dimensions = sizeOf('dist' + src);
+    
+    const classes = args.class ? `class="${args.class}"` : '';
+    const title = args.title ? `title="${args.title}"` : '';
+        
+    const output =
+      `<picture>
+        <source srcset="${srcsetsWebp}">
+        <source srcset="${srcsetsJpg}">
+        <img ${classes} src="${src}" srcset="${srcsetsJpg.join(', ')} ${title} alt="${args.alt}" width="${dimensions.width}" height="${dimensions.height}">
+      </picture>`
+
+    return output;
   });
 
   /* Markdown Overrides */
