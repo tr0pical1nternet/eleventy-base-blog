@@ -36,17 +36,17 @@ function jpg(cb) {
   [360, 480, 640, 800, 1024, 1280, 1600].forEach(function (size) {
     gulp.src('src/images/*.{jpg,jpeg,png}')
       // .pipe(changed('dist/images'))
-      .pipe(imageResize({ width: size, format: jpg }))
+      .pipe(imageResize({ width: size, format: 'jpeg', quality: 1 }))
       .pipe(rename(function (path) {
         path.basename = `${path.basename}_${size}`;
         path.extname = '.jpg';
       }))
-      // .pipe(imagemin([
-      //   imageminMozJpeg({
-      //     quality: 80,
-      //     progressive: true
-      //   })
-      // ], {verbose: true}))
+      .pipe(imagemin([
+        imageminMozJpeg({
+          quality: 90,
+          progressive: true
+        })
+      ], {verbose: true}))
       .pipe(gulp.dest('dist/images'))
   });
   cb();
@@ -57,10 +57,10 @@ function webp(cb) {
   [360, 480, 640, 800, 1024, 1280, 1600].forEach(function (size) {
     return gulp.src('src/images/*.{jpg,jpeg,png}')
       // .pipe(changed('dist/images'))
-      .pipe(imageResize({ width: size }))
+      .pipe(imageResize({ width: size, quality: 1 }))
       .pipe(imagemin([
         imageminWebp({
-          quality: 60,
+          quality: 90,
         })
       ], {verbose: true}))
       .pipe(rename(function (path) {
