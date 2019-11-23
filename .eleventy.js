@@ -12,8 +12,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setDataDeepMerge(true);
 
-  // eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
-
   eleventyConfig.addFilter("getPostIndexFromSlug", (postlist, slug) => {
     return postlist.findIndex(post => post.data.slug === slug);
   });
@@ -34,29 +32,28 @@ module.exports = function(eleventyConfig) {
   });
 
   // Image shortcode
-  eleventyConfig.addShortcode("image", function(args) {
-    // slug, classes, title, alt, width, height
+  eleventyConfig.addShortcode("image", function(slug, alt, classes, title) {
     const srcsetsWebp = new Array(imageSizes.length);
     const srcsetsJpg = new Array(imageSizes.length);
-    const src = `/images/${args.slug}_${imageSizes[1]}.jpg`;
+    const src = `/images/${slug}_${imageSizes[1]}.jpg`;
 
     imageSizes.forEach((size, index) => {
-      const webp = `/images/${args.slug}_${size}.webp`;
-      const jpg = `/images/${args.slug}_${size}.jpg`;
+      const webp = `/images/${slug}_${size}.webp`;
+      const jpg = `/images/${slug}_${size}.jpg`;
 
       if (fs.existsSync('dist/' + webp)) {srcsetsWebp[index] = `${webp} ${size}w`};
       if (fs.existsSync('dist/' + jpg)) {srcsetsJpg[index] = `${jpg} ${size}w`};
     });
     const dimensions = sizeOf('dist' + src);
     
-    const classes = args.class ? `class="${args.class}"` : '';
-    const title = args.title ? `title="${args.title}"` : '';
+    const classAttr = classes ? `class="${classes}"` : '';
+    const titleAttr = title ? `title="${title}"` : '';
         
     const output =
       `<picture>
         <source srcset="${srcsetsWebp}">
         <source srcset="${srcsetsJpg}">
-        <img ${classes} src="${src}" srcset="${srcsetsJpg.join(', ')} ${title} alt="${args.alt}" width="${dimensions.width}" height="${dimensions.height}">
+        <img ${classAttr} src="${src}" srcset="${srcsetsJpg.join(', ')}" ${titleAttr} alt="${alt}" width="${dimensions.width}" height="${dimensions.height}">
       </picture>`
 
     return output;

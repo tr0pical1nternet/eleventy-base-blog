@@ -4,7 +4,7 @@ slug: fun-with-arrays
 layout: layouts/project-post.njk
 order: 4
 cover:
-    src: /images/fun-with-arrays_cover.png
+    slug: fun-with-arrays_cover
     alt: Fun with Arrays
 tags: [ Svelte.js, Public Speaking ]
 ---

@@ -6,14 +6,7 @@ eleventyNavigation:
   key: home
   title: Home
   order: 1
-image1:
-  slug: nigel-lyons_cover
-  class: big-image
-  title: Nigel's Site
 ---
-
-{% image image1 %}
-
 <h1 class="visually-hidden">Introduction</h1>
 
 <p class="home-intro"><span class="home-intro__hi">Hi, I'm</span> <span class="home-intro__charles">Charles Robertson.</span> <span class="home-intro__desc">I am a front end developer out to make the web a better place to be.</span></p>

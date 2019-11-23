@@ -5,7 +5,8 @@ layout: layouts/work-post.njk
 externalURL: https://sedimentpress.com
 order: 1
 cover:
-    src: /images/sediment-press_cover.png
+    slug: sediment-press_cover
     alt: sedimentpress.com homepage
+tags: [WordPress, WooCommerce, Custom Theme]
 ---
 Sediment Press is a website I made.

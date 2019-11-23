@@ -1,9 +1,10 @@
 <ol class="post-list {{ slug }}-list">
   {% for post in postslist %}
     <li class="post-item {{ slug }}-item">
-      <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-
-      {# {% srcset post.data.cover.src, post.data.cover.alt, "post-cover", 640 %} #}
+      <h2 class="post-heading">{{ post.data.title }}</h2>
+      <a href="{{ post.url | url }}" class="postlist-link">
+        {% image post.data.cover.slug, post.data.cover.alt, coverImageClass %}
+      </a>
       
       {% if (post.data.tags.length > 1) %}
         <ul class="post-taglist">{{ tags }}

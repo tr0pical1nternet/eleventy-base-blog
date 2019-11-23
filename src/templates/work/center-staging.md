@@ -5,7 +5,8 @@ layout: layouts/work-post.njk
 externalURL: https://centerstaging.net
 order: 5
 cover:
-    src: /images/center-staging_cover.png
+    slug: center-staging_cover
     alt: centerstaging.net homepage
+tags: [Wordpress, Custom Theme]
 ---
 {{ title }} is a website I made.

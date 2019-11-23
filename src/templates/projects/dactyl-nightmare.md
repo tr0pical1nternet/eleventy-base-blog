@@ -4,7 +4,7 @@ slug: dactyl-nightmare
 layout: layouts/project-post.njk
 order: 1
 cover:
-    src: /images/dactyl-nightmare_cover.png
+    slug: dactyl-nightmare_cover
     alt: Dactyl Nightmare
 tags: [ Adventure Game ]
 ---
