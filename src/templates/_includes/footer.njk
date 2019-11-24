@@ -1,24 +1,25 @@
 <footer class="footer">
-  <div>
-    <h3 class="footer-heading">Site</h3>
-    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml ({
-      listClass: "footer-nav",
-      listItemClass: "footer-nav-item"
-    }) | safe }}
-  </div>
-  <div>
-    <h3 class="footer-heading">Contact</h3>
-    <ul class="footer-nav">
-      <li>Email</li>
-      <li>Twitter</li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="footer-heading">Elsewhere</h3>
-    <ul class="footer-nav">
-      <li>Github</li>
-      <li>Codepen</li>
-      <li>Cocohost</li>
-    </ul>
-  </div>
+  <nav class="footer-nav">
+    <div class="footer-menu">
+      <h3 class="footer-heading">Site</h3>
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml ({
+          listClass: "footer-nav-list"
+        }) | safe }}
+    </div>
+    <div class="footer-menu">
+      <h3 class="footer-heading">Contact</h3>
+      <ul class="footer-nav-list">
+        <li>Email</li>
+        <li>Twitter</li>
+      </ul>
+    </div>
+    <div class="footer-menu">
+      <h3 class="footer-heading">Elsewhere</h3>
+        <ul class="footer-nav-list">
+        <li>Github</li>
+        <li>Codepen</li>
+        <li>Cocohost</li>
+      </ul>
+    </div>
+  </nav>
 </footer>
