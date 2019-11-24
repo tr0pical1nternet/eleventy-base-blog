@@ -1,7 +1,7 @@
 ---
 title: Isosphere
 slug: isosphere
-layout: layouts/project-post.njk
+layout: layouts/post.njk
 order: 2
 tags: [ Canvas Animation ]
 cover:

@@ -1,7 +1,7 @@
 ---
 title: Tetras
 slug: tetras
-layout: layouts/project-post.njk
+layout: layouts/post.njk
 order: 3
 tags: [Snap.svg, SVG Animation]
 cover:

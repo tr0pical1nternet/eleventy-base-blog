@@ -1,7 +1,7 @@
 ---
 title: Spruced
 slug: spruced
-layout: layouts/work-post.njk
+layout: layouts/post.njk
 externalURL: https://spruced-dc
 order: 2
 cover:

@@ -1,7 +1,7 @@
 ---
 title: CDesigns Inc.
 slug: cdesigns-inc
-layout: layouts/work-post.njk
+layout: layouts/post.njk
 externalURL: https://centerstaging.net
 order: 3
 cover:

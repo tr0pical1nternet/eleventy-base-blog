@@ -1,7 +1,7 @@
 ---
 title: Raven PMG
 slug: raven-pmg
-layout: layouts/work-post.njk
+layout: layouts/post.njk
 externalURL: https://ravenpmg.com
 order: 4
 cover:

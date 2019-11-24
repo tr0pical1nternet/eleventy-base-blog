@@ -1,7 +1,7 @@
 ---
 title: Sediment Press
 slug: sediment-press
-layout: layouts/work-post.njk
+layout: layouts/post.njk
 externalURL: https://sedimentpress.com
 order: 1
 cover:

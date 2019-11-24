@@ -11,6 +11,8 @@
     --s3: calc(var(--s2) * var(--scale));
     --s4: calc(var(--s3) * var(--scale));
     --s5: calc(var(--s4) * var(--scale));
+
+    --space: s0;
 }
 
 .visually-hidden {
@@ -18,7 +20,19 @@
     width: 1px;
     height: 1px;
     opacity: .01;
+}
 
+.clear-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.stack {
+    > * + * {
+        margin-top: var(--space)
+    }
 }
 
 body {

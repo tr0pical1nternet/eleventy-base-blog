@@ -1,7 +1,7 @@
 ---
 title: Nigel Lyons
 slug: nigel-lyons
-layout: layouts/work-post.njk
+layout: layouts/post.njk
 externalURL: https://nigelyons.com
 order: 6
 cover:
