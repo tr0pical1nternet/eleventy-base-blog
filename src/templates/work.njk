@@ -9,6 +9,6 @@ eleventyNavigation:
   order: 1
   title: Work
 ---
-{% set postslist = (collections.work | sortByOrder(true)) %}
-{% include "postslist.njk" %}
+{% set postlist = (collections.work | sortByOrder(true)) %}
+{% include "postlist.njk" %}
 

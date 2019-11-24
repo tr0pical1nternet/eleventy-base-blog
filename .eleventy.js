@@ -16,6 +16,10 @@ module.exports = function(eleventyConfig) {
     return postlist.findIndex(post => post.data.slug === slug);
   });
 
+  eleventyConfig.addFilter("console", function(anything) {
+    console.log(anything);
+  });
+  
   // Get a post from order
   eleventyConfig.addFilter("isDefined", (variable) => {
     return typeof variable !== 'undefined';
@@ -29,6 +33,10 @@ module.exports = function(eleventyConfig) {
       return sortDSC * (a.data.order - b.data.order);
     });
     return postlist;
+  });
+
+  eleventyConfig.addFilter("notFilter", (array, key) => {
+    return array.filter(item => item.key !== key);
   });
 
   // Image shortcode

@@ -4,7 +4,8 @@ title: Resumé
 templateClass: tmpl-page
 tags: top
 eleventyNavigation:
-  key: Resume
+  title: Resume
+  key: resume
   order: 3
 ---
 ## Skills

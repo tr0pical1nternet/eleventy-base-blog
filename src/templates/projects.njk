@@ -8,6 +8,6 @@ eleventyNavigation:
   title: Projects
   order: 2
 ---
-{% set postslist = (collections.projects | sortByOrder(true)) %}
-{% include "postslist.njk" %}
+{% set postlist = (collections.projects | sortByOrder(true)) %}
+{% include "postlist.njk" %}
 

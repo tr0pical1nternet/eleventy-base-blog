@@ -1,0 +1,26 @@
+:root {
+    --scale: 1.5;
+    --s0: 1rem;
+    --s-1: calc(var(--s0) / var(--scale));
+    --s-2: calc(var(--s-1) / var(--scale));
+    --s-3: calc(var(--s-2) / var(--scale));
+    --s-4: calc(var(--s-3) / var(--scale));
+    --s-5: calc(var(--s-4) / var(--scale));
+    --s1: calc(var(--s0) * var(--scale));
+    --s2: calc(var(--s1) * var(--scale));
+    --s3: calc(var(--s2) * var(--scale));
+    --s4: calc(var(--s3) * var(--scale));
+    --s5: calc(var(--s4) * var(--scale));
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: .01;
+
+}
+
+body {
+    font-family: sans-serif;
+}
