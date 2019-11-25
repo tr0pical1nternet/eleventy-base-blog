@@ -8,7 +8,8 @@
     {% else %}
       {% set prevPost = postlist[postlist.length - 1] %}
     {% endif %}
-      <div class="post-nav__prev">← <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></div>
+    
+    <div class="post-nav__prev">← <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></div>
   {% endif%}
 
   <div class="post-nav__top">↑ <a href="#page-top">Back to top</a></div>
@@ -19,7 +20,8 @@
     {% else %}
       {% set nextPost = postlist[0] %}
     {% endif %}
-      <div class="post-nav__next"><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a> →</div>
+
+    <div class="post-nav__next"><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a> →</div>
   {% endif %}
 
 </div>

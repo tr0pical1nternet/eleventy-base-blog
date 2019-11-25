@@ -1,7 +1,7 @@
 ---
 layout: layouts/page.njk
 title: Resumé
-templateClass: tmpl-page
+templateClass: resume
 tags: top
 eleventyNavigation:
   title: Resume

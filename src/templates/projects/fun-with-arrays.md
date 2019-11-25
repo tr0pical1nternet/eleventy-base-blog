@@ -1,7 +1,7 @@
 ---
 title: Fun with Arrays
 slug: fun-with-arrays
-layout: layouts/project-post.njk
+layout: layouts/post.njk
 order: 4
 cover:
     slug: fun-with-arrays_cover

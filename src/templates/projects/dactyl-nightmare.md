@@ -1,7 +1,7 @@
 ---
 title: Dactyl Nightmare
 slug: dactyl-nightmare
-layout: layouts/project-post.njk
+layout: layouts/post.njk
 order: 1
 cover:
     slug: dactyl-nightmare_cover
