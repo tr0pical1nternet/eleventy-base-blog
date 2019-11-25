@@ -12,7 +12,16 @@
     --s4: calc(var(--s3) * var(--scale));
     --s5: calc(var(--s4) * var(--scale));
 
+    --body-padding: var(--s1);
     --space: s0;
+
+    --color-background: #FEF9E6;
+    --color-text: #222;
+    --color-text-med: #555;
+    --color-text-light: #DDD;
+    --color-base-light: rgb(145, 255, 215);
+    --color-base: #36FFB4;
+    --color-base-dark: rgb(1, 218, 153);
 }
 
 .visually-hidden {
@@ -33,8 +42,4 @@
     > * + * {
         margin-top: var(--space)
     }
-}
-
-body {
-    font-family: sans-serif;
 }

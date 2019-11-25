@@ -39,6 +39,15 @@ module.exports = function(eleventyConfig) {
     return array.filter(item => item.key !== key);
   });
 
+  eleventyConfig.addFilter("isActive", (navSlug, pageSlug, tag) => {
+    
+    if (navSlug === pageSlug || navSlug === tag) {
+      return true;
+    } else {
+            return false;
+    }
+  });
+
   // Image shortcode
   eleventyConfig.addShortcode("image", function(slug, alt, classes, title) {
     const srcsetsWebp = new Array(imageSizes.length);

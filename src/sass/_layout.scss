@@ -1,78 +1,19 @@
 body {
+    display: flex;
+    flex-direction: column;
     max-width: 75ch;
+    min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    padding: var(--s1);
-}
-
-.header {
-    line-height: 1;
-    display: flex;
-    align-items: flex-end;
-
-    // justify-items: space-between;
-    
-    &-logo-link {
-        display: inline-block;
-        border: 1px solid black;
-        // flex-grow: 1;
-    }
-
-    &-logo {
-        font-size: var(--s0);
-        padding: var(--s-1);
-    }
-
-    &-nav {
-        display: inline-block;
-        display: flex;
-        flex-grow: 1;
-        margin-left: auto;
-    }
-
-    &-nav-list {
-        display: inline-block;
-        display: flex;
-        flex-grow: 1;
-        @extend .clear-list;
-    }
-
-    &-nav-item {
-        display: inline-block;
-        float: left;
-        padding: var(--s-1);
-        margin-left: auto;
-        border: 1px solid black;
-    }
+    // padding: var(--s1);
 }
 
 main {
-    margin-top: var(--s3);
-}
-
-// .resume {
-//    h2 { margin-top: var(--s3) }
-//    h3 { margin-top: var(--s2) }
-//    h4 { margin-top: var(--s0) }
-//    p, ul, ol { margin-top: var(--s-2) }
-// }
-
-
-.postlist {
-    @extend .clear-list;
-    @extend .stack;
-    --space: var(--s2);
-    // margin-top: var(--s2);
-
-    &-cover {
-        // margin-top: var(--s1);
-    }
-
-    &-taglist {
-        @extend .clear-list;
-        margin-top: var(--s-1);
-        text-align: right;
-        clear: right;
+    flex-grow: 1;
+    margin: var(--s3) var(--body-padding) 0 var(--body-padding);
+    
+    :first-child {
+        margin-top: 0;
     }
 }
 
@@ -86,15 +27,23 @@ main {
 
 .footer {
     margin-top: var(--s3);
+    padding: var(--body-padding);
+
+    &-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        @media screen and (min-width: 18rem) {
+            flex-direction: row;
+        }
+    }
 
     &-menu {
         @extend .stack;
         --space: var(--s-1);
     }
 
-    &-nav {
-        display: flex;
-        justify-content: space-between;    
-    }
+    
 
 }

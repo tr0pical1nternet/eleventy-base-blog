@@ -1,8 +1,8 @@
 ---
 layout: layouts/page.njk
 title: Resumé
+slug: resume
 templateClass: resume
-tags: top
 eleventyNavigation:
   title: Resume
   key: resume

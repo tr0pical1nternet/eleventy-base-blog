@@ -1,0 +1,100 @@
+.header {
+    --header-gap: var(--s-2);
+    line-height: 1;
+    margin: var(--body-padding) var(--body-padding) 0 var(--body-padding);
+    overflow: hidden;
+    
+    a {
+        text-decoration: none;
+        color: var(--color-text);
+    }
+
+    &-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        margin: calc(-1 * (var(--header-gap) / 2));
+
+        > * {
+            margin: calc(var(--header-gap) / 2);
+        }
+    }
+    
+    &-logo {
+        flex-basis: 6.5em;
+        max-width: 11.2em;
+        min-height: 2.89em;
+        flex-shrink: 1;
+        flex-grow: 999;
+        display: inline-block;
+        display: flex;
+        justify-content: start;
+        align-items: flex-end;
+        background-color: var(--color-base);
+        
+        @extend .heading-font;
+        font-size: $font-size-normal;
+
+        &:hover {
+            background-color: var(--color-base-light);
+        }
+
+        &-text {
+            padding: var(--s-2);
+        }
+    }
+
+    &-nav {
+        display: inline-block;
+        flex-basis: 50%;
+        flex-grow: 1;
+
+        font-size: $font-size-small;
+    }
+
+    &-nav-list {
+        @extend .clear-list;
+        display: inline-block;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 calc(-1 * (var(--header-gap) / 2));
+    }
+
+    &-nav-item {
+        display: inline-block;
+        padding: 0 var(--s-2);
+        margin: 0 calc(var(--header-gap) / 2);
+
+        &:hover {
+            background-color: var(--color-base);
+        }
+
+        &.current {
+            background-color: var(--color-base);
+            &:hover {
+                background-color: var(--color-base-light);
+
+                .header-nav-item-inner {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &-inner {
+            padding: calc(var(--s-2) - 3px) 0;
+            border-bottom: 3px solid var(--color-base);
+        }
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .header {
+        &-logo {
+            font-size: $font-size-large;
+        }
+
+        &-nav {
+            font-size: $font-size-normal;
+        }
+    }
+}

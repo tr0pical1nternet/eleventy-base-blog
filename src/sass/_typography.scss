@@ -12,12 +12,13 @@
     font-weight: 900;
 }
 
-$font-size-small: .75rem;
+$font-size-small: .875rem;
 $font-size-normal: 1rem;
 $font-size-large: var(--s1);
 
 .body-font {
     font-family: "system";
+    font-weight: 300;
 }
 
 .heading-font {
@@ -27,19 +28,15 @@ $font-size-large: var(--s1);
 
 body {
     @extend .body-font;
+    background-color: var(--color-background);
 }
 
 h1, h2, h3 {
     @extend .heading-font;
 }
 
-.header-logo {
-    @extend .heading-font;
-    font-size: $font-size-normal;
-}
-
-.header-nav, .postlist-taglist {
-    font-size: $font-size-small;
+h1, h2 {
+    color: var(--color-base-dark);
 }
 
 p, ul, ol { margin: var(--s0) 0; }
@@ -65,11 +62,41 @@ h4 {
     font-weight: 600;
 }
 
+a {
+    color: var(--color-text);
+    text-decoration: underline var(--color-base) 2px;
+}
+.post-nav {
+    font-size: $font-size-small;    
+}
+
+
 .footer {
     font-size: $font-size-small;
+    background-color: var(--color-text);
+    position: relative;
+
+    a {
+        color: var(--color-base);
+    }
 
     &-heading {
         font-size: $font-size-normal;
         margin: var(--s0) 0 var(--s-1);
+        color: var(--color-background);
     };
+
+    &-contentinfo {
+        text-align: center;
+        color: var(--color-text-light);
+    }
+
+    &-decoration {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 100%;
+        border-top: 4px dashed var(--color-base);
+        z-index: 2;
+    }
 }
