@@ -26,10 +26,10 @@ const browserSync = require('browser-sync');
 // });
 
 // Copy fonts to dist
-// gulp.task('fonts', function () {
-//   return gulp.src('src/fonts/*')
-//     .pipe(gulp.dest('dist/fonts'));
-// });
+gulp.task('fonts', function () {
+  return gulp.src('src/fonts/*')
+    .pipe(gulp.dest('dist/fonts'));
+});
 
 // Image resize and compress
 function jpg(cb) {
