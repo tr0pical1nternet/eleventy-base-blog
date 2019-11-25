@@ -40,7 +40,7 @@ img {
   height: 1px;
   opacity: .01; }
 
-.clear-list, .postlist, .postlist-taglist {
+.clear-list, .header-nav-list, .postlist, .postlist-taglist {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
@@ -80,7 +80,6 @@ body {
   .header-nav-item {
     display: inline-block;
     float: left;
-    font-size: var(--s0);
     padding: var(--s-1);
     margin-left: auto;
     border: 1px solid black; }
@@ -107,3 +106,53 @@ main {
   .footer-nav {
     display: flex;
     justify-content: space-between; }
+
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma"); }
+
+@font-face {
+  font-family: 'Akzidenz Grotesk BQ Super';
+  src: url("fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"), url("fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
+  font-weight: 900; }
+
+.body-font, body {
+  font-family: "system"; }
+
+.heading-font, h1, h2, h3, .header-logo {
+  font-family: 'Akzidenz Grotesk BQ Super', 'Helvetica Black', 'Arial Black', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 900; }
+
+.header-logo {
+  font-size: 1rem; }
+
+.header-nav, .postlist-taglist {
+  font-size: 0.75rem; }
+
+p, ul, ol {
+  margin: var(--s0) 0; }
+
+h1 {
+  font-size: var(--s3);
+  margin: var(--s4) 0 var(--s3); }
+
+h2 {
+  font-size: var(--s2);
+  margin: var(--s3) 0 var(--s2); }
+
+h3 {
+  font-size: var(--s1);
+  margin: var(--s2) 0 var(--s1); }
+
+h4 {
+  font-size: var(--s0);
+  margin: var(--s1) 0 var(--s0);
+  font-weight: 600; }
+
+.footer {
+  font-size: 0.75rem; }
+  .footer-heading {
+    font-size: 1rem;
+    margin: var(--s0) 0 var(--s-1); }

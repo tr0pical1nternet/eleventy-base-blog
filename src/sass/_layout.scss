@@ -34,12 +34,12 @@ body {
         display: inline-block;
         display: flex;
         flex-grow: 1;
+        @extend .clear-list;
     }
 
     &-nav-item {
         display: inline-block;
         float: left;
-        font-size: var(--s0);
         padding: var(--s-1);
         margin-left: auto;
         border: 1px solid black;
