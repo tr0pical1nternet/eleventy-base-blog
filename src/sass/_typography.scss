@@ -115,3 +115,17 @@ a {
         margin: var(--s0) 0;
     }
 }
+
+.post-heading {
+    margin: var(--s4) 0 var(--s3);
+
+    h1 {
+        margin: 0 0 var(--s-1);
+    }
+
+    a {
+        font-size: var(--s1);
+        line-height: 1;
+        margin: var(--s-1) 0 0;
+    }
+}

@@ -10,7 +10,12 @@ templateClass: template-post
   </ol>
 </nav> #}
 
-<h1>{{ title }}</h1>
+<div class="post-heading">
+  <h1>{{ title }}</h1>
+  {% if linkHref %}
+    <a href="{{ linkHref }}">{{ linkText }}</a>
+  {% endif %}
+</div>
 
 {{ content | safe }}
 

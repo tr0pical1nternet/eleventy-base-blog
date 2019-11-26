@@ -2,7 +2,8 @@
 title: Nigel Lyons
 slug: nigel-lyons
 layout: layouts/post.njk
-externalURL: https://nigelyons.com
+linkHref: https://nigelyons.com
+linkText: nigelyons.com
 order: 6
 cover:
     slug: nigel-lyons_cover

@@ -2,7 +2,8 @@
 title: Center Staging
 slug: center-staging
 layout: layouts/post.njk
-externalURL: https://centerstaging.net
+linkHref: https://centerstaging.net
+linkText: centerstaging.net
 order: 5
 cover:
     slug: center-staging_cover

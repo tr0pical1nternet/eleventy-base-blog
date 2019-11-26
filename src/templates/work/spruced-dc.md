@@ -2,7 +2,8 @@
 title: Spruced
 slug: spruced
 layout: layouts/post.njk
-externalURL: https://spruced-dc
+linkHref: https://spruced-dc.com
+linkText: spruced-dc.com
 order: 2
 cover:
     slug: spruced_cover
