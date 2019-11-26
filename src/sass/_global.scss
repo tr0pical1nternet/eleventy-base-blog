@@ -21,7 +21,23 @@
     --color-text-light: #DDD;
     --color-base-light: rgb(145, 255, 215);
     --color-base: #36FFB4;
-    --color-base-dark: rgb(1, 218, 153);
+    --color-base-dark: rgb(1, 224, 157);
+}
+
+@media screen and (min-width: 480px) {
+    :root {
+        --body-padding: var(--s3);
+    }
+}
+
+@media screen and (min-width: 640px) {
+    :root {
+        --body-padding: var(--s4);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    html {font-size: 1.25rem}
 }
 
 .visually-hidden {

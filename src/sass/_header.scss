@@ -1,7 +1,7 @@
 .header {
     --header-gap: var(--s-2);
     line-height: 1;
-    margin: var(--body-padding) var(--body-padding) 0 var(--body-padding);
+    margin: var(--s1) var(--body-padding) 0 var(--body-padding);
     overflow: hidden;
     
     a {
@@ -31,16 +31,13 @@
         justify-content: start;
         align-items: flex-end;
         background-color: var(--color-base);
+        padding: var(--s-2);
         
         @extend .heading-font;
         font-size: $font-size-normal;
 
         &:hover {
             background-color: var(--color-base-light);
-        }
-
-        &-text {
-            padding: var(--s-2);
         }
     }
 
@@ -85,16 +82,28 @@
             border-bottom: 3px solid var(--color-base);
         }
     }
-}
 
-@media screen and (min-width: 480px) {
-    .header {
+    @media screen and (min-width: 480px) {
         &-logo {
             font-size: $font-size-large;
+            padding: var(--s-1);
         }
-
+    
         &-nav {
             font-size: $font-size-normal;
         }
+    
+        &-nav-item {
+            padding: 0 var(--s-1);
+        }
+    
+        &-inner {
+            padding: calc(var(--s-1) - 3px) 0;
+        }
+    }
+
+    @media screen and (min-width: 640px) {
+        margin-top: var(--s2);
     }
 }
+

@@ -1,14 +1,17 @@
 ---
 title: Work
 slug: work
-layout: layouts/page.njk
+layout: layouts/base.njk
 permalink: /work/
 coverImageClass: postlist-cover
+templateClass: template-postlist
 eleventyNavigation:
   key: work
   order: 1
   title: Work
 ---
+<h1>{{ title }}</h1>
+
 {% set postlist = (collections.work | sortByOrder(true)) %}
 {% include "postlist.njk" %}
 

@@ -40,7 +40,19 @@ img {
   --color-text-light: #DDD;
   --color-base-light: rgb(145, 255, 215);
   --color-base: #36FFB4;
-  --color-base-dark: rgb(1, 218, 153); }
+  --color-base-dark: rgb(1, 224, 157); }
+
+@media screen and (min-width: 480px) {
+  :root {
+    --body-padding: var(--s3); } }
+
+@media screen and (min-width: 640px) {
+  :root {
+    --body-padding: var(--s4); } }
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 1.25rem; } }
 
 .visually-hidden {
   position: absolute;
@@ -60,7 +72,7 @@ img {
 body {
   display: flex;
   flex-direction: column;
-  max-width: 75ch;
+  max-width: calc(70ch + 2 * var(--body-padding));
   min-height: 100vh;
   margin-left: auto;
   margin-right: auto; }
@@ -68,7 +80,7 @@ body {
 main {
   flex-grow: 1;
   margin: var(--s3) var(--body-padding) 0 var(--body-padding); }
-  main :first-child {
+  main > :first-child {
     margin-top: 0; }
 
 .post-nav {
@@ -78,7 +90,7 @@ main {
 
 .footer {
   margin-top: var(--s3);
-  padding: var(--body-padding); }
+  padding: var(--s2) var(--body-padding); }
   .footer-nav {
     display: flex;
     flex-direction: column;
@@ -104,12 +116,13 @@ main {
   font-family: "system";
   font-weight: 300; }
 
-.heading-font, h1, h2, h3, .header-logo {
+.heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
   font-family: 'Akzidenz Grotesk BQ Super', 'Helvetica Black', 'Arial Black', 'Helvetica', 'Arial', sans-serif;
   font-weight: 900; }
 
 body {
-  background-color: var(--color-background); }
+  background-color: var(--color-background);
+  border: 1px solid var(--color-text); }
 
 h1, h2 {
   color: var(--color-base-dark); }
@@ -135,8 +148,10 @@ h4 {
   font-weight: 600; }
 
 a {
-  color: var(--color-text);
-  text-decoration: underline var(--color-base) 2px; }
+  color: var(--color-text); }
+  @supports (text-decoration: underline 2px) {
+    a {
+      text-decoration: underline var(--color-base) 2px; } }
 
 .post-nav {
   font-size: 0.875rem; }
@@ -152,7 +167,9 @@ a {
     margin: var(--s0) 0 var(--s-1);
     color: var(--color-background); }
   .footer-contentinfo {
+    font-size: .75rem;
     text-align: center;
+    margin-top: var(--s1);
     color: var(--color-text-light); }
   .footer-decoration {
     position: absolute;
@@ -162,10 +179,31 @@ a {
     border-top: 4px dashed var(--color-base);
     z-index: 2; }
 
+.home-intro-hi {
+  display: block;
+  font-size: var(--s2);
+  line-height: 1;
+  font-weight: 600;
+  margin: var(--s0) 0; }
+
+.home-intro-charles {
+  display: block;
+  font-size: var(--s3);
+  line-height: 1;
+  margin: var(--s1) 0;
+  color: var(--color-base-dark); }
+
+.home-intro-desc {
+  display: block;
+  font-size: var(--s1);
+  line-height: 1.25;
+  font-weight: 600;
+  margin: var(--s0) 0; }
+
 .header {
   --header-gap: var(--s-2);
   line-height: 1;
-  margin: var(--body-padding) var(--body-padding) 0 var(--body-padding);
+  margin: var(--s1) var(--body-padding) 0 var(--body-padding);
   overflow: hidden; }
   .header a {
     text-decoration: none;
@@ -188,11 +226,10 @@ a {
     justify-content: start;
     align-items: flex-end;
     background-color: var(--color-base);
+    padding: var(--s-2);
     font-size: 1rem; }
     .header-logo:hover {
       background-color: var(--color-base-light); }
-    .header-logo-text {
-      padding: var(--s-2); }
   .header-nav {
     display: inline-block;
     flex-basis: 50%;
@@ -218,12 +255,19 @@ a {
     .header-nav-item-inner {
       padding: calc(var(--s-2) - 3px) 0;
       border-bottom: 3px solid var(--color-base); }
-
-@media screen and (min-width: 480px) {
-  .header-logo {
-    font-size: var(--s1); }
-  .header-nav {
-    font-size: 1rem; } }
+  @media screen and (min-width: 480px) {
+    .header-logo {
+      font-size: 1.25rem;
+      padding: var(--s-1); }
+    .header-nav {
+      font-size: 1rem; }
+    .header-nav-item {
+      padding: 0 var(--s-1); }
+    .header-inner {
+      padding: calc(var(--s-1) - 3px) 0; } }
+  @media screen and (min-width: 640px) {
+    .header {
+      margin-top: var(--s2); } }
 
 .postlist {
   --item-margin-x: var(--s1);
@@ -239,12 +283,13 @@ a {
     flex-grow: 1;
     margin: calc(var(--item-margin-y) / 2) calc(var(--item-margin-x) / 2); }
   .postlist-link {
-    color: var(--color-base);
-    text-decoration: solid underline 2px;
-    line-height: 1.5; }
+    color: var(--color-base); }
+    @supports (text-decoration: underline 2px) {
+      .postlist-link {
+        text-decoration: underline var(--color-base) 2px; } }
   .postlist-heading {
-    font-weight: 600;
     font-size: 1.25rem;
+    line-height: 1.5;
     color: var(--color-text);
     margin-top: 0;
     margin-bottom: var(--s1); }

@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    max-width: 75ch;
+    max-width: calc(70ch + 2 * var(--body-padding));
     min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
@@ -11,23 +11,21 @@ body {
 main {
     flex-grow: 1;
     margin: var(--s3) var(--body-padding) 0 var(--body-padding);
-    
-    :first-child {
+
+    > :first-child {
         margin-top: 0;
     }
 }
 
-.post {
-    &-nav {
-        display: flex;
-        justify-content: space-between;
-        margin-top: var(--s3);
-    }
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--s3);
 }
 
 .footer {
     margin-top: var(--s3);
-    padding: var(--body-padding);
+    padding: var(--s2) var(--body-padding);
 
     &-nav {
         display: flex;
@@ -43,7 +41,5 @@ main {
         @extend .stack;
         --space: var(--s-1);
     }
-
-    
-
 }
+
