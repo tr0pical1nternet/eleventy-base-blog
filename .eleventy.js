@@ -68,8 +68,8 @@ module.exports = function(eleventyConfig) {
         
     const output =
       `<picture>
-        <source srcset="${srcsetsWebp}">
-        <source srcset="${srcsetsJpg}">
+        <source srcset="${srcsetsWebp}" type="image/webp">
+        <source srcset="${srcsetsJpg}" type="image/jpeg">
         <img ${classAttr} src="${src}" srcset="${srcsetsJpg.join(', ')}" ${titleAttr} alt="${alt}" width="${dimensions.width}" height="${dimensions.height}">
       </picture>`
 
