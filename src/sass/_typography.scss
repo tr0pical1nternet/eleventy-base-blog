@@ -1,14 +1,21 @@
 @font-face {
     font-family: system;
     font-style: normal;
-    font-weight: 300;
-    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+    src:    local(".SFNSText-Light"),
+            local(".HelveticaNeueDeskInterface-Light"),
+            local(".LucidaGrandeUI"),
+            local("Ubuntu Light"),
+            local("Segoe UI Light"),
+            local("Roboto-Light"),
+            local("DroidSans"),
+            local("Tahoma");
+    
   }
 
 @font-face {
-    font-family: 'Akzidenz Grotesk BQ Super';
-    src:  url('fonts/AkzidenzGroteskBQ-Super.woff2') format('woff2'),
-          url('fonts/AkzidenzGroteskBQ-Super.woff') format('woff');
+    font-family: "Akzidenz Grotesk BQ Super";
+    src:  url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"),
+          url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
     font-weight: 900;
 }
 
@@ -17,12 +24,12 @@ $font-size-normal: 1rem;
 $font-size-large: 1.25rem;
 
 .body-font {
-    font-family: "system";
+    font-family: "system", sans-serif;
     font-weight: 300;
 }
 
 .heading-font {
-    font-family: 'Akzidenz Grotesk BQ Super', 'Helvetica Black', 'Arial Black', 'Helvetica', 'Arial', sans-serif;
+    font-family: "Akzidenz Grotesk BQ Super", "Helvetica Black", "Arial Black", "Helvetica", "Arial", sans-serif;
     font-weight: 900;
 }
 
