@@ -3,6 +3,8 @@ layout: layouts/page.njk
 title: Resume
 slug: resume
 templateClass: template-page
+tags: top
+order: 1
 eleventyNavigation:
   title: Resume
   key: resume

@@ -28,6 +28,7 @@
     &-heading {
         @extend .body-font;
         font-size: 1.25rem;
+        font-weight: 600;
         line-height: 1.5;
         color: var(--color-text);
         margin-top: 0;

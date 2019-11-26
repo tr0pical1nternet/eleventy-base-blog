@@ -18,9 +18,9 @@ navItems:
     {# <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"> #}
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
   </head>
-  <body>
+  <body id="page-top">
     <div class="site-container">
-      <header class="header" id="#page-top">
+      <header class="header">
         <div class="header-inner">
           <a class="header-logo" href="{{ '/' | url }}" title="Home"><div class="header-logo-text">Charles Robertson</div></a>
 
@@ -50,7 +50,7 @@ navItems:
         {{ content | safe }}
       </main>
       
-      {# {% include "post-nav.njk" %} #}
+      {% include "post-nav.njk" %}
     </div>
   {% include "footer.njk" %}
   </body>

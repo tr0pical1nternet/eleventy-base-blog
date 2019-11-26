@@ -21,7 +21,10 @@ main {
 
 .post-nav {
     display: flex;
-    justify-content: space-between;
-    margin-top: var(--s3);
+    // justify-content: space-between;
+    margin: var(--s3) var(--body-padding) 0;
+    &-top {
+        margin: 0 auto;
+    }
 }
 

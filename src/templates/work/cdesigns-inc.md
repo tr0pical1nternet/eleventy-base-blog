@@ -7,6 +7,6 @@ order: 3
 cover:
     slug: cdesigns-inc_cover
     alt: CDesigns, Inc. homepage
-tags: [WordPress, Custom Theme] 
+tags: [WordPress, Modified Theme, Logo Design] 
 ---
 {{ title }} is a website I made.

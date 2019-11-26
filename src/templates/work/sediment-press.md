@@ -7,6 +7,6 @@ order: 1
 cover:
     slug: sediment-press_cover
     alt: sedimentpress.com homepage
-tags: [WordPress, WooCommerce, Custom Theme]
+tags: [WordPress, WooCommerce, Custom Theme, Logo Design]
 ---
 Sediment Press is a website I made.

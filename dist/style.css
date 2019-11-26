@@ -87,8 +87,9 @@ main {
 
 .post-nav {
   display: flex;
-  justify-content: space-between;
-  margin-top: var(--s3); }
+  margin: var(--s3) var(--body-padding) 0; }
+  .post-nav-top {
+    margin: 0 auto; }
 
 @font-face {
   font-family: system;
@@ -105,7 +106,7 @@ main {
   font-weight: 300; }
 
 .heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
-  font-family: "Akzidenz Grotesk BQ Super", "Helvetica Black", "Arial Black", "Helvetica", "Arial", sans-serif;
+  font-family: "Akzidenz Grotesk BQ Super", "Helvetica Black", "Arial Black", sans-serif;
   font-weight: 900; }
 
 body {
@@ -253,6 +254,7 @@ a {
         text-decoration: underline var(--color-base) 2px; } }
   .postlist-heading {
     font-size: 1.25rem;
+    font-weight: 600;
     line-height: 1.5;
     color: var(--color-text);
     margin-top: 0;
@@ -286,6 +288,9 @@ a {
       overflow: initial; } }
   .footer a {
     color: var(--color-base); }
+    @supports (text-decoration: underline var(--color-base) 1px) {
+      .footer a {
+        text-decoration: underline var(--color-base) 1px; } }
   .footer-container {
     max-width: calc(70ch + 2 * var(--body-padding));
     margin: 0 auto var(--s1); }

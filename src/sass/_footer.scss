@@ -13,6 +13,9 @@
 
     a {
         color: var(--color-base);
+        @supports (text-decoration: underline var(--color-base) 1px) {
+            text-decoration: underline  var(--color-base) 1px;
+        }
     }
 
     &-container {

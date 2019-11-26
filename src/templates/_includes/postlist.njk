@@ -9,7 +9,7 @@
         </a>
         
         {% if (post.data.tags.length > 1) %}
-          <ul class="postlist-taglist">{{ tags }}
+          <ul class="postlist-taglist">
             <div class="postlist-taglist-inner">
               {% for tag in post.data.tags %}
                 {%- if tag !== slug -%}
