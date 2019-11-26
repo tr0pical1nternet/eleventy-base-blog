@@ -29,10 +29,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("sortByOrder", (postlist, isDSC) => { 
     const sortDSC = isDSC ? -1 : 1;
     
-    postlist.sort((a, b) => {
-      return sortDSC * (a.data.order - b.data.order);
-    });
-    return postlist;
+    if (Array.isArray(postlist)) {
+      postlist.sort((a, b) => {
+        return sortDSC * (a.data.order - b.data.order);
+      });
+
+      return postlist;
+    } else {
+      return undefined;
+    }
   });
 
   eleventyConfig.addFilter("notFilter", (array, key) => {
