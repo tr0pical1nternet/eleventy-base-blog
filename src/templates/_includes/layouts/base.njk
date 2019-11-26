@@ -19,37 +19,39 @@ navItems:
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
   </head>
   <body>
-    <header class="header" id="#page-top">
-      <div class="header-inner">
-        <a class="header-logo" href="{{ '/' | url }}" title="Home"><div class="header-logo-text">Charles Robertson</div></a>
+    <div class="site-container">
+      <header class="header" id="#page-top">
+        <div class="header-inner">
+          <a class="header-logo" href="{{ '/' | url }}" title="Home"><div class="header-logo-text">Charles Robertson</div></a>
 
-        {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
-        <nav class="header-nav">
-          <ul class="header-nav-list">
-            {% for navItem in navItems %}
-              <li class="header-nav-item {%- if (navItem.slug | isActive(page.fileSlug, tags[0])) %} current{% endif %}">
-                <div class="header-nav-item-inner">
-                  <a href="/{{ navItem.slug }}/">{{ navItem.title }}</a>
-                </div>
-              </li>
-            {% endfor %}
-          {# {{ collections.all | eleventyNavigation | console }} #}
-          {# {{ collections.all | eleventyNavigation | notFilter('home') | eleventyNavigationToHtml({
-            listClass: "header-nav-list",
-            listItemClass: "header-nav-item",
-            activeListItemClass: "header-nav-item--active",
-            activeKey: eleventyNavigation.key
-          }) | safe }} #}
-          </ul>
-        </nav>
-      </div>
-    </header>
+          {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
+          <nav class="header-nav">
+            <ul class="header-nav-list">
+              {% for navItem in navItems %}
+                <li class="header-nav-item {%- if (navItem.slug | isActive(page.fileSlug, tags[0])) %} current{% endif %}">
+                  <div class="header-nav-item-inner">
+                    <a href="/{{ navItem.slug }}/">{{ navItem.title }}</a>
+                  </div>
+                </li>
+              {% endfor %}
+            {# {{ collections.all | eleventyNavigation | console }} #}
+            {# {{ collections.all | eleventyNavigation | notFilter('home') | eleventyNavigationToHtml({
+              listClass: "header-nav-list",
+              listItemClass: "header-nav-item",
+              activeListItemClass: "header-nav-item--active",
+              activeKey: eleventyNavigation.key
+            }) | safe }} #}
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-    <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      {{ content | safe }}
-    </main>
-    
-    {# {% include "post-nav.njk" %} #}
-    {% include "footer.njk" %}
+      <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>
+        {{ content | safe }}
+      </main>
+      
+      {# {% include "post-nav.njk" %} #}
+    </div>
+  {% include "footer.njk" %}
   </body>
 </html>

@@ -1,11 +1,13 @@
 body {
+    min-height: 100vh;
+}
+
+.site-container {
     display: flex;
     flex-direction: column;
     max-width: calc(70ch + 2 * var(--body-padding));
-    min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    // padding: var(--s1);
 }
 
 main {
@@ -21,25 +23,5 @@ main {
     display: flex;
     justify-content: space-between;
     margin-top: var(--s3);
-}
-
-.footer {
-    margin-top: var(--s3);
-    padding: var(--s2) var(--body-padding);
-
-    &-nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; 
-
-        @media screen and (min-width: 18rem) {
-            flex-direction: row;
-        }
-    }
-
-    &-menu {
-        @extend .stack;
-        --space: var(--s-1);
-    }
 }
 

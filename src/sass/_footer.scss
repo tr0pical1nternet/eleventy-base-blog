@@ -1,0 +1,62 @@
+.footer {
+    display: flow-root;
+    position: relative;
+    margin-top: var(--s3);
+
+    background-color: var(--color-text);
+
+    overflow: auto;
+
+    @supports (display: flow-root) {
+        overflow: initial;
+    }
+
+    a {
+        color: var(--color-base);
+    }
+
+    &-container {
+        max-width: calc(70ch + 2 * var(--body-padding));
+        margin: 0 auto var(--s1);
+    }
+
+    &-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        margin: var(--s2) var(--body-padding) 0;
+
+        font-size: $font-size-small;
+
+        @media screen and (min-width: 18rem) {
+            flex-direction: row;
+        }
+    }
+
+    &-menu {
+        @extend .stack;
+        --space: var(--s-1);
+    }
+
+    &-heading {
+        font-size: $font-size-normal;
+        margin: var(--s0) 0 var(--s-1);
+        color: var(--color-background);
+    }
+
+    &-contentinfo {
+        font-size: .75rem;
+        text-align: center;
+        margin-top: var(--s1);
+        color: var(--color-text-light);
+    }
+
+    &-decoration {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 100%;
+        border-top: 4px dashed var(--color-base);
+        z-index: 2;
+    }
+}

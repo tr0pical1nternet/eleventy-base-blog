@@ -26,10 +26,15 @@ $font-size-large: 1.25rem;
     font-weight: 900;
 }
 
+html {
+    // background: linear-gradient(#E8E5D8, #99DFC5);
+}
+
 body {
     @extend .body-font;
     background-color: var(--color-background);
-    border: 1px solid var(--color-text)
+    // border: 1px solid var(--color-text);
+    // border-top: none;
 }
 
 h1, h2, h3 {
@@ -73,39 +78,6 @@ a {
 
 .post-nav {
     font-size: $font-size-small;    
-}
-
-
-.footer {
-    font-size: $font-size-small;
-    background-color: var(--color-text);
-    position: relative;
-
-    a {
-        color: var(--color-base);
-    }
-
-    &-heading {
-        font-size: $font-size-normal;
-        margin: var(--s0) 0 var(--s-1);
-        color: var(--color-background);
-    };
-
-    &-contentinfo {
-        font-size: .75rem;
-        text-align: center;
-        margin-top: var(--s1);
-        color: var(--color-text-light);
-    }
-
-    &-decoration {
-        position: absolute;
-        top: -2px;
-        left: 0;
-        width: 100%;
-        border-top: 4px dashed var(--color-base);
-        z-index: 2;
-    }
 }
 
 .home-intro {
