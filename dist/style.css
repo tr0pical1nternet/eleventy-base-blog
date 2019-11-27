@@ -286,6 +286,47 @@ a {
     margin: calc(var(--tag-margin) / 2);
     background-color: var(--color-base); }
 
+.post-figure {
+  width: 12rem;
+  display: block;
+  margin: var(--s1) auto;
+  border-radius: var(--s-1);
+  border: 1px solid var(--color-text);
+  overflow: hidden;
+  box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
+
+.mobile-scroll {
+  position: relative;
+  width: 12rem;
+  display: block;
+  margin: var(--s1) auto; }
+  .mobile-scroll figure {
+    position: relative;
+    margin: 0;
+    padding: 0 0 177.75%;
+    border-radius: var(--s-1);
+    border: 1px solid var(--color-text);
+    overflow: hidden;
+    overflow-y: scroll;
+    box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
+    .mobile-scroll figure > picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; }
+  .mobile-scroll-caption {
+    position: absolute;
+    font-size: 0.875rem;
+    text-transform: lowercase;
+    top: 50%;
+    left: 0;
+    transform: translate(-64%) rotate(-90deg); }
+  @media screen and (min-width: 700px) {
+    .mobile-scroll {
+      float: right;
+      margin-top: var(--s-3);
+      margin-left: var(--s2); } }
+
 .footer {
   display: flow-root;
   position: relative;

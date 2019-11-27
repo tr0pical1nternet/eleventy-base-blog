@@ -9,12 +9,23 @@ cover:
     slug: nigel-lyons_cover
     alt: nigelyons.com homepage
 tags: [Video Portfolio, Static Site, Node.js, Logo Design]
+images:
+    -   slug: nigel-lyons_home
+        alt: Home page of nigelyons.com
+        classes: post-image
 ---
+<div class="mobile-scroll">
+    <figure>
+        {% image 'nigel-lyons_home', 'Home page of nigelyons.com', 'post-image' %}
+    </figure>
+    <div class="mobile-scroll-caption">← Scroll me →</div>
+</div>
+
 Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press,  I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to: 
 
- ∙ Effectively showcase his video portfolio.
- ∙ Build off of his current branding.
- ∙ Look natively designed for any device that used it.
+ - Effectively showcase his video portfolio.
+ - Build off of his current branding.
+ - Look natively designed for any device that used it.
 
 A CMS would have been overkill in this case, even a static site generator seemed a bit much since we didn’t require any routing. While a site of this size can be feasibly written purely in HTML and CSS, I used Node to render the site so that I had the benefit of some modern development tools. I used Pug for the templates and Stylus as a CSS preprocessor. Gulp bundled the assets, and browserSync updated the view on file change. This stack allowed me to retain developer conveniences without giving up granular control over the finished product.
 
