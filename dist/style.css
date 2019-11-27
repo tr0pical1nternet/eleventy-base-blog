@@ -70,24 +70,28 @@ img {
   margin-top: var(--space); }
 
 body {
-  min-height: 100vh; }
-
-.site-container {
   display: flex;
   flex-direction: column;
-  max-width: calc(70ch + 2 * var(--body-padding));
+  min-height: 100vh; }
+
+.site-container, main, .post-nav, .header {
+  max-width: calc(40rem + 2 * var(--body-padding));
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  padding-left: var(--body-padding);
+  padding-right: var(--body-padding); }
 
 main {
   flex-grow: 1;
-  margin: var(--s3) var(--body-padding) 0 var(--body-padding); }
+  margin-top: var(--s3); }
   main > :first-child {
     margin-top: 0; }
 
 .post-nav {
   display: flex;
-  margin: var(--s3) var(--body-padding) 0; }
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--s4); }
   .post-nav-top {
     margin: 0 auto; }
 
@@ -101,7 +105,7 @@ main {
   src: url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"), url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
   font-weight: 900; }
 
-.body-font, body, .postlist-heading {
+.body-font, body {
   font-family: "system", sans-serif;
   font-weight: 300; }
 
@@ -135,11 +139,14 @@ h4 {
   margin: var(--s1) 0 var(--s0);
   font-weight: 600; }
 
+.link-underline, a, .postlist-heading {
+  text-decoration: underline; }
+  @supports (text-decoration: underline var(--color-base) 2px) {
+    .link-underline, a, .postlist-heading {
+      text-decoration: underline var(--color-base) 2px; } }
+
 a {
   color: var(--color-text); }
-  @supports (text-decoration: underline 2px) {
-    a {
-      text-decoration: underline var(--color-base) 2px; } }
 
 .post-nav {
   font-size: 0.875rem; }
@@ -176,8 +183,9 @@ a {
 
 .header {
   --header-gap: var(--s-2);
+  width: 100%;
   line-height: 1;
-  margin: var(--s1) var(--body-padding) 0 var(--body-padding);
+  margin-top: var(--s1);
   overflow: hidden; }
   .header a {
     text-decoration: none;
@@ -252,19 +260,15 @@ a {
     flex-wrap: wrap;
     margin: calc(-1 * var(--item-margin-y) / 2) calc(-1 * var(--item-margin-x) / 2); }
   .postlist-item {
-    min-width: 10rem;
+    min-width: 14rem;
     flex-basis: calc(50% - var(--item-margin-x));
     flex-grow: 1;
     margin: calc(var(--item-margin-y) / 2) calc(var(--item-margin-x) / 2); }
   .postlist-link {
     color: var(--color-base); }
-    @supports (text-decoration: underline 2px) {
-      .postlist-link {
-        text-decoration: underline var(--color-base) 2px; } }
   .postlist-heading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.5;
+    display: inline-block;
+    font-size: var(--s1);
     color: var(--color-text);
     margin-top: 0;
     margin-bottom: var(--s1); }

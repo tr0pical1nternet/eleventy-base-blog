@@ -75,12 +75,17 @@ h4 {
     font-weight: 600;
 }
 
+.link-underline {
+    text-decoration: underline;
+    @supports (text-decoration: underline var(--color-base) 2px) {
+        text-decoration: underline var(--color-base) 2px;
+    }
+}
+
 a {
     color: var(--color-text);
 
-    @supports (text-decoration: underline 2px) {
-        text-decoration: underline var(--color-base) 2px;
-    }
+    @extend .link-underline;
 }
 
 .post-nav {

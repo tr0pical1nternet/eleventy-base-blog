@@ -1,7 +1,10 @@
 .header {
     --header-gap: var(--s-2);
+    @extend .site-container;
+    width: 100%;
     line-height: 1;
-    margin: var(--s1) var(--body-padding) 0 var(--body-padding);
+    margin-top: var(--s1);
+    // margin: var(--s1) var(--body-padding) 0 var(--body-padding);
     overflow: hidden;
     
     a {
