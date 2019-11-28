@@ -1,7 +1,6 @@
 .header {
     --header-gap: var(--s-2);
     @extend .site-container;
-    width: 100%;
     line-height: 1;
     margin-top: var(--s1);
     // margin: var(--s1) var(--body-padding) 0 var(--body-padding);
@@ -81,7 +80,7 @@
         }
 
         &-inner {
-            padding: calc(var(--s-2) - 3px) 0;
+            padding: var(--s-2) 0 calc(var(--s-2) - 3px);
             border-bottom: 3px solid var(--color-base);
         }
     }
@@ -100,7 +99,7 @@
             padding: 0 var(--s-1);
            
             &-inner {
-                padding: calc(var(--s-1) - 3px) 0;
+                padding: var(--s-1) 0 calc(var(--s-1) - 3px);
             }
         }
     }

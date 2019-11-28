@@ -21,7 +21,7 @@ images:
     <div class="mobile-scroll-caption">← Scroll me →</div>
 </div>
 
-Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press,  I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to: 
+Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press, I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to: 
 
  - Effectively showcase his video portfolio.
  - Build off of his current branding.

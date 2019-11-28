@@ -31,7 +31,7 @@
 
         font-size: $font-size-small;
 
-        @media screen and (min-width: 18rem) {
+        @media screen and (min-width: 288px) {
             flex-direction: row;
         }
     }

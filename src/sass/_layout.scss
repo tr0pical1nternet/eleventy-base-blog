@@ -5,6 +5,7 @@ body {
 }
 
 .site-container {
+    width: 100%;
     max-width: calc(40rem + 2 * var(--body-padding));
     margin-left: auto;
     margin-right: auto;
@@ -27,7 +28,6 @@ main {
     @extend .site-container;
     display: flex;
     justify-content: space-between;
-    width: 100%;
     margin-top: var(--s4);
     // margin: var(--s3) var(--body-padding) 0;
     &-top {

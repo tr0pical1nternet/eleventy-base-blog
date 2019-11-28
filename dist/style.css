@@ -75,6 +75,7 @@ body {
   min-height: 100vh; }
 
 .site-container, main, .post-nav, .header {
+  width: 100%;
   max-width: calc(40rem + 2 * var(--body-padding));
   margin-left: auto;
   margin-right: auto;
@@ -90,7 +91,6 @@ main {
 .post-nav {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   margin-top: var(--s4); }
   .post-nav-top {
     margin: 0 auto; }
@@ -181,9 +181,53 @@ a {
     line-height: 1;
     margin: var(--s-1) 0 0; }
 
+.image, .post-figure, .mobile-scroll figure, .postlist-cover {
+  background-color: var(--color-text);
+  border-radius: var(--s-1);
+  border: 1px solid var(--color-text);
+  overflow: hidden; }
+
+.post-figure {
+  width: 12rem;
+  display: block;
+  margin: var(--s1) auto;
+  overflow: hidden;
+  box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
+
+.mobile-scroll {
+  position: relative;
+  width: 12rem;
+  display: block;
+  margin: var(--s1) auto; }
+  .mobile-scroll figure {
+    position: relative;
+    margin: 0;
+    padding: 0 0 177.75%;
+    overflow: auto;
+    scrollbar-width: none;
+    box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
+    .mobile-scroll figure::-webkit-scrollbar {
+      width: 0; }
+    .mobile-scroll figure > picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; }
+  .mobile-scroll-caption {
+    position: absolute;
+    font-size: 0.875rem;
+    text-transform: lowercase;
+    top: 50%;
+    left: 0;
+    transform: translate(-64%) rotate(-90deg); }
+  @media screen and (min-width: 700px) {
+    .mobile-scroll {
+      float: right;
+      margin-top: var(--s-3);
+      margin-left: var(--s2); } }
+
 .header {
   --header-gap: var(--s-2);
-  width: 100%;
   line-height: 1;
   margin-top: var(--s1);
   overflow: hidden; }
@@ -235,7 +279,7 @@ a {
         .header-nav-item.current:hover .header-nav-item-inner {
           border-bottom: none; }
     .header-nav-item-inner {
-      padding: calc(var(--s-2) - 3px) 0;
+      padding: var(--s-2) 0 calc(var(--s-2) - 3px);
       border-bottom: 3px solid var(--color-base); }
   @media screen and (min-width: 480px) {
     .header-logo {
@@ -246,7 +290,7 @@ a {
     .header-nav-item {
       padding: 0 var(--s-1); }
       .header-nav-item-inner {
-        padding: calc(var(--s-1) - 3px) 0; } }
+        padding: var(--s-1) 0 calc(var(--s-1) - 3px); } }
   @media screen and (min-width: 640px) {
     .header {
       margin-top: var(--s2); } }
@@ -272,9 +316,6 @@ a {
     color: var(--color-text);
     margin-top: 0;
     margin-bottom: var(--s1); }
-  .postlist-cover {
-    border: 1px solid var(--color-text);
-    border-radius: var(--s-1); }
   .postlist-taglist {
     --tag-margin: .375em;
     margin-top: var(--s-1);
@@ -289,47 +330,6 @@ a {
     padding: .25em .5em;
     margin: calc(var(--tag-margin) / 2);
     background-color: var(--color-base); }
-
-.post-figure {
-  width: 12rem;
-  display: block;
-  margin: var(--s1) auto;
-  border-radius: var(--s-1);
-  border: 1px solid var(--color-text);
-  overflow: hidden;
-  box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
-
-.mobile-scroll {
-  position: relative;
-  width: 12rem;
-  display: block;
-  margin: var(--s1) auto; }
-  .mobile-scroll figure {
-    position: relative;
-    margin: 0;
-    padding: 0 0 177.75%;
-    border-radius: var(--s-1);
-    border: 1px solid var(--color-text);
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
-    .mobile-scroll figure > picture {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; }
-  .mobile-scroll-caption {
-    position: absolute;
-    font-size: 0.875rem;
-    text-transform: lowercase;
-    top: 50%;
-    left: 0;
-    transform: translate(-64%) rotate(-90deg); }
-  @media screen and (min-width: 700px) {
-    .mobile-scroll {
-      float: right;
-      margin-top: var(--s-3);
-      margin-left: var(--s2); } }
 
 .footer {
   display: flow-root;
@@ -354,7 +354,7 @@ a {
     justify-content: space-between;
     margin: var(--s2) var(--body-padding) 0;
     font-size: 0.875rem; }
-    @media screen and (min-width: 18rem) {
+    @media screen and (min-width: 288px) {
       .footer-nav {
         flex-direction: row; } }
   .footer-menu {
