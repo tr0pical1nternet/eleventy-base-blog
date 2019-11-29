@@ -22,6 +22,7 @@
     --color-base-light: rgb(145, 255, 215);
     --color-base: #36FFB4;
     --color-base-dark: rgb(1, 224, 157);
+    --color-shadow: rgba(34,34,34,.5);
 }
 
 @media screen and (min-width: 480px) {
@@ -58,4 +59,8 @@
     > * + * {
         margin-top: var(--space)
     }
+}
+
+@mixin button-shadow {
+    box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow);
 }

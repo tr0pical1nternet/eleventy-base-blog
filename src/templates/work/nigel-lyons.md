@@ -14,12 +14,7 @@ images:
         alt: Home page of nigelyons.com
         classes: post-image
 ---
-<div class="mobile-scroll">
-    <figure>
-        {% image 'nigel-lyons_home', 'Home page of nigelyons.com', 'post-image' %}
-    </figure>
-    <div class="mobile-scroll-caption">← Scroll me →</div>
-</div>
+{% workScroll 'nigel-lyons_home', 'Home page of nigelyons.com' %}
 
 Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press, I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to: 
 

@@ -14,7 +14,7 @@ nav ol, nav ul {
   padding: 0;
   list-style: none; }
 
-img {
+img, iframe {
   display: block;
   width: 100%;
   height: auto; }
@@ -40,7 +40,8 @@ img {
   --color-text-light: #DDD;
   --color-base-light: rgb(145, 255, 215);
   --color-base: #36FFB4;
-  --color-base-dark: rgb(1, 224, 157); }
+  --color-base-dark: rgb(1, 224, 157);
+  --color-shadow: rgba(34,34,34,.5); }
 
 @media screen and (min-width: 480px) {
   :root {
@@ -181,7 +182,7 @@ a {
     line-height: 1;
     margin: var(--s-1) 0 0; }
 
-.image, .post-figure, .mobile-scroll figure, .postlist-cover {
+.image, .post-figure img, .work-scroll figure, .video-embed, .postlist-cover {
   background-color: var(--color-text);
   border-radius: var(--s-1);
   border: 1px solid var(--color-text);
@@ -190,30 +191,35 @@ a {
 .post-figure {
   width: 12rem;
   display: block;
-  margin: var(--s1) auto;
-  overflow: hidden;
-  box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
+  margin: var(--s2) auto; }
+  .post-figure img {
+    box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow); }
+  @media screen and (min-width: 700px) {
+    .post-figure--left {
+      float: left;
+      margin-top: var(--s-3);
+      margin-right: var(--s2); } }
 
-.mobile-scroll {
+.work-scroll {
   position: relative;
   width: 12rem;
   display: block;
-  margin: var(--s1) auto; }
-  .mobile-scroll figure {
+  margin: var(--s1) auto var(--s2); }
+  .work-scroll figure {
     position: relative;
     margin: 0;
-    padding: 0 0 177.75%;
+    padding: 0 0 176%;
     overflow: auto;
     scrollbar-width: none;
-    box-shadow: var(--s-2) var(--s-2) 0 var(--color-text); }
-    .mobile-scroll figure::-webkit-scrollbar {
+    box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow); }
+    .work-scroll figure::-webkit-scrollbar {
       width: 0; }
-    .mobile-scroll figure > picture {
+    .work-scroll figure > picture {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%; }
-  .mobile-scroll-caption {
+  .work-scroll-caption {
     position: absolute;
     font-size: 0.875rem;
     text-transform: lowercase;
@@ -221,10 +227,26 @@ a {
     left: 0;
     transform: translate(-64%) rotate(-90deg); }
   @media screen and (min-width: 700px) {
-    .mobile-scroll {
+    .work-scroll {
       float: right;
       margin-top: var(--s-3);
       margin-left: var(--s2); } }
+
+.video-embed {
+  width: 100%;
+  max-width: 24rem;
+  margin: var(--s2) auto; }
+  .video-embed-inner {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; }
+  .video-embed iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; }
 
 .header {
   --header-gap: var(--s-2);

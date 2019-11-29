@@ -10,6 +10,20 @@ cover:
     alt: centerstaging.net homepage
 tags: [Wordpress, Custom Theme, Logo Design]
 ---
-Shortly after Raven purchased Center Staging they requested a new website to give the company a fresh image and make it easier to use for both customers and staff. In addition to the website, we updated the company's logo to make it feel contemporary while staying close enough to the existing branding that they could gradually phase it on their trucks, uniforms, signage, business cards, etc, avoiding costly upgrades.
+{% workScroll 'center-staging_home', 'Full scrollable home page of centerstaging.net' %}
 
-The site features a custom icon menu
+Shortly after Raven purchased Center Staging they requested a new website to give the company a fresh image and make it easier to use for both customers and staff. They wanted a site that was structurally similar to their own but distinctive enough that to have its own identity. I designed the layout to parallel Raven's while the color scheme, font selection, and overall style created a new look for the company. In addition to the website, I redesigned the company's logo to make it feel contemporary while staying close enough to the existing branding that they could gradually phase it on their trucks, uniforms signage, etc., avoiding costly upgrades.
+
+The client wanted a fully custom web design while being able to maintain content themselves. WordPress was a natural choice that provided a user friendly admin and a healthy ecosystem of plugins to handle the image gallery, sliders, and other content needs. To increase performance I utilized lazy-loading, provided a large set of srcset images, and used CloudFlare CDN to deliver a cached version of the site.
+
+{% postFigure 'center-staging_icons', 'Custom icon illustrations for the rental services section', 'post-figure--left' %}
+
+The main content of the site is the rental services section. On their previous website all of their services were listed in a single sidebar menu that was overwhelming for users. I structured the content into a grid of nine categories and illustrated icons to make it easy to for users to find the types of equipment that they need.
+
+For the Build section I edited a video to show the company in action as an organized and effective team. It is only sixty seconds but it conveys the scope of work they do, the type of equipment they use, and what a client can expect when they hire Center Staging. An essential part of the Center Staging brand is that they get job done and they get it done right every time.
+
+<div class="video-embed">
+    <div class="video-embed-inner">
+        <iframe src="https://player.vimeo.com/video/287512026" width="480" height="270" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+</div>

@@ -53,8 +53,8 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  // Image shortcode
-  eleventyConfig.addShortcode("image", function(slug, alt, classes, title) {
+  // Image generator
+  function picture(slug, alt, classes, title) {
     const srcsetsWebp = new Array(imageSizes.length);
     const srcsetsJpg = new Array(imageSizes.length);
     const src = `/images/${slug}_${imageSizes[1]}.jpg`;
@@ -73,14 +73,33 @@ module.exports = function(eleventyConfig) {
         
     const output =
       `<picture>
-        <source srcset="${srcsetsWebp}" type="image/webp">
-        <source srcset="${srcsetsJpg}" type="image/jpeg">
-        <img ${classAttr} src="${src}" srcset="${srcsetsJpg.join(', ')}" ${titleAttr} alt="${alt}" width="${dimensions.width}" height="${dimensions.height}">
+          <source srcset="${srcsetsWebp}" type="image/webp">
+          <source srcset="${srcsetsJpg}" type="image/jpeg">
+          <img ${classAttr} src="${src}" srcset="${srcsetsJpg.join(', ')}" ${titleAttr} alt="${alt}" width="${dimensions.width}" height="${dimensions.height}">
       </picture>`
 
     return output;
+  }
+
+  // Image shortcode
+  eleventyConfig.addShortcode("image", function(slug, alt, classes, title) {
+    return picture(slug, alt, classes, title)
   });
 
+  eleventyConfig.addShortcode("postFigure", function(slug, alt, classes, title) {
+    classes = classes ? 'post-figure ' + classes : 'post-figure';
+    return `<figure class="${classes}">${picture(slug, alt, null, title)}</figure>`
+  });
+
+  eleventyConfig.addShortcode("workScroll", function(slug, alt, classes, title) {
+    return `<div class="work-scroll">
+      <figure>
+        ${picture(slug, alt, classes, title)}
+      </figure>
+      <div class="work-scroll-caption">← Scroll Me →</div>
+    </div>`
+  });
+  
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

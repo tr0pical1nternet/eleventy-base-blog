@@ -57,7 +57,7 @@ function webp(cb) {
   [360, 480, 640, 800, 1024, 1280, 1600].forEach(function (size) {
     return gulp.src('src/images/*.{jpg,jpeg,png}')
       .pipe(changed('dist/images'))
-      .pipe(imageResize({ width: size, quality: 1 }))
+      .pipe(imageResize({ width: size, quality: 1, noProfile: true }))
       .pipe(imagemin([
         imageminWebp({
           quality: 90,
