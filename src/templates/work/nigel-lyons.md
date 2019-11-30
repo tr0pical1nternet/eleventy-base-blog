@@ -24,6 +24,6 @@ Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Se
 
 As a single page site, a CMS would have added a lot of overhead. I used Node to render the site so that I had the benefit of some modern development tools. I used Pug for the template and Stylus as a CSS preprocessor. Gulp bundled the assets, and browserSync updated the view on file change. This stack allowed me to retain developer conveniences without giving up granular control over the finished product.
 
-The first major issue I ran into was the performance of the video embeds. The site had 7 videos hosted on YouTube and Vimeo embedded in iframes. Each video loaded over 300kB of javascript including a mess of cookies and trackers. The total was over 2MB for the entire site.
+<!-- The first major issue I ran into was the performance of the video embeds. The site had 7 videos hosted on YouTube and Vimeo embedded in iframes. Each video loaded over 300kB of javascript including a mess of cookies and trackers. The total was over 2MB for the entire site.
 
-[ more content to come ]
+[ more content to come ] -->
