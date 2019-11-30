@@ -140,6 +140,13 @@ h4 {
   margin: var(--s1) 0 var(--s0);
   font-weight: 600; }
 
+.h3-sub {
+  font-family: "system", sans-serif;
+  font-size: var(--s0);
+  font-weight: 600;
+  display: block;
+  margin-top: var(--s-5); }
+
 .link-underline, a, .postlist-heading {
   text-decoration: underline; }
   @supports (text-decoration: underline var(--color-base) 2px) {

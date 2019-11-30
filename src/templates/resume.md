@@ -32,8 +32,7 @@ Design interfaces for conventional and touch-screen interaction. Create UX flows
 Design comps for large and small screen sizes establishing color palette, typography, icons, graphic elements, and animation.
 
 ## Work Experience
-### Sediment Press
-#### Owner & Creative Director
+### Sediment Press<span class="h3-sub">Owner & Creative Director</span>
 
 I founded Sediment Press in 2012 as a design and screen printing company. We provide web and graphic design for small businesses as well as produce screen printed artwork, posters, and cards which we sell online, in stores, and at art festivals.
 
