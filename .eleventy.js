@@ -92,9 +92,10 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("workScroll", function(slug, alt, classes, title) {
-    return `<div class="work-scroll">
+    classes = classes ? 'work-scroll ' + classes : 'work-scroll';
+    return `<div class="${classes}">
       <figure>
-        ${picture(slug, alt, classes, title)}
+        ${picture(slug, alt, null, title)}
       </figure>
       <div class="work-scroll-caption">← Scroll Me →</div>
     </div>`

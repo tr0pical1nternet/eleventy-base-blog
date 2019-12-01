@@ -23,6 +23,8 @@
     --color-base: #36FFB4;
     --color-base-dark: rgb(1, 224, 157);
     --color-shadow: rgba(34,34,34,.5);
+
+    --duration: 0.2s;
 }
 
 @media screen and (min-width: 480px) {
@@ -63,4 +65,31 @@
 
 @mixin button-shadow {
     box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow);
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.625rem auto 0;
+    border: 1px solid var(--color-text);
+    border-radius: var(--s-2);
+    background-color: var(--color-base);
+    @include button-shadow();
+
+    &:hover {
+        color: var(--color-text);
+        background-color: var(--color-base-light);
+    }
+
+    &:active {
+        color: var(--color-base);
+        background-color: var(--color-text);
+    }
+}
+
+button::-moz-focus-inner,
+input[type="color"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border: 0;
 }

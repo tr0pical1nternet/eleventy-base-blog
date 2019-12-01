@@ -10,13 +10,13 @@ cover:
     alt: centerstaging.net homepage
 tags: [Wordpress, Custom Theme, Logo Design]
 ---
-{% workScroll 'center-staging_home', 'Full scrollable home page of centerstaging.net' %}
+{% workScroll 'center-staging_home', 'Full scrollable home page of centerstaging.net', 'imhance' %}
 
 Shortly after Raven purchased Center Staging they requested a new website to give the company a fresh image and make it easier to use for both customers and staff. They wanted a site that was structurally similar to their own but distinctive enough that to have its own identity. I designed the layout to parallel Raven's while the color scheme, font selection, and overall style created a new look for the company. In addition to the website, I redesigned the company's logo to make it feel contemporary while staying close enough to the existing branding that they could gradually phase it on their trucks, uniforms signage, etc., avoiding costly upgrades.
 
 The client wanted a fully custom web design while being able to maintain content themselves. WordPress was a natural choice that provided a user friendly admin and a healthy ecosystem of plugins to handle the image gallery, sliders, and other content needs. To increase performance I provided an expanded set of srcset images, applied lazy-loading, and used CloudFlare to deliver a cached version of the site and lower latency.
 
-<!-- {% postFigure 'center-staging_icons', 'Custom icon illustrations for the rental services section', 'post-figure--left' %} -->
+{% postFigure 'center-staging_icons', 'Custom icon illustrations for the rental services section', 'post-figure--left imhance' %}
 
 The bulk of the content is in the rental services section. On their previous website all of their services were listed in a single sidebar menu. I added a category page illustrated icons to make it easy to for users to find the types of equipment that they need.
 

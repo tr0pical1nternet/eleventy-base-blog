@@ -19,6 +19,7 @@ navItems:
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
   </head>
   <body id="page-top">
+    <svg style="display:none"><symbol id="close-button" viewBox="0 0 32 32" style="overflow:visible"><path d="M0, 0 L32, 32 M32, 0 L0, 32"></path></symbol></svg>
     {# <div class="site-container"> #}
       <header class="header">
         <div class="header-inner">
@@ -51,6 +52,7 @@ navItems:
       </main>
       
       {% include "post-nav.njk" %}
+      <script src="/js/imhance.js"></script>
     {# </div> #}
   {% include "footer.njk" %}
   </body>
