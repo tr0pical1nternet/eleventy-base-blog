@@ -67,6 +67,16 @@
     box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow);
 }
 
+.svg-icon {
+    stroke: var(--color-text);
+    stroke-width: 8pt;
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    stroke-linecap: round;
+}
+
 button {
     padding: 0.5rem;
     margin: 0.625rem auto 0;

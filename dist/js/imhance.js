@@ -1,6 +1,6 @@
 // Get elements
 const html = document.querySelector('html');
-const imhanceWraps = document.querySelectorAll('.imhance');
+const wraps = document.querySelectorAll('.imhance');
 const closeButton =
   `<button class="button imhance-close" >
     <svg role="img"
@@ -13,31 +13,34 @@ const closeButton =
         <use xlink:href="#close-button" />
     </svg>
   </button>`
+const borderWidth = 1;
 
 // Convert duration custom property to milliseconds ('0.1s' => 100)
 const durationCSS = getComputedStyle(document.documentElement).getPropertyValue('--duration');
 const durationJS = 1000 * Number(durationCSS.slice(0, -1));
 
-function openKeys() {
+function openKeys(wrap, img, close, clickPlate) {
   if (event.keyCode === 13) {
-    grow(this);
+    grow(wrap, img, close, clickPlate);
   }
 }
 
-function closeKeys(img) {
+function closeKeys(wrap, img, close, clickPlate) {
   if ([9, 13, 27, 32].includes(event.keyCode)) {
     event.preventDefault();
-    shrink(img);
+    shrink(wrap, img, close, clickPlate);
   }
 }
 
-function grow(img) {
+function grow(wrap, img, close, clickPlate) {
+  console.log(wrap, img, close, clickPlate);
+
   const windowWidth = html.getBoundingClientRect().width;
   const windowHeight = window.innerHeight;
 
-  const imhanceWrap = img.parentNode;
-  const close = imhanceWrap.querySelector('.imhance-close');
-  const clickPlate = imhanceWrap.querySelector('.imhance-click-plate');
+  // const wrap = img.parentNode;
+  // const close = wrap.querySelector('.imhance-close');
+  // const clickPlate = wrap.querySelector('.imhance-click-plate');
 
   const imgOffset = img.getBoundingClientRect();
   const imgTop = imgOffset.top;
@@ -80,11 +83,19 @@ function grow(img) {
   const growScale = growHeight / imgHeight;
 
   const closeTop = (windowHeight + growHeight - closeHeight - closeMargin) / 2;
-  
+
   if (growScale > 1.125) {
-    imhanceWrap.setAttribute('style', `width: ${imgWidth}px; height: ${imgHeight}px`);
-    imhanceWrap.classList.add('grow');
-    img.setAttribute('style', `position: fixed; transition: transform ${durationCSS} ease; top: ${imgTop}px; left: ${imgLeft}px; width: ${imgWidth}px; transform: translate(${growShiftX}px, ${growShiftY}px) scale(${growScale})`);
+    wrap.setAttribute('style', `width: ${imgWidth}px; height: ${imgHeight}px`);
+    wrap.classList.add('grow');
+
+    let imgStyle = `position: fixed; transition: transform ${durationCSS} ease; top: ${imgTop}px; left: ${imgLeft}px; width: ${imgWidth}px; transform: translate(${growShiftX}px, ${growShiftY}px) scale(${growScale}); z-index: 2;`;
+
+    // Accomodation for scrolling elements
+    if (wrap.classList.contains('work-scroll')) {
+      imgStyle = `${imgStyle} padding-bottom: ${imgHeight - (2 * borderWidth)}px`;
+    }
+
+    img.setAttribute('style', imgStyle);
     img.setAttribute('tabindex', '-1');
     close.setAttribute('style', 'display: block');
     close.focus();
@@ -92,21 +103,23 @@ function grow(img) {
     setTimeout(function() {
       close.setAttribute('style', `display: block; top: ${closeTop}px; opacity: 1;`);
     }, 20);
+
+    window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
   }
 }
 
-function shrink(img) {
-  const imhanceWrap = img.parentNode;
-  const close = imhanceWrap.querySelector('.imhance-close');
-  const clickPlate = imhanceWrap.querySelector('.imhance-click-plate');
+function shrink(wrap, img, close, clickPlate) {
+  // const wrap = img.parentNode;
+  // const close = wrap.querySelector('.imhance-close');
+  // const clickPlate = wrap.querySelector('.imhance-click-plate');
 
   const imgTop = Number(img.style.top.slice(0, -2));
   
-  const imhanceWrapOffset = imhanceWrap.getBoundingClientRect();
-  const imhanceWrapTop = imhanceWrapOffset.top;
+  const wrapOffset = wrap.getBoundingClientRect();
+  const wrapTop = wrapOffset.top;
 
   const growShiftX = 0;
-  const growShiftY = imhanceWrapTop - imgTop;
+  const growShiftY = wrapTop - imgTop;
   const growScale = 1;
 
   img.style.transform = `scale(${growScale}) translate(${growShiftX}px, ${growShiftY}px)`;
@@ -114,51 +127,50 @@ function shrink(img) {
   clickPlate.setAttribute('style', 'display: none');
 
   setTimeout(function () {
-    img.setAttribute('style', 'position: static; transition: unset');
+    // const imgPosition = wrap.classList.contains('work-scroll') ? 'relative'
+
+    img.setAttribute('style', 'position: relative; transition: unset');
     img.setAttribute('tabindex', '0');
     img.focus(); 
     close.removeAttribute('style');
-    imhanceWrap.classList.remove('grow');
-    imhanceWrap.removeAttribute('style');
+    wrap.classList.remove('grow');
+    wrap.removeAttribute('style');
 
   }, durationJS);
 }
 
-function toggleGrow() {
-  const img = this;
-  const imhanceWrap = img.parentNode;
-
-  if (imhanceWrap.classList.contains('grow')) {
-    shrink(img);
+function toggleGrow(wrap, img, close, clickPlate) {
+  if (wrap.classList.contains('grow')) {
+    shrink(wrap, img, close, clickPlate);
   } else {
-    grow(img);
+    grow(wrap, img, close, clickPlate);
   }
 }
 
 // Start the thing
-imhanceWraps.forEach(function(imhanceWrap) {
-  const img = imhanceWrap.querySelector('figure, img');
-  console.log(img);
+wraps.forEach(function(wrap) {
+  const img = wrap.querySelector('figure, img');
 
   // Create close button
   const template = document.createElement('template');
   template.innerHTML = closeButton;
-  imhanceWrap.append(template.content.firstChild);
-  const close = imhanceWrap.querySelector('.imhance-close');
+  wrap.append(template.content.firstChild);
+  const close = wrap.querySelector('.imhance-close');
 
   // Create click plate
   template.innerHTML = `<div class="imhance-click-plate" style="display: none"></div>`;
-  imhanceWrap.prepend(template.content.firstChild);
-  const clickPlate = imhanceWrap.querySelector('.imhance-click-plate');
+  wrap.prepend(template.content.firstChild);
+  const clickPlate = wrap.querySelector('.imhance-click-plate');
 
   // Add event listeners
   // img.addEventListener('load', function() {
-    img.addEventListener('click', toggleGrow);
+    console.log(wrap, img, close, clickPlate);
+    img.addEventListener('click', () => toggleGrow(wrap, img, close, clickPlate));
     img.addEventListener('keyup', openKeys);
     img.setAttribute('tabindex', '0');      
-    close.addEventListener('click', () => shrink(img));
-    close.addEventListener('keydown', () => closeKeys(img));
-    clickPlate.addEventListener('click', () => shrink(img));
+    close.addEventListener('click', () => shrink(wrap, img, close, clickPlate));
+    close.addEventListener('keydown', () => closeKeys(wrap, img, close, clickPlate));
+    clickPlate.addEventListener('click', () => shrink(wrap, img, close, clickPlate));
   // });
 });
 
