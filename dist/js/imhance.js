@@ -12,7 +12,7 @@ const closeButton =
         <title id="close-title">Close Image</title>
         <use xlink:href="#close-button" />
     </svg>
-  </button>`;
+  </button>`
 const borderWidth = 1;
 
 // Convert duration custom property to milliseconds ('0.1s' => 100)
@@ -104,7 +104,7 @@ function grow(wrap, img, close, clickPlate) {
             close.setAttribute('style', `display: block; top: ${closeTop}px; opacity: 1;`);
         }, 20);
 
-        window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
+        // window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
     }
 }
 
@@ -123,7 +123,7 @@ function shrink(wrap, img, close, clickPlate) {
     const growScale = 1;
 
     img.style.transform = `scale(${growScale}) translate(${growShiftX}px, ${growShiftY}px)`;
-    close.style.opacity = 0;
+    close.style.opacity = 0
     clickPlate.setAttribute('style', 'display: none');
 
     setTimeout(function () {
@@ -158,7 +158,7 @@ wraps.forEach(function(wrap) {
     const close = wrap.querySelector('.imhance-close');
 
     // Create click plate
-    template.innerHTML = '<div class="imhance-click-plate" style="display: none"></div>';
+    template.innerHTML = `<div class="imhance-click-plate" style="display: none"></div>`;
     wrap.prepend(template.content.firstChild);
     const clickPlate = wrap.querySelector('.imhance-click-plate');
 
