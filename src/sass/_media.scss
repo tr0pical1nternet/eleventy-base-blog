@@ -1,4 +1,6 @@
-.image {
+.media {
+    box-sizing: content-box;
+    display: block;
     background-color: var(--color-text);
     border-radius: var(--s-1);
     border: 1px solid var(--color-text);
@@ -11,7 +13,7 @@
     margin: var(--s2) auto;
 
     img {
-        @extend .image;
+        @extend .media;
         @include button-shadow;
     }
 
@@ -31,7 +33,7 @@
     margin: var(--s1) auto var(--s2);
 
     figure {
-        @extend .image;
+        @extend .media;
         position: relative;
         margin: 0;
         padding: 0 0 176%;
@@ -68,7 +70,7 @@
 }
 
 .video-embed {
-    @extend .image;
+    @extend .media;
     width: 100%;
     max-width: 24rem;
     margin: var(--s2) auto;
@@ -90,11 +92,9 @@
 }
 
 .post-video {
-    box-sizing: content-box;
-    display: block;
-    max-width: 360px;
+    @extend .media;
+    width: 100%;
+    max-width: 24rem;
     height: auto;
     margin: var(--s2) auto;
-    border: 1px solid var(--color-text);
-    border-radius: var(--s-1);
 }

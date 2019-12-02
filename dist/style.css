@@ -189,7 +189,9 @@ a {
     line-height: 1;
     margin: var(--s-1) 0 0; }
 
-.image, .post-figure img, .work-scroll figure, .video-embed, .postlist-cover {
+.media, .post-figure img, .work-scroll figure, .video-embed, .post-video, .postlist-cover {
+  box-sizing: content-box;
+  display: block;
   background-color: var(--color-text);
   border-radius: var(--s-1);
   border: 1px solid var(--color-text);
@@ -256,13 +258,10 @@ a {
     left: 0; }
 
 .post-video {
-  box-sizing: content-box;
-  display: block;
-  max-width: 360px;
+  width: 100%;
+  max-width: 24rem;
   height: auto;
-  margin: var(--s2) auto;
-  border: 1px solid var(--color-text);
-  border-radius: var(--s-1); }
+  margin: var(--s2) auto; }
 
 .header {
   --header-gap: var(--s-2);
