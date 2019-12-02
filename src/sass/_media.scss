@@ -1,5 +1,5 @@
 .media {
-    box-sizing: content-box;
+    // box-sizing: content-box;
     display: block;
     background-color: var(--color-text);
     border-radius: var(--s-1);
@@ -69,11 +69,17 @@
     }
 }
 
-.video-embed {
+.post-video {
     @extend .media;
+    box-sizing: content-box;
     width: 100%;
     max-width: 24rem;
+    height: auto;
     margin: var(--s2) auto;
+}
+
+.video-embed {
+    @extend .post-video;
 
     &-inner {
         position: relative;    
@@ -91,10 +97,3 @@
     }
 }
 
-.post-video {
-    @extend .media;
-    width: 100%;
-    max-width: 24rem;
-    height: auto;
-    margin: var(--s2) auto;
-}

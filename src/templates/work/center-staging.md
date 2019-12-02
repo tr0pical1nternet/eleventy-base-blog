@@ -18,7 +18,7 @@ The client wanted a fully custom web design while being able to maintain content
 
 <!-- {% postFigure 'center-staging_icons', 'Custom icon illustrations for the rental services section', 'post-figure--left' %} -->
 
-The bulk of the content is in the rental services section. On their previous website all of their services were listed in a single sidebar menu. I added a category page illustrated icons to make it easy to for users to find the types of equipment that they need.
+The bulk of the content is in the rental services section. On their previous website all of their services were listed in a single sidebar menu that lacked visual hierarchy and overwhelmed the user with choices. I added a category page and illustrated icons to make it easier to for users to find the types of equipment that they need.
 
  An essential part of the Center Staging brand is that they get job done right every time. For the Build section I edited a video to show the company in action as an organized and effective team. It sets out to convey in a fun way the scope of their work, the type of equipment they have available, and what a client can expect when they hire Center Staging.
 
