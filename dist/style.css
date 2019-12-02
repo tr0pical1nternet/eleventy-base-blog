@@ -255,6 +255,15 @@ a {
     top: 0;
     left: 0; }
 
+.post-video {
+  box-sizing: content-box;
+  display: block;
+  max-width: 360px;
+  height: auto;
+  margin: var(--s2) auto;
+  border: 1px solid var(--color-text);
+  border-radius: var(--s-1); }
+
 .header {
   --header-gap: var(--s-2);
   line-height: 1;
