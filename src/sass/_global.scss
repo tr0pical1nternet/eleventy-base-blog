@@ -22,7 +22,12 @@
     --color-base-light: rgb(145, 255, 215);
     --color-base: #36FFB4;
     --color-base-dark: rgb(1, 224, 157);
-    --color-shadow: rgba(34,34,34,.5);
+    --color-shadow: rgba(0,0,0,.5);
+
+    --border-width: 1px;
+    --border-radius: var(--s-1);
+    --box-shadow-offset-x: var(--s-2);
+    --box-shadow-offset-y: var(--s-2);
 
     --duration: 0.2s;
 }
@@ -64,7 +69,7 @@
 }
 
 @mixin button-shadow {
-    box-shadow: var(--s-2) var(--s-2) 0 var(--color-shadow);
+    box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) 0 var(--color-shadow);
 }
 
 .svg-icon {
@@ -103,3 +108,4 @@ input[type="button"]::-moz-focus-inner,
 input[type="submit"]::-moz-focus-inner {
   border: 0;
 }
+

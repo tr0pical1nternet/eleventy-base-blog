@@ -1,4 +1,6 @@
 .imhance {
+    // position: relative;
+
     &-close {
         --button-width: calc(1rem + 6vmin);
         display: none;
@@ -24,7 +26,15 @@
         right: 0;
         bottom: 0;
         left: 0;
+        transition: opacity var(--duration) linear;
+        background-color: var(--color-background);
+        opacity: 0;
     }
 
+    &-caption {
+        font-size: $font-size-small;
+        text-align: center;
+        margin-top: var(--s-3);
+    }
     
 }

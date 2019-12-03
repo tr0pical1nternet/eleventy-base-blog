@@ -10,7 +10,7 @@ cover:
     alt: ravenpmg.com homepage
 tags: [WordPress, Custom Theme]
 ---
-{% workScroll 'raven-pmg_home', 'Full scrollable homepage of ravenpmg.com'%}
+{% imgScroll 'raven-pmg_home', 'Full scrollable homepage of ravenpmg.com'%}
 
 Raven needed a site that would showcase their innovativeness in the event design industry. They had a website on Squarespace but it was proving too rigid to fit their content as their company grew. They provided Photoshop comps for a desktop version. From those I designed mobile comps and then a fully responsive, mobile-first theme.
 

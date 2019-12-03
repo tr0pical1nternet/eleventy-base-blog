@@ -24,14 +24,13 @@
     }
 }
 
-.work-scroll {
+.img-scroll {
     position: relative;
     width: 12rem;
     display: block;
     margin: var(--s1) auto var(--s2);
-
-    figure {
-        @extend .image;
+    
+    &-window {
         position: relative;
         margin: 0;
         padding: 0 0 176%;
@@ -48,6 +47,10 @@
             top: 0;
             left: 0;
             width: 100%;
+        }
+
+        &-wrap {
+            @extend .image;
         }
     }
 
