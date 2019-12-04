@@ -10,6 +10,7 @@
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Charles Robertson">
   </head>
   <body id="page-top">
+    <svg style="display:none"><symbol id="close-button" viewBox="0 0 32 32" style="overflow:visible"><path d="M0, 0 L32, 32 M32, 0 L0, 32"></path></symbol></svg>
     
       <header class="header">
         <div class="header-inner">
@@ -52,15 +53,19 @@
   
 </div>
 
-<div class="work-scroll">
+<div class="img-scroll imhance">
       <figure>
-        <picture>
+        <div class="img-scroll-window-wrap">
+          <div class="img-scroll-window">
+            <picture>
           <source srcset="/images/cdesigns-inc_home_360.webp 360w,/images/cdesigns-inc_home_480.webp 480w,/images/cdesigns-inc_home_640.webp 640w,/images/cdesigns-inc_home_800.webp 800w,/images/cdesigns-inc_home_1024.webp 1024w,/images/cdesigns-inc_home_1280.webp 1280w,/images/cdesigns-inc_home_1600.webp 1600w" type="image/webp">
           <source srcset="/images/cdesigns-inc_home_360.jpg 360w,/images/cdesigns-inc_home_480.jpg 480w,/images/cdesigns-inc_home_640.jpg 640w,/images/cdesigns-inc_home_800.jpg 800w,/images/cdesigns-inc_home_1024.jpg 1024w,/images/cdesigns-inc_home_1280.jpg 1280w,/images/cdesigns-inc_home_1600.jpg 1600w" type="image/jpeg">
           <img  src="/images/cdesigns-inc_home_480.jpg" srcset="/images/cdesigns-inc_home_360.jpg 360w, /images/cdesigns-inc_home_480.jpg 480w, /images/cdesigns-inc_home_640.jpg 640w, /images/cdesigns-inc_home_800.jpg 800w, /images/cdesigns-inc_home_1024.jpg 1024w, /images/cdesigns-inc_home_1280.jpg 1280w, /images/cdesigns-inc_home_1600.jpg 1600w"  alt="Full scrollable homepage of cdesignsinc.com" width="480" height="5132">
       </picture>
+          </div>
+        </div>
       </figure>
-      <div class="work-scroll-caption">← Scroll Me →</div>
+      <div class="img-scroll-caption">← Scroll Me →</div>
     </div>
 <p>CDesigns, Inc provides high end renovations and wanted their site to reflect the sophistication of their work. After completing the visual design I was able to find an existing WordPress theme that had the right structure, and built a child theme to suit. The result was an attractive site that was inexpensive and easy to maintain.</p>
 <p>For the gallery I used the default WordPress gallery and added <a href="https://photoswipe.com">PhotoSwipe</a> as a light box to improve the user interface especially on mobile.</p>
@@ -94,14 +99,15 @@
   
 
 </div>
+      <script src="/js/imhance.js"></script>
     
   <footer class="footer">
   <div class="footer-container">
     <nav class="footer-nav">
       <div class="footer-menu">
         <h3 class="footer-heading">Site</h3>
-          <ul class="footer-nav-list"><li><a href="/">Home</a></li>
-<li><a href="/work/">Work</a></li>
+          <ul class="footer-nav-list"><li><a href="/work/">Work</a></li>
+<li><a href="/">Home</a></li>
 <li><a href="/projects/">Projects</a></li>
 <li><a href="/resume/">Resume</a></li></ul>
       </div>

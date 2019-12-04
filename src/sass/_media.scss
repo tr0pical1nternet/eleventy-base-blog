@@ -1,7 +1,7 @@
 .image {
     background-color: var(--color-text);
     border-radius: var(--s-1);
-    border: 1px solid var(--color-text);
+    border: var(--border-width) solid var(--color-text);
     overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
 
     img {
         @extend .image;
-        @include button-shadow;
+        // @include button-shadow;
     }
 
     &--left {
@@ -24,14 +24,13 @@
     }
 }
 
-.work-scroll {
+.img-scroll {
     position: relative;
     width: 12rem;
     display: block;
     margin: var(--s1) auto var(--s2);
-
-    figure {
-        @extend .image;
+    
+    &-window {
         position: relative;
         margin: 0;
         padding: 0 0 176%;
@@ -41,13 +40,16 @@
             width: 0;
         }
 
-        @include button-shadow;
 
         > picture {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
+        }
+
+        &-wrap {
+            @extend .image;
         }
     }
 

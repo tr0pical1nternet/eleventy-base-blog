@@ -114,21 +114,20 @@ gulp.task('sass', function() {
 
 // JavaScript
 gulp.task('js', () =>
-    gulp
-        .src('src/js/inline.js')
-        .pipe(sourcemaps.init())
-        .pipe(
-            babel({
-                presets: ['@babel/preset-env']
-            })
-        )
-        .pipe(uglify())
-        .pipe(
-            rename(function(path) {
-                path.basename = `${path.basename}.min`;
-            })
-        )
-        .pipe(gulp.dest('src/js'))
+    gulp.src('src/js/*.js')
+        // .pipe(sourcemaps.init())
+        // .pipe(
+        //     babel({
+        //         presets: ['@babel/preset-env']
+        //     })
+        // )
+        // .pipe(uglify())
+        // .pipe(
+        //     rename(function(path) {
+        //         path.basename = `${path.basename}.min`;
+        //     })
+        // )
+        .pipe(gulp.dest('dist/js'))
 );
 
 // browserSync and file watching
@@ -142,7 +141,8 @@ gulp.task('serve', function() {
     // gulp.watch(['src/pug/*.pug', 'src/svg/*.svg'], gulp.series('pug'));
     gulp.watch('src/sass/*.scss', gulp.series('sass'));
     // gulp.watch('src/js/inline.js', gulp.series('js', 'pug'));
-    gulp.watch('dist/index.html').on('change', browserSync.reload);
+    gulp.watch('src/js/*.js', gulp.series('js'));
+    gulp.watch(['dist/index.html', 'dist/js/*']).on('change', browserSync.reload);
 });
 
 gulp.task('default', gulp.series('serve'));
