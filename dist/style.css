@@ -42,11 +42,16 @@ img, iframe, picture {
   --color-base: #36FFB4;
   --color-base-dark: rgb(1, 224, 157);
   --color-shadow: rgba(0,0,0,.5);
+  --color-focus: var(--color-base);
   --border-width: 1px;
   --border-radius: var(--s-1);
   --box-shadow-offset-x: var(--s-2);
   --box-shadow-offset-y: var(--s-2);
   --duration: 0.2s; }
+
+*:focus {
+  outline: 4px dotted #00ccFF;
+  outline-offset: .0625rem; }
 
 @media screen and (min-width: 480px) {
   :root {
