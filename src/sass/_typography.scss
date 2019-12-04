@@ -96,6 +96,12 @@ a {
     @extend .link-underline;
 }
 
+figcaption {
+    font-size: $font-size-small;
+    text-align: center;
+    margin-top: var(--s-5);
+}
+
 .post-nav {
     font-size: $font-size-small;    
 }

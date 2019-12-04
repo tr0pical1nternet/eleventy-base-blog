@@ -10,6 +10,7 @@
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Charles Robertson">
   </head>
   <body id="page-top">
+    <svg style="display:none"><symbol id="close-button" viewBox="0 0 32 32" style="overflow:visible"><path d="M0, 0 L32, 32 M32, 0 L0, 32"></path></symbol></svg>
     
       <header class="header">
         <div class="header-inner">
@@ -52,15 +53,19 @@
   
 </div>
 
-<div class="work-scroll">
+<div class="img-scroll imhance">
       <figure>
-        <picture>
+        <div class="img-scroll-window-wrap">
+          <div class="img-scroll-window">
+            <picture>
           <source srcset="/images/sediment-press_home_360.webp 360w,/images/sediment-press_home_480.webp 480w,/images/sediment-press_home_640.webp 640w,/images/sediment-press_home_800.webp 800w,/images/sediment-press_home_1024.webp 1024w,/images/sediment-press_home_1280.webp 1280w,/images/sediment-press_home_1600.webp 1600w" type="image/webp">
           <source srcset="/images/sediment-press_home_360.jpg 360w,/images/sediment-press_home_480.jpg 480w,/images/sediment-press_home_640.jpg 640w,/images/sediment-press_home_800.jpg 800w,/images/sediment-press_home_1024.jpg 1024w,/images/sediment-press_home_1280.jpg 1280w,/images/sediment-press_home_1600.jpg 1600w" type="image/jpeg">
           <img  src="/images/sediment-press_home_480.jpg" srcset="/images/sediment-press_home_360.jpg 360w, /images/sediment-press_home_480.jpg 480w, /images/sediment-press_home_640.jpg 640w, /images/sediment-press_home_800.jpg 800w, /images/sediment-press_home_1024.jpg 1024w, /images/sediment-press_home_1280.jpg 1280w, /images/sediment-press_home_1600.jpg 1600w"  alt="Full scrollable homepage of sedimentpress.com" width="480" height="2437">
       </picture>
+          </div>
+        </div>
       </figure>
-      <div class="work-scroll-caption">← Scroll Me →</div>
+      <div class="img-scroll-caption">← Scroll Me →</div>
     </div>
 <p>Sediment Press is a design and screen printing company I founded in 2012. Primarily an online store and design portfolio, I wanted to make a site with a loose, hand-drawn aesthetic, while being functionally polished, with a seamless checkout and integrated payment gateway.</p>
 <p>WooCommerce had the power and extensibility I was looking for. The plugin architecture allowed us to integrate payments into the site and calculate shipping based on the weight and dimensions of our products. I started with the Storefront theme by WooCommerce because it worked out of the box and I knew it would be well supported. I built a child theme using hooks, actions, and filters to remove unnecessary components from the user interface and reshape it to fit our inventory. Stripe made it easy to add secure credit card payments into our site for streamlined checkout experience.</p>
@@ -95,14 +100,15 @@
   
 
 </div>
+      <script src="/js/imhance.js"></script>
     
   <footer class="footer">
   <div class="footer-container">
     <nav class="footer-nav">
       <div class="footer-menu">
         <h3 class="footer-heading">Site</h3>
-          <ul class="footer-nav-list"><li><a href="/">Home</a></li>
-<li><a href="/work/">Work</a></li>
+          <ul class="footer-nav-list"><li><a href="/work/">Work</a></li>
+<li><a href="/">Home</a></li>
 <li><a href="/projects/">Projects</a></li>
 <li><a href="/resume/">Resume</a></li></ul>
       </div>

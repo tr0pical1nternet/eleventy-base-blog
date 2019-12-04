@@ -87,16 +87,25 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("postFigure", function(slug, alt, classes, title) {
-    classes = classes ? 'post-figure ' + classes : 'post-figure';
-    return `<figure class="${classes}">${picture(slug, alt, null, title)}</figure>`
+    classes = classes ? 'post-figure imhance ' + classes : 'post-figure imhance';
+    return `<div class="${classes}">
+        <figure>
+          ${picture(slug, alt, null, title)}
+        </figure>
+      </div>`
   });
 
-  eleventyConfig.addShortcode("workScroll", function(slug, alt, classes, title) {
-    return `<div class="work-scroll">
+  eleventyConfig.addShortcode("imgScroll", function(slug, alt, classes, title) {
+    classes = classes ? 'img-scroll imhance ' + classes : 'img-scroll imhance';
+    return `<div class="${classes}">
       <figure>
-        ${picture(slug, alt, classes, title)}
+        <div class="img-scroll-window-wrap">
+          <div class="img-scroll-window">
+            ${picture(slug, alt, null, title)}
+          </div>
+        </div>
       </figure>
-      <div class="work-scroll-caption">← Scroll Me →</div>
+      <div class="img-scroll-caption">← Scroll Me →</div>
     </div>`
   });
   
