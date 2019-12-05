@@ -21,7 +21,6 @@ const borderRadius = documentStyles.getPropertyValue('--border-radius').trim();
 const boxShadowOffsetX = documentStyles.getPropertyValue('--box-shadow-offset-x').trim();
 const boxShadowOffsetY = documentStyles.getPropertyValue('--box-shadow-offset-y').trim();
 const boxShadowColor = documentStyles.getPropertyValue('--color-shadow').trim();
-const outlineWidth = documentStyles.getPropertyValue('--outline-width').trim();
 const outlineOffset = documentStyles.getPropertyValue('--outline-offset').trim();
 const outlineRadius = documentStyles.getPropertyValue('--outline-radius').trim();
 
@@ -33,7 +32,6 @@ function mediaKeys(imhance) {
     const isOpen = imhance.wrap.classList.contains('grow');
 
     if (event.key === 'Enter') {
-        console.log('mediaKeys: Enter');
         toggleGrow(imhance);
     }
 
@@ -48,8 +46,6 @@ function mediaKeys(imhance) {
 }
 
 function closeKeys(imhance) {
-    console.log('closeKeys');
-
     if (['Enter', 'Escape'].includes(event.key)) {
         event.preventDefault();
         shrink(imhance);
@@ -65,25 +61,18 @@ function closeKeys(imhance) {
 function grow(imhance) {
     const windowWidth = html.getBoundingClientRect().width;
     const windowHeight = window.innerHeight;
-
-    // const wrap = img.parentNode;
-    // const close = wrap.querySelector('.imhance-close');
-    // const clickPlate = wrap.querySelector('.imhance-click-plate');
     const isScroll = imhance.wrap.classList.contains('img-scroll');
-
     const mediaOffset = imhance.media.getBoundingClientRect();
     const mediaTop = mediaOffset.top;
     const mediaLeft = mediaOffset.left;
     const mediaWidth = mediaOffset.width;
     const mediaHeight = mediaOffset.height;
     const scrollTop = isScroll ? imhance.scrollWindow.scrollTop : undefined;
-  
     const closeHeight = imhance.close.getBoundingClientRect().height;
-
     const windowAspect = windowHeight / windowWidth;  
     const mediaAspect = mediaHeight / mediaWidth;
 
-        
+    // Choose to base window margins on smallest screen dimension
     let windowMargin, closeMargin;
     if (windowAspect <= 1) {
         windowMargin = .15 * windowHeight;
@@ -97,7 +86,6 @@ function grow(imhance) {
     const maxGrowWidth = windowWidth - (windowMargin * 2);
     const maxGrowHeight = windowHeight - windowMargin - closeHeight - (closeMargin * 2);
     const maxGrowAspect = maxGrowHeight / maxGrowWidth;
-
     let growWidth, growHeight;
 
     // Chooses whether to use window width or height as the constraining dimension
@@ -120,10 +108,8 @@ function grow(imhance) {
     const growShadow = `calc(${boxShadowOffsetX} * ${growScale}) calc(${boxShadowOffsetY} * ${growScale}) 0 ${boxShadowColor}`;
     const growOutlineRadius = `calc(${outlineRadius} * ${growScale})`;
     const growScrollTop = scrollTop * growScale;
-
     const closeTop = (windowHeight + growHeight - closeHeight - closeMargin) / 2;
 
-    // if (growScale > 1.125) {
     // Keep wrap from collapsing when contents is removed
     imhance.figure.setAttribute('style', `width: ${mediaWidth}px; height: ${mediaHeight}px`);
     imhance.wrap.classList.add('grow');
@@ -141,16 +127,14 @@ function grow(imhance) {
 
     // Start transform
     imhance.media.setAttribute('style', transformStyle);
-
-    // imhance.media.setAttribute('tabindex', '-1');
     imhance.close.setAttribute('style', 'display: block');
     imhance.clickPlate.style.display = 'block';
 
     // Repace transformed version with full size image
     setTimeout(function () {
         imhance.media.setAttribute('style', grownStyle);
-        if (isScroll) { imhance.scrollWindow.scrollTop = growScrollTop; }
         imhance[imhance.eventTarget].focus();
+        if (isScroll) { imhance.scrollWindow.scrollTop = growScrollTop; }
     }, durationJS);
 
     // Slight delay for fade in for elements that were previously display: none
@@ -158,27 +142,21 @@ function grow(imhance) {
         imhance.close.setAttribute('style', `display: block; top: ${closeTop}px; opacity: 1;`);
         imhance.clickPlate.style.opacity = '.375';
     }, 20);
-
-    // window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
-    // }
 }
 
 function shrink(imhance) {
     const isScroll = imhance.wrap.classList.contains('img-scroll');
-
     const mediaOffset = imhance.media.getBoundingClientRect();
     const mediaTop = mediaOffset.top;
     const mediaLeft = mediaOffset.left;
     const mediaWidth = mediaOffset.width;
     const mediaHeight = mediaOffset.height;
     const scrollTop = isScroll ? imhance.scrollWindow.scrollTop : undefined;
-
     const figureOffset = imhance.figure.getBoundingClientRect();
     const figureTop = figureOffset.top;
     const figureLeft = figureOffset.left;
     const figureWidth = figureOffset.width;
     const figureHeight = figureOffset.height;
-
     const growScale = mediaWidth / figureWidth;
     const shrinkScale = figureWidth / mediaWidth;
     const shrinkShiftX = -mediaLeft + figureLeft + (figureWidth - mediaWidth) / 2;
@@ -196,7 +174,6 @@ function shrink(imhance) {
 
     setTimeout(() => {
         imhance.media.setAttribute('style', 'position: relative; transition: unset');
-        // imhance.media.setAttribute('tabindex', '0');
         imhance[imhance.eventTarget].focus();
         if (isScroll) { imhance.scrollWindow.scrollTop = shrinkScrollTop; }
         imhance.close.removeAttribute('style');
@@ -219,7 +196,6 @@ wraps.forEach(function(wrap) {
     const imhance = new Object;
     imhance.wrap = wrap;
     imhance.figure = wrap.querySelector('figure');
-    // imhance.scrollWrap = wrap.querySelector('.img-scroll-window-wrap');
     imhance.scrollWindow = wrap.querySelector('.img-scroll-window');
     imhance.media = wrap.querySelector('.img-scroll-window-wrap, img');
     imhance.media.classList.add('imhance-media');
