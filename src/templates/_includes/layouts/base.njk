@@ -22,8 +22,12 @@ navItems:
     <svg style="display:none"><symbol id="close-button" viewBox="0 0 32 32" style="overflow:visible"><path d="M0, 0 L32, 32 M32, 0 L0, 32"></path></symbol></svg>
     {# <div class="site-container"> #}
       <header class="header">
-        <div class="header-inner">
-          <a class="header-logo" href="{{ '/' | url }}" title="Home"><div class="header-logo-text">Charles Robertson</div></a>
+        {# <div class="header-inner"> #}
+          <a class="header-logo" href="{{ '/' | url }}" title="Home">
+            {# <div class="header-logo-text"> #}
+              Charles Robertson
+            {# </div> #}
+          </a>
 
           {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
           <nav class="header-nav">
@@ -44,7 +48,7 @@ navItems:
             }) | safe }} #}
             </ul>
           </nav>
-        </div>
+        {# </div> #}
       </header>
 
       <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>

@@ -23,19 +23,22 @@
     --color-base: #36FFB4;
     --color-base-dark: rgb(1, 224, 157);
     --color-shadow: rgba(0,0,0,.5);
-    --color-focus: var(--color-base);
+    --color-focus: rgba(0, 204, 255, .8);
 
     --border-width: 1px;
     --border-radius: var(--s-1);
     --box-shadow-offset-x: var(--s-2);
     --box-shadow-offset-y: var(--s-2);
+    --outline-width: var(--s-4);
+    --outline-offset: calc(1rem / 16);
+    --outline-radius: .8rem;
 
     --duration: 0.2s;
 }
 
 *:focus {
     // outline: 4px dashed var(--color-focus);
-    outline: 4px dotted #00ccFF;
+    outline: var(--outline-width) solid var(--color-focus);
     outline-offset: .0625rem;
     // -moz-outline-radius: .875rem;
 }

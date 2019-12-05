@@ -1,24 +1,24 @@
 
 .postlist {
     @extend .clear-list;
-    --item-margin-x: var(--s1);
-    --item-margin-y: var(--s3);
-    overflow: hidden;
+    --item-gap-x: var(--s1);
+    --item-gap-y: var(--s3);
 
     &-inner {
         display: flex;
         flex-wrap: wrap;
-        margin: calc(-1 * var(--item-margin-y) / 2) calc(-1 * var(--item-margin-x) / 2);
     }
 
     &-item {
-        min-width: 14rem;
-        flex-basis: calc(50% - var(--item-margin-x));
         flex-grow: 1;
-        margin: calc(var(--item-margin-y) / 2) calc(var(--item-margin-x) / 2);
+        margin-top: var(--item-gap-y);
+        &:first-child {
+            margin-top: 0;
+        }      
     }
 
     &-link {
+        display: block;
         color: var(--color-base);
     }
 
@@ -57,5 +57,19 @@
         padding: .25em .5em;
         margin: calc(var(--tag-margin) / 2);
         background-color: var(--color-base);
+    }
+
+    @media screen and (min-width: 600px) {
+        &-item {
+            flex-basis: calc(50% - var(--item-gap-x));
+            
+            &:nth-child(-n + 2) {
+                margin-top: 0;
+            }
+
+            &:nth-child(even) {
+                margin-left: var(--item-gap-x)
+            }
+        }
     }
 }

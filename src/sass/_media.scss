@@ -5,6 +5,10 @@
     border-radius: var(--s-1);
     border: var(--border-width) solid var(--color-text);
     overflow: hidden;
+
+    &:focus {
+        -moz-outline-radius: var(--outline-radius);
+    }
 }
 
 .post-figure {
@@ -13,7 +17,7 @@
     margin: var(--s2) auto;
 
     img {
-        @extend .image;
+        @extend .media;
         // @include button-shadow;
     }
 
@@ -42,6 +46,9 @@
             width: 0;
         }
 
+        &:focus {
+            outline: none;
+        }
 
         > picture {
             position: absolute;
@@ -51,7 +58,11 @@
         }
 
         &-wrap {
-            @extend .image;
+            @extend .media;
+            &:focus-within {
+                @extend *:focus;
+                -moz-outline-radius: var(--outline-radius);
+            }
         }
     }
 
@@ -61,7 +72,7 @@
         text-transform: lowercase;
         top: 50%;
         left: 0;
-        transform: translate(-64%) rotate(-90deg) ;
+        transform: translate(-64%, -50%) rotate(-90deg) ;
     }
 
     @media screen and (min-width: 700px) {

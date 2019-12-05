@@ -1,6 +1,6 @@
 .imhance {
     // position: relative;
-    .media {
+    &-media {
         @include button-shadow;
     }
 
@@ -19,6 +19,7 @@
         z-index: 2;
 
         &:focus {
+            // outline: calc(var(--button-width) / 8) solid var(--color-focus);
             -moz-outline-radius: 75%;
         }
     }

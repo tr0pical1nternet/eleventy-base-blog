@@ -10,7 +10,7 @@
         
         {% if (post.data.tags.length > 1) %}
           <ul class="postlist-taglist">
-            <div class="postlist-taglist-inner">
+            {# <div class="postlist-taglist-inner"> #}
               {% for tag in post.data.tags %}
                 {%- if tag !== slug -%}
                   <li class="postlist-tag">
@@ -18,7 +18,7 @@
                   </li>
                 {%- endif -%}
               {% endfor %}
-            </div>
+            {# </div> #}
           </ul>
         {% endif %}
       </li>

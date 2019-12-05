@@ -1,38 +1,25 @@
 .header {
-    --header-gap: var(--s-2);
     @extend .site-container;
     line-height: 1;
     margin-top: var(--s1);
-    // margin: var(--s1) var(--body-padding) 0 var(--body-padding);
-    overflow: hidden;
     
     a {
         text-decoration: none;
         color: var(--color-text);
+        
     }
-
-    &-inner {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        margin: calc(-1 * (var(--header-gap) / 2));
-
-        > * {
-            margin: calc(var(--header-gap) / 2);
-        }
-    }
-    
+  
     &-logo {
-        flex-basis: 6.5em;
-        max-width: 11.2em;
-        min-height: 2.89em;
-        flex-shrink: 1;
-        flex-grow: 999;
-        display: inline-block;
+        display: block;
         display: flex;
-        justify-content: start;
         align-items: flex-end;
+        // flex-basis: 6.5em;
+        // flex-basis: max-content;
+        // max-width: 11.2em;
+        min-height: 2.89em;
+        
         background-color: var(--color-base);
+        // margin-right: var(--s-2);
         padding: var(--s-2);
         
         @extend .heading-font;
@@ -44,28 +31,35 @@
     }
 
     &-nav {
-        display: inline-block;
-        flex-basis: 50%;
-        flex-grow: 1;
-
+        margin-top: var(--s-1);
         font-size: $font-size-small;
+
+        // flex-basis: 50%;
+        // flex-grow: 1;
+
     }
 
     &-nav-list {
         @extend .clear-list;
         display: inline-block;
         display: flex;
-        justify-content: space-evenly;
-        margin: 0 calc(-1 * (var(--header-gap) / 2));
+        justify-content: space-between;
+
+        // @media screen and ()
+        // margin: 0 calc(-1 * (var(--header-gap) / 2));
     }
 
     &-nav-item {
         display: inline-block;
         padding: 0 var(--s-2);
-        margin: 0 calc(var(--header-gap) / 2);
+        // margin: 0 calc(var(--header-gap) / 2);
 
         &:hover {
             background-color: var(--color-base);
+        }
+
+        &:focus-within {
+            @extend *:focus;
         }
 
         &.current {
@@ -79,9 +73,43 @@
             }
         }
 
+        a {
+            &:focus {
+                outline: none;
+            }   
+        }
+
         &-inner {
             padding: var(--s-2) 0 calc(var(--s-2) - 3px);
             border-bottom: 3px solid var(--color-base);
+        }
+    }
+
+    @media screen and (min-width: 350px) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+
+        &-logo {
+            flex-basis: 6.5em;
+            flex-shrink: 1;
+            flex-grow: 3;
+            display: inline-block;
+            width: auto;
+            display: flex;
+            justify-content: start;
+            align-items: flex-end;
+        }
+
+        &-nav {
+            flex-basis: 50%;
+            flex-grow: 1;
+            margin-left: var(--s-2);
+            
+        }
+
+        &-nav-item {
+            margin-left: auto;
         }
     }
 

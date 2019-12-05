@@ -100,12 +100,12 @@ module.exports = function(eleventyConfig) {
     return `<div class="${classes}">
       <figure>
         <div class="img-scroll-window-wrap">
-          <div class="img-scroll-window">
+          <div class="img-scroll-window" tabindex="0">
             ${picture(slug, alt, null, title)}
           </div>
         </div>
+        <div class="img-scroll-caption">← Scroll →</div>
       </figure>
-      <div class="img-scroll-caption">← Scroll Me →</div>
     </div>`
   });
   

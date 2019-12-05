@@ -21,21 +21,43 @@ const borderRadius = documentStyles.getPropertyValue('--border-radius').trim();
 const boxShadowOffsetX = documentStyles.getPropertyValue('--box-shadow-offset-x').trim();
 const boxShadowOffsetY = documentStyles.getPropertyValue('--box-shadow-offset-y').trim();
 const boxShadowColor = documentStyles.getPropertyValue('--color-shadow').trim();
+const outlineWidth = documentStyles.getPropertyValue('--outline-width').trim();
+const outlineOffset = documentStyles.getPropertyValue('--outline-offset').trim();
+const outlineRadius = documentStyles.getPropertyValue('--outline-radius').trim();
 
 // Convert duration custom property to milliseconds ('0.1s' => 100)
 const durationCSS = getComputedStyle(document.documentElement).getPropertyValue('--duration');
 const durationJS = 1000 * Number(durationCSS.slice(0, -1));
 
-function openKeys(wrap, img, close, clickPlate) {
-    if (event.keyCode === 13) {
-        grow(wrap, img, close, clickPlate);
+function mediaKeys(imhance) {
+    const isOpen = imhance.wrap.classList.contains('grow');
+
+    if (event.key === 'Enter') {
+        console.log('mediaKeys: Enter');
+        toggleGrow(imhance);
+    }
+
+    if (isOpen && event.key === 'Escape') {
+        shrink(imhance);
+    }
+
+    if (isOpen && event.key === 'Tab') {
+        event.preventDefault();
+        imhance.close.focus();
     }
 }
 
-function closeKeys(wrap, img, close, clickPlate) {
-    if ([9, 13, 27, 32].includes(event.keyCode)) {
+function closeKeys(imhance) {
+    console.log('closeKeys');
+
+    if (['Enter', 'Escape'].includes(event.key)) {
         event.preventDefault();
-        shrink(wrap, img, close, clickPlate);
+        shrink(imhance);
+    }
+
+    if (event.key === 'Tab') {
+        event.preventDefault();
+        imhance[imhance.eventTarget].focus();
     }
 }
 
@@ -47,18 +69,21 @@ function grow(imhance) {
     // const wrap = img.parentNode;
     // const close = wrap.querySelector('.imhance-close');
     // const clickPlate = wrap.querySelector('.imhance-click-plate');
+    const isScroll = imhance.wrap.classList.contains('img-scroll');
 
     const mediaOffset = imhance.media.getBoundingClientRect();
     const mediaTop = mediaOffset.top;
     const mediaLeft = mediaOffset.left;
     const mediaWidth = mediaOffset.width;
     const mediaHeight = mediaOffset.height;
+    const scrollTop = isScroll ? imhance.scrollWindow.scrollTop : undefined;
   
     const closeHeight = imhance.close.getBoundingClientRect().height;
 
     const windowAspect = windowHeight / windowWidth;  
     const mediaAspect = mediaHeight / mediaWidth;
-  
+
+        
     let windowMargin, closeMargin;
     if (windowAspect <= 1) {
         windowMargin = .15 * windowHeight;
@@ -93,50 +118,60 @@ function grow(imhance) {
     const growBorder = `calc(${borderWidth} * ${Math.max(growScale, 2)}) solid ${borderColor}`;
     const growBorderRadius = `calc(${borderRadius} * ${growScale})`;
     const growShadow = `calc(${boxShadowOffsetX} * ${growScale}) calc(${boxShadowOffsetY} * ${growScale}) 0 ${boxShadowColor}`;
+    const growOutlineRadius = `calc(${outlineRadius} * ${growScale})`;
+    const growScrollTop = scrollTop * growScale;
 
     const closeTop = (windowHeight + growHeight - closeHeight - closeMargin) / 2;
 
     // if (growScale > 1.125) {
-        // Keep wrap from collapsing when contents is removed
-        imhance.figure.setAttribute('style', `width: ${mediaWidth}px; height: ${mediaHeight}px`);
-        imhance.wrap.classList.add('grow');
+    // Keep wrap from collapsing when contents is removed
+    imhance.figure.setAttribute('style', `width: ${mediaWidth}px; height: ${mediaHeight}px`);
+    imhance.wrap.classList.add('grow');
 
-        // Define styles to tranform image to grow size
-        let mediaStyle = `position: fixed; transition: transform ${durationCSS} ease; top: ${mediaTop}px; left: ${mediaLeft}px; width: ${mediaWidth}px; transform: translate(${growShiftX}px, ${growShiftY}px) scale(${growScale}); z-index: 2;`;
+    // Define styles to tranform image to grow size
+    let transformStyle = `position: fixed; transition: transform ${durationCSS} ease; top: ${mediaTop}px; left: ${mediaLeft}px; width: ${mediaWidth}px; transform: translate(${growShiftX}px, ${growShiftY}px) scale(${growScale}); z-index: 2;`;
 
-        // Style accomodation for scrolling elements
-        if (imhance.wrap.classList.contains('img-scroll')) {
-            mediaStyle = `${mediaStyle} padding-bottom: ${mediaHeight - (2 * borderWidth)}px`;
-        }
+    // Define styles for full size image
+    let grownStyle = `position: fixed; top: ${growTop}px; left: ${growLeft}px; transform: unset; width: ${growWidth}px; height: ${growHeight}px; border: ${growBorder}; border-radius: ${growBorderRadius}; box-shadow: ${growShadow}; -moz-outline-radius: ${growOutlineRadius}; z-index: 2;`;
 
-        // Start transform
-        imhance.media.setAttribute('style', mediaStyle);
-        imhance.media.setAttribute('tabindex', '-1');
-        imhance.close.setAttribute('style', 'display: block');
-        imhance.close.focus();
-        imhance.clickPlate.style.display = 'block';
+    // Style accomodation for scrolling elements
+    if (isScroll) {
+        grownStyle = `${grownStyle} --outline-offset: calc(${outlineOffset} * ${growScale});  --outline-radius: ${growOutlineRadius}`;
+    }
 
-        // Repace transformed version with full size image
-        setTimeout(function () {
-            imhance.media.setAttribute('style', `position: fixed; top: ${growTop}px; left: ${growLeft}px; transform: unset; width: ${growWidth}px; height: ${growHeight}px; border: ${growBorder}; border-radius: ${growBorderRadius}; box-shadow: ${growShadow}; z-index: 2;`);
-        }, durationJS);
+    // Start transform
+    imhance.media.setAttribute('style', transformStyle);
 
-        // Slight delay for fade in for elements that were previously display: none
-        setTimeout(function() {
-            imhance.close.setAttribute('style', `display: block; top: ${closeTop}px; opacity: 1;`);
-            imhance.clickPlate.style.opacity = '.375';
-        }, 20);
+    // imhance.media.setAttribute('tabindex', '-1');
+    imhance.close.setAttribute('style', 'display: block');
+    imhance.clickPlate.style.display = 'block';
 
-        // window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
+    // Repace transformed version with full size image
+    setTimeout(function () {
+        imhance.media.setAttribute('style', grownStyle);
+        if (isScroll) { imhance.scrollWindow.scrollTop = growScrollTop; }
+        imhance[imhance.eventTarget].focus();
+    }, durationJS);
+
+    // Slight delay for fade in for elements that were previously display: none
+    setTimeout(function() {
+        imhance.close.setAttribute('style', `display: block; top: ${closeTop}px; opacity: 1;`);
+        imhance.clickPlate.style.opacity = '.375';
+    }, 20);
+
+    // window.addEventListener('scroll', shrink(wrap, img, close, clickPlate));
     // }
 }
 
 function shrink(imhance) {
+    const isScroll = imhance.wrap.classList.contains('img-scroll');
+
     const mediaOffset = imhance.media.getBoundingClientRect();
     const mediaTop = mediaOffset.top;
     const mediaLeft = mediaOffset.left;
     const mediaWidth = mediaOffset.width;
     const mediaHeight = mediaOffset.height;
+    const scrollTop = isScroll ? imhance.scrollWindow.scrollTop : undefined;
 
     const figureOffset = imhance.figure.getBoundingClientRect();
     const figureTop = figureOffset.top;
@@ -151,6 +186,7 @@ function shrink(imhance) {
     const shrinkBorder = `calc(${borderWidth} * ${growScale}) solid ${borderColor}`;
     const shrinkBorderRadius = `calc(${borderRadius} * ${growScale})`;
     const shrinkShadow = `calc(${boxShadowOffsetX} * ${growScale}) calc(${boxShadowOffsetY} * ${growScale}) 0 ${boxShadowColor}`;
+    const shrinkScrollTop = isScroll ? scrollTop * shrinkScale : undefined;
 
     let shrinkStyle = `position: fixed; top: ${mediaTop}px; left: ${mediaLeft}px; width: ${mediaWidth}px; border: ${shrinkBorder}; border-radius: ${shrinkBorderRadius}; box-shadow: ${shrinkShadow}; transform: translate(${shrinkShiftX}px, ${shrinkShiftY}px) scale(${shrinkScale}); transition: transform ${durationCSS} ease; z-index: 2;`;
 
@@ -160,8 +196,9 @@ function shrink(imhance) {
 
     setTimeout(() => {
         imhance.media.setAttribute('style', 'position: relative; transition: unset');
-        imhance.media.setAttribute('tabindex', '0');
-        imhance.media.focus(); 
+        // imhance.media.setAttribute('tabindex', '0');
+        imhance[imhance.eventTarget].focus();
+        if (isScroll) { imhance.scrollWindow.scrollTop = shrinkScrollTop; }
         imhance.close.removeAttribute('style');
         imhance.wrap.classList.remove('grow');
         imhance.figure.removeAttribute('style');
@@ -183,12 +220,14 @@ wraps.forEach(function(wrap) {
     imhance.wrap = wrap;
     imhance.figure = wrap.querySelector('figure');
     // imhance.scrollWrap = wrap.querySelector('.img-scroll-window-wrap');
+    imhance.scrollWindow = wrap.querySelector('.img-scroll-window');
     imhance.media = wrap.querySelector('.img-scroll-window-wrap, img');
-    imhance.media.classList.add('media');
+    imhance.media.classList.add('imhance-media');
     const template = document.createElement('template');
+    imhance.eventTarget = !imhance.scrollWindow ? 'media' : 'scrollWindow';
 
     // Create caption
-    template.innerHTML = '<div class="imhance-caption">click to enlarge</div>';
+    template.innerHTML = '<div class="imhance-caption">click image to enlarge</div>';
     imhance.wrap.append(template.content.firstChild);
 
     // Create close button
@@ -202,13 +241,11 @@ wraps.forEach(function(wrap) {
     imhance.clickPlate = imhance.wrap.querySelector('.imhance-click-plate');
 
     // Add event listeners
-    // img.addEventListener('load', function() {
-    imhance.media.addEventListener('click', () => toggleGrow(imhance));
-    imhance.media.addEventListener('keyup', openKeys);
-    imhance.media.setAttribute('tabindex', '0');      
+    imhance[imhance.eventTarget].addEventListener('click', () => toggleGrow(imhance));
+    imhance[imhance.eventTarget].addEventListener('keydown', () => mediaKeys(imhance));
+    imhance[imhance.eventTarget].setAttribute('tabindex', '0');      
     imhance.close.addEventListener('click', () => shrink(imhance));
     imhance.close.addEventListener('keydown', () => closeKeys(imhance));
     imhance.clickPlate.addEventListener('click', () => shrink(imhance));
-    // });
 });
 
