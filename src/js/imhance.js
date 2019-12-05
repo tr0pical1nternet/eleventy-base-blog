@@ -106,6 +106,7 @@ function grow(imhance) {
     const growBorder = `calc(${borderWidth} * ${Math.max(growScale, 2)}) solid ${borderColor}`;
     const growBorderRadius = `calc(${borderRadius} * ${growScale})`;
     const growShadow = `calc(${boxShadowOffsetX} * ${growScale}) calc(${boxShadowOffsetY} * ${growScale}) 0 ${boxShadowColor}`;
+    const growOutlineOffset = `calc(${outlineOffset} * ${growScale})`;
     const growOutlineRadius = `calc(${outlineRadius} * ${growScale})`;
     const growScrollTop = scrollTop * growScale;
     const closeTop = (windowHeight + growHeight - closeHeight - closeMargin) / 2;
@@ -118,12 +119,12 @@ function grow(imhance) {
     let transformStyle = `position: fixed; transition: transform ${durationCSS} ease; top: ${mediaTop}px; left: ${mediaLeft}px; width: ${mediaWidth}px; transform: translate(${growShiftX}px, ${growShiftY}px) scale(${growScale}); z-index: 2;`;
 
     // Define styles for full size image
-    let grownStyle = `position: fixed; top: ${growTop}px; left: ${growLeft}px; transform: unset; width: ${growWidth}px; height: ${growHeight}px; border: ${growBorder}; border-radius: ${growBorderRadius}; box-shadow: ${growShadow}; -moz-outline-radius: ${growOutlineRadius}; z-index: 2;`;
+    let grownStyle = `position: fixed; top: ${growTop}px; left: ${growLeft}px; transform: unset; width: ${growWidth}px; height: ${growHeight}px; border: ${growBorder}; border-radius: ${growBorderRadius}; box-shadow: ${growShadow}; --outline-offset: ${growOutlineOffset}; -moz-outline-radius: ${growOutlineRadius}; z-index: 2;`;
 
     // Style accomodation for scrolling elements
-    if (isScroll) {
-        grownStyle = `${grownStyle} --outline-offset: calc(${outlineOffset} * ${growScale});  --outline-radius: ${growOutlineRadius}`;
-    }
+    // if (isScroll) {
+    //     grownStyle = `${grownStyle} --outline-radius: ${growOutlineRadius}`;
+    // }
 
     // Start transform
     imhance.media.setAttribute('style', transformStyle);

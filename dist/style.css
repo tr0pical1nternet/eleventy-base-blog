@@ -54,7 +54,7 @@ img, iframe, picture {
 
 *:focus, .img-scroll-window-wrap:focus-within, .header-nav-item:focus-within {
   outline: var(--outline-width) solid var(--color-focus);
-  outline-offset: .0625rem; }
+  outline-offset: var(--outline-offset); }
 
 @media screen and (min-width: 480px) {
   :root {
@@ -476,6 +476,7 @@ figcaption {
 
 .imhance-close {
   --button-width: calc(1rem + 6vmin);
+  --outline-offset: calc(1px + var(--button-width) / 32);
   display: none;
   position: fixed;
   left: calc(50% - calc(var(--button-width) / 2));

@@ -39,7 +39,7 @@
 *:focus {
     // outline: 4px dashed var(--color-focus);
     outline: var(--outline-width) solid var(--color-focus);
-    outline-offset: .0625rem;
+    outline-offset: var(--outline-offset);
     // -moz-outline-radius: .875rem;
 }
 

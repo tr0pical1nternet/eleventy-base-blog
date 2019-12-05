@@ -6,6 +6,7 @@
 
     &-close {
         --button-width: calc(1rem + 6vmin);
+        --outline-offset: calc(1px + var(--button-width) / 32);
         display: none;
         position: fixed;
         left: calc(50% - calc(var(--button-width) / 2));
