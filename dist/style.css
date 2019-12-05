@@ -84,7 +84,7 @@ img, iframe, picture {
   margin-top: var(--space); }
 
 .svg-icon {
-  stroke: var(--color-text);
+  stroke: currentColor;
   stroke-width: 8pt;
   width: 100%;
   height: 100%;
@@ -192,7 +192,7 @@ h4 {
 
 .link-underline, a, .postlist-heading {
   text-decoration: underline; }
-  @supports (text-decoration: underline var(--color-base) 2px) {
+  @supports (text-decoration: underline red 2px) {
     .link-underline, a, .postlist-heading {
       text-decoration: underline var(--color-base) 2px; } }
 

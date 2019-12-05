@@ -85,7 +85,7 @@ h4 {
 
 .link-underline {
     text-decoration: underline;
-    @supports (text-decoration: underline var(--color-base) 2px) {
+    @supports (text-decoration: underline red 2px) {
         text-decoration: underline var(--color-base) 2px;
     }
 }
