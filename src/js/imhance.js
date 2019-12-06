@@ -121,15 +121,10 @@ function grow(imhance) {
     // Define styles for full size image
     let grownStyle = `position: fixed; top: ${growTop}px; left: ${growLeft}px; transform: unset; width: ${growWidth}px; height: ${growHeight}px; border: ${growBorder}; border-radius: ${growBorderRadius}; box-shadow: ${growShadow}; --outline-offset: ${growOutlineOffset}; -moz-outline-radius: ${growOutlineRadius}; z-index: 2;`;
 
-    // Style accomodation for scrolling elements
-    // if (isScroll) {
-    //     grownStyle = `${grownStyle} --outline-radius: ${growOutlineRadius}`;
-    // }
-
     // Start transform
     imhance.media.setAttribute('style', transformStyle);
     imhance.close.setAttribute('style', 'display: block');
-    imhance.clickPlate.style.display = 'block';
+    imhance.clickPlate.setAttribute('style', 'display: block');
 
     // Repace transformed version with full size image
     setTimeout(function () {

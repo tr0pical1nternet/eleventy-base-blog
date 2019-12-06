@@ -71,13 +71,16 @@
         <div class="img-scroll-caption">← Scroll →</div>
       </figure>
     </div>
-<p>Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press, I designed his logo, business card and a portfolio site using WordPress. In 2019 we decided to redesign the site as a static single page that would highlight some of his best work. The main design considerations were that the site needed to:</p>
+<p>Nigel Lyons is an independent video producer in Washington, DC. In 2015, with Sediment Press, I designed his logo, business card and a portfolio site using WordPress. In 2019 we redesigned the site as a static single page that would highlight some of his best work. The main design considerations we had were that the site needed to:</p>
 <ul>
 <li>Effectively showcase his video portfolio.</li>
 <li>Build off of his current branding.</li>
 <li>Look natively designed for any device that used it.</li>
 </ul>
-<p>As a single page site, a CMS would have added a lot of overhead. I used Node to render the site so that I had the benefit of some modern development tools. I used Pug for the template and Stylus as a CSS preprocessor. Gulp bundled the assets, and browserSync updated the view on file change. This stack allowed me to retain developer conveniences without giving up granular control over the finished product.</p>
+<p>As a single page site, a CMS would have added a lot of overhead. I used Node to build the site to gain the benefit of some modern development tools. I used Pug for the templates, Stylus as a CSS preprocessor, Gulp as an asset bundler, and browserSync for live reloading. This stack allowed me to retain developer conveniences without giving up granular control over the finished product.</p>
+<p>There were a few different things I needed to do to make the site responsive. Create a flexible margin system, use grid to reconfigure the header, and use grid to intrinsically layout the video portfolio.</p>
+<p>One of the biggest challenges with responsive design is keeping margins proportionate across a wide variety of devices. I used CSS custom properties to create a margin system that coordinated margin increases as screen sizes increased.</p>
+<p>I really liked the way the header looked on a vertical mobile screen, infact it almost looked identical to his business card, which seemed like a nice touch. On a horizontal screen, however, it didn't work at all. The logo was HUGE and it required a great deal of scrolling just to get to the content. CSS Grid to the rescue. Using grid areas I totally reconfigured the header into another arrangement that better fit horizontal screens.</p>
 <!-- The first major issue I ran into was the performance of the video embeds. The site had 7 videos hosted on YouTube and Vimeo embedded in iframes. Each video loaded over 300kB of javascript including a mess of cookies and trackers. The total was over 2MB for the entire site.
 
 [ more content to come ] -->

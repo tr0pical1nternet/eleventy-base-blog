@@ -108,6 +108,13 @@ module.exports = function(eleventyConfig) {
       </figure>
     </div>`
   });
+
+  eleventyConfig.addShortcode("video", function(slug) {
+    return `<video class="post-video" width="720" height="480" loop="true" controls>
+      <source src="/videos/${slug}.mp4" type="video/mp4">
+      Sorry, your browser doesn't support embedded videos.
+    </video>`
+  });
   
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({

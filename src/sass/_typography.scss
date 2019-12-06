@@ -13,7 +13,7 @@
   }
 
 @font-face {
-    font-family: "Akzidenz Grotesk BQ Super";
+    font-family: Akzidenz Grotesk BQ Super;
     src:  url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"),
           url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
     font-weight: 900;
@@ -24,12 +24,12 @@ $font-size-normal: 1rem;
 $font-size-large: 1.25rem;
 
 .body-font {
-    font-family: "system", sans-serif;
+    font-family: system, sans-serif;
     font-weight: 300;
 }
 
 .heading-font {
-    font-family: "Akzidenz Grotesk BQ Super", "Helvetica Black", "Arial Black", sans-serif;
+    font-family: Akzidenz Grotesk BQ Super, Helvetica Black, Arial Black, sans-serif;
     font-weight: 900;
 }
 
@@ -40,6 +40,7 @@ html {
 body {
     @extend .body-font;
     background-color: var(--color-background);
+    color: var(--color-text);
     // border: 1px solid var(--color-text);
     // border-top: none;
 }
@@ -48,7 +49,7 @@ h1, h2, h3 {
     @extend .heading-font;
 }
 
-h1, h2 {
+h1 {
     color: var(--color-base-dark);
 }
 

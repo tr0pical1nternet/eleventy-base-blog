@@ -40,7 +40,7 @@ img, iframe, picture {
   --color-text-light: #DDD;
   --color-base-light: rgb(145, 255, 215);
   --color-base: #36FFB4;
-  --color-base-dark: rgb(1, 224, 157);
+  --color-base-dark: rgb(0, 224, 170);
   --color-shadow: rgba(0,0,0,.5);
   --color-focus: rgba(0, 204, 255, .8);
   --border-width: 1px;
@@ -48,7 +48,7 @@ img, iframe, picture {
   --box-shadow-offset-x: var(--s-2);
   --box-shadow-offset-y: var(--s-2);
   --outline-width: var(--s-4);
-  --outline-offset: calc(1rem / 16);
+  --outline-offset: 2px;
   --outline-radius: .8rem;
   --duration: 0.2s; }
 
@@ -145,22 +145,23 @@ main {
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma"); }
 
 @font-face {
-  font-family: "Akzidenz Grotesk BQ Super";
+  font-family: Akzidenz Grotesk BQ Super;
   src: url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"), url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
   font-weight: 900; }
 
 .body-font, body {
-  font-family: "system", sans-serif;
+  font-family: system, sans-serif;
   font-weight: 300; }
 
 .heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
-  font-family: "Akzidenz Grotesk BQ Super", "Helvetica Black", "Arial Black", sans-serif;
+  font-family: Akzidenz Grotesk BQ Super, Helvetica Black, Arial Black, sans-serif;
   font-weight: 900; }
 
 body {
-  background-color: var(--color-background); }
+  background-color: var(--color-background);
+  color: var(--color-text); }
 
-h1, h2 {
+h1 {
   color: var(--color-base-dark); }
 
 p, ul, ol {
