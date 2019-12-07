@@ -100,6 +100,7 @@ button {
     color: var(--color-base);
     background-color: var(--color-text); }
   button svg {
+    display: block;
     width: 100%;
     height: 100%; }
 
@@ -148,7 +149,7 @@ main {
 
 .body-font, body {
   font-family: system, sans-serif;
-  font-weight: 300; }
+  font-weight: normal; }
 
 .heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
   font-family: Akzidenz Grotesk BQ Super, Helvetica Black, Arial Black, sans-serif;
@@ -302,7 +303,7 @@ figcaption {
     -moz-outline-radius: var(--outline-radius); }
     .looper:focus-within .looper-toggle {
       opacity: 0; }
-  .looper-paused:focus-within .looper-toggle {
+  .looper-paused .looper-toggle {
     opacity: .5; }
   .looper-toggle {
     position: absolute;

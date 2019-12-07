@@ -104,10 +104,11 @@
         }
     }
 
-    &-paused:focus-within {
-        .looper-toggle {
-            opacity: .5;
-        }
+    &-paused {
+        // &:focus-within {
+            .looper-toggle {
+                opacity: .5;
+            }
     }
 
     &-toggle {

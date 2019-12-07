@@ -10,6 +10,6 @@ cover:
     slug: isosphere_cover
     alt: Isosphere
 ---
-{% video 'isosphere' %}
+{% looper 'isosphere' %}
 
 An somewhat interactive canvas animation of a sphere rendered in isometric perspective.
