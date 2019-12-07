@@ -21,9 +21,13 @@ nav {
     }
 }
 
-img, iframe, picture {
+img, iframe, picture, video {
     display: block;
     width: 100%;
     height: auto;
+}
+
+svg {
+    overflow: visible;
 }
 

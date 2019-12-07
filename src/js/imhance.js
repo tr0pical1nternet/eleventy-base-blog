@@ -8,9 +8,9 @@ const closeButton =
         aria-labelledby="close-title"
         focusable="false"
         width="32"
-        height="32">
+        height="32" stroke="currentColor">
         <title id="close-title">Close Image</title>
-        <use xlink:href="#close-button" />
+        <use xlink:href="#icon-close" />
     </svg>
   </button>`;
 

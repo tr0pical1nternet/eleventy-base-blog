@@ -19,6 +19,11 @@
         opacity: 0;
         z-index: 2;
 
+        svg {
+            stroke-width: 8pt;
+            stroke-linecap: round;
+        }
+
         &:focus {
             // outline: calc(var(--button-width) / 8) solid var(--color-focus);
             -moz-outline-radius: 75%;

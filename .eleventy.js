@@ -110,10 +110,18 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("video", function(slug) {
-    return `<video class="post-video" width="720" height="480" loop="true" controls>
-      <source src="/videos/${slug}.mp4" type="video/mp4">
-      Sorry, your browser doesn't support embedded videos.
-    </video>`
+    return `<div class="looper">
+      <video class="post-video" width="720" height="480" loop="true" autoplay>
+        <source src="/videos/${slug}.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+      <button class="looper-toggle" title="Pause" tabindex="-1">
+          <svg width="25" height="20" role="img" aria-labelledby="pause-title" focusable="false">
+              <title id="pause-title">Pause</title>
+              <use xlink:href="#icon-pause"></use>
+          </svg>
+      </button>
+    </div>`
   });
   
   /* Markdown Overrides */
