@@ -12,18 +12,21 @@ function togglePlay() {
         video.play();
         player.classList.remove('looper-paused');
         playToggle.setAttribute('title', 'Pause');
-        // playing = true;
     } else {
         video.pause();
         player.classList.add('looper-paused');
         playToggle.setAttribute('title', 'Play');
-        // playing = false;
     }
 }
 
 function updatePlayToggle() {
-    const icon = this.paused ? playIcon : pauseIcon;
-    playToggleIcon.innerHTML = icon;
+    if (this.paused) {
+        playToggleIcon.innerHTML = playIcon;
+    } else {
+        setTimeout(() => {
+            playToggleIcon.innerHTML = pauseIcon;
+        }, 100);
+    }
 }
 
 function videoKeys() {
