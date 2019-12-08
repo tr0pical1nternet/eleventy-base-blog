@@ -116,13 +116,21 @@ module.exports = function(eleventyConfig) {
     </div>`
   });
 
-  eleventyConfig.addShortcode("looper", function(slug) {
+  eleventyConfig.addShortcode("looper", function(slug, caption) {
     const sources = new Array;
+    var figcaption;
+
     looperSizes.forEach(function(size, index) {
       sources[index] = `<source src="/videos/${slug}_${size}.mp4" type="video/mp4" data-width="${size}">`;
     });
 
-    return `<div class="looper">
+    if (caption) {
+      figcaption = `\n<figcaption>${caption}</figcaption>`;
+    } else {
+      figcaption = '';
+    }
+
+    return `<figure class="looper">
       <video src="/videos/${slug}_${looperSizes[3]}.mp4" class="post-video" width="960" height="640" loop autoplay playsinline muted>
         ${sources.join('\n')}
         Sorry, your browser doesn't support embedded videos.
@@ -132,8 +140,8 @@ module.exports = function(eleventyConfig) {
               <title id="pause-title">Pause</title>
               <use xlink:href="#icon-pause"></use>
           </svg>
-      </button>
-    </div>`
+      </button>${figcaption}
+    </figure>`
   });
   
   /* Markdown Overrides */
