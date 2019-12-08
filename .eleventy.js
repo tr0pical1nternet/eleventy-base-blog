@@ -6,6 +6,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 const imageSizes = [360, 480, 640, 800, 1024, 1280, 1600];
+const looperSizes = [384, 480, 768, 960];
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
@@ -109,10 +110,15 @@ module.exports = function(eleventyConfig) {
     </div>`
   });
 
-  eleventyConfig.addShortcode("video", function(slug) {
+  eleventyConfig.addShortcode("looper", function(slug) {
+    const sources = new Array;
+    looperSizes.forEach(function(size, index) {
+      sources[index] = `<source src="/videos/${slug}_${size}.mp4" type="video/mp4" data-width="${size}">`;
+    });
+
     return `<div class="looper">
-      <video class="post-video" width="720" height="480" loop="true" autoplay>
-        <source src="/videos/${slug}.mp4" type="video/mp4">
+      <video src="/videos/${slug}_${looperSizes[3]}.mp4" class="post-video" width="960" height="640" loop autoplay playsinline muted>
+        ${sources.join('\n')}
         Sorry, your browser doesn't support embedded videos.
       </video>
       <button class="looper-toggle" title="Pause" tabindex="-1">

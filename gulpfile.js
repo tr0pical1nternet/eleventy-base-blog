@@ -10,7 +10,7 @@ const imagemin = require('gulp-imagemin');
 const imageminMozJpeg = require('imagemin-mozjpeg');
 const imageminWebp = require('imagemin-webp');
 const rename = require('gulp-rename');
-// const pug = require('gulp-pug');
+// const ffmpeg = require('gulp-fluent-ffmpeg');
 const sass = require('gulp-sass');
 // const cleanCSS = require('gulp-clean-css');
 // const babel = require('gulp-babel');
@@ -90,10 +90,40 @@ function webp(cb) {
 gulp.task('webp', webp);
 
 // Copy videos to dist
-gulp.task('videos', function () {
-  return gulp.src('src/videos/*.{mp4,webm,ogg}')
-    .pipe(gulp.dest('dist/videos'));
-});
+// function mp4(cb) {
+//     [
+//         { width: 384, height: 256 },
+//         { width: 480, height: 320 },
+//         { width: 768, height: 512 },
+//         { width: 960, height: 640 },
+//     ].forEach((dimension) => {
+//         return gulp.src('src/videos/*.mov')
+//             .pipe(ffmpeg('mp4'), (options) => {
+//                 return options
+//                     .videoCodec('libx264')
+//                     .size(dimension.width + 'x' + dimension.height)
+//             })
+//             .pipe(gulp.dest('dist/videos'))
+//     });
+//     cb();
+// }
+
+
+// gulp.task('videos', function() {
+//     return gulp.src('src/videos/*.mov')
+//         .pipe(ffmpeg(function(options) {
+//             return options
+//                 .videoCodec('libx264')
+//                 .size('384x?')
+//                 .outputFormat('mp4')
+//         }))
+//         .pipe(gulp.dest('dist/videos'))
+// });
+
+// gulp.task('videos', function () {
+//     return gulp.src('src/videos/*.{mp4,webm,ogg}')
+//         .pipe(gulp.dest('dist/videos'));
+// });
 
 // Compile SCSS files to CSS
 sass.compiler = require('node-sass');

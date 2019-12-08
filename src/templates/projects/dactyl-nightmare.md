@@ -10,6 +10,6 @@ cover:
     alt: Dactyl Nightmare
 tags: [ Adventure Game ]
 ---
-{% video 'dactyl-nightmare' %}
+{% looper 'dactyl-nightmare' %}
 
 My first from-scratch WordPress theme and possibly my finest work, Dactyl Nightmare is a Choose-Your-Own-Adventure type game that really only gives you one choice&mdash; Pterodactyl. I created it as quick way to run through the theme creation and deployment process, and as an exercise in fundamental responsive design.

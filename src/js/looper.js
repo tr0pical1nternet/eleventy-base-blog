@@ -1,41 +1,48 @@
-const player = document.querySelector('.looper');
-const video = player.querySelector('video');
-const playToggle = player.querySelector('.looper-toggle');
-const playToggleIcon = playToggle.querySelector('svg');
-const pauseIcon = playToggleIcon.innerHTML;
-const playIcon =
-  '<title id="play-title">Play</title>' +
-  '<use xlink:href="#icon-play" />';
+const loopers = document.querySelectorAll('.looper');
+const pauseIcon = '<title id="pause-title">Pause</title><use xlink:href="#icon-pause" />';
+const playIcon = '<title id="play-title">Play</title><use xlink:href="#icon-play" />';
+  
 
-function togglePlay() {
-    if (video.paused) {
-        video.play();
-        player.classList.remove('looper-paused');
-        playToggle.setAttribute('title', 'Pause');
-        // playing = true;
+function togglePlay(looper) {
+    if (looper.video.paused) {
+        looper.video.play();
+        looper.classList.remove('looper-paused');
+        looper.playToggle.setAttribute('title', 'Pause');
     } else {
-        video.pause();
-        player.classList.add('looper-paused');
-        playToggle.setAttribute('title', 'Play');
-        // playing = false;
+        looper.video.pause();
+        looper.classList.add('looper-paused');
+        looper.playToggle.setAttribute('title', 'Play');
     }
 }
 
-function updatePlayToggle() {
-    const icon = this.paused ? playIcon : pauseIcon;
-    playToggleIcon.innerHTML = icon;
+function updatePlayToggle(looper) {
+    if (looper.video.paused) {
+        looper.playToggleIcon.innerHTML = playIcon;
+    } else {
+        setTimeout(() => {
+            looper.playToggleIcon.innerHTML = pauseIcon;
+        }, 100);
+    }
 }
 
-function videoKeys() {
+function videoKeys(looper) {
     if (['Enter', 'Space'].includes(event.code)) {
         event.preventDefault();
-        togglePlay();
+        togglePlay(looper);
     }
 }
 
-video.addEventListener('click', togglePlay);
-video.addEventListener('play', updatePlayToggle);
-video.addEventListener('pause', updatePlayToggle);
-video.addEventListener('keydown', videoKeys);
+loopers.forEach(looper => {
+    looper.video = looper.querySelector('video');
+    looper.playToggle = looper.querySelector('.looper-toggle');
+    looper.playToggleIcon = looper.playToggle.querySelector('svg');
 
-playToggle.addEventListener('click', togglePlay);
+    looper.video.addEventListener('click', () => togglePlay(looper));
+    looper.video.addEventListener('play', () => updatePlayToggle(looper));
+    looper.video.addEventListener('pause', () => updatePlayToggle(looper));
+    looper.video.addEventListener('keydown', () => videoKeys(looper));
+    // looper.video.addEventListener('loadeddata', () => looper.classList.add('looper-paused'));
+    looper.playToggle.addEventListener('click', () => togglePlay(looper));
+});
+
+

@@ -10,6 +10,6 @@ cover:
     slug: tetras_cover
     alt: Tetras
 ---
-{% video 'tetras' %}
+{% looper 'tetras' %}
 
 A generative tetrahedral landscape proliferated with chromatic radiation. Created with [Snap.svg](http://snapsvg.io).

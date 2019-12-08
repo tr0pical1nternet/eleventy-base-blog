@@ -4,7 +4,6 @@ const wraps = document.querySelectorAll('.imhance');
 const closeButton =
   `<button class="button imhance-close" >
     <svg role="img"
-        class="svg-icon"
         aria-labelledby="close-title"
         focusable="false"
         width="32"
