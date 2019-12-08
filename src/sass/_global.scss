@@ -31,7 +31,7 @@
     --box-shadow-offset-y: var(--s-2);
     --outline-width: var(--s-4);
     --outline-offset: 2px;
-    --outline-radius: .8rem;
+    --outline-radius: .9rem;
 
     --duration: 0.2s;
 }
@@ -114,6 +114,13 @@ input[type="reset"]::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
 input[type="submit"]::-moz-focus-inner {
   border: 0;
+}
+
+.icon {
+    width: 1em;
+    height: auto;
+    margin-right: .375em;
+    margin-bottom: -.14em;
 }
 
 

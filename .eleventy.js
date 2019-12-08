@@ -54,6 +54,12 @@ module.exports = function(eleventyConfig) {
     }
   });
 
+  eleventyConfig.addShortcode("icon", (iconSlug) => {
+    return `<svg class="icon" role="presentation" focusable="false" width="16" height="16" fill="currentColor">
+      <use xlink:href="#icon-${iconSlug}" />
+    </svg>`
+  });
+
   // Image generator
   function picture(slug, alt, classes, title) {
     const srcsetsWebp = new Array(imageSizes.length);

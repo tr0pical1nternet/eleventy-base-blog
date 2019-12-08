@@ -13,7 +13,7 @@
 
     a {
         color: var(--color-base);
-        @supports (text-decoration: underline var(--color-base) 1px) {
+        @supports (text-decoration: underline red 1px) {
             text-decoration: underline  var(--color-base) 1px;
         }
     }
