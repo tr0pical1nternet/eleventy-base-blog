@@ -79,6 +79,10 @@
     }
 }
 
+svg {
+    overflow: visible;
+}
+
 @mixin button-shadow {
     box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) 0 var(--color-shadow);
 }
@@ -104,7 +108,7 @@ button {
     svg {
         display: block;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 }
 
@@ -121,7 +125,7 @@ input[type="submit"]::-moz-focus-inner {
     height: auto;
     margin-right: .375em;
     margin-bottom: -.14em;
-}
+}                          
 
 
 
