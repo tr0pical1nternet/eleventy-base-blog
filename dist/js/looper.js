@@ -41,7 +41,6 @@ loopers.forEach(looper => {
     looper.video.addEventListener('play', () => updatePlayToggle(looper));
     looper.video.addEventListener('pause', () => updatePlayToggle(looper));
     looper.video.addEventListener('keydown', () => videoKeys(looper));
-    // looper.video.addEventListener('loadeddata', () => looper.classList.add('looper-paused'));
     looper.playToggle.addEventListener('click', () => togglePlay(looper));
 });
 

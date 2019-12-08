@@ -1,16 +1,16 @@
-@font-face {
-    font-family: system;
-    font-style: normal;
-    src:    local(".SFNSText-Light"),
-            local(".HelveticaNeueDeskInterface-Light"),
-            local(".LucidaGrandeUI"),
-            local("Ubuntu Light"),
-            local("Segoe UI Light"),
-            local("Roboto-Light"),
-            local("DroidSans"),
-            local("Tahoma");
+// @font-face {
+//     font-family: system;
+//     font-style: normal;
+//     src:    local(".SFNSText-Light"),
+//             local(".HelveticaNeueDeskInterface-Light"),
+//             local(".LucidaGrandeUI"),
+//             local("Ubuntu Light"),
+//             local("Segoe UI Light"),
+//             local("Roboto-Light"),
+//             local("DroidSans"),
+//             local("Tahoma");
     
-  }
+//   }
 
 @font-face {
     font-family: Akzidenz Grotesk BQ Super;
@@ -24,7 +24,7 @@ $font-size-normal: 1rem;
 $font-size-large: 1.25rem;
 
 .body-font {
-    font-family: sans-serif;
+    font-family: -system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-weight: normal;
 }
 
@@ -81,7 +81,7 @@ h4 {
     font-size: var(--s0);
     font-weight: 600;
     display: block;
-    margin-top: var(--s-5);
+    margin-top: var(--s-3);
 }
 
 .link-underline {
