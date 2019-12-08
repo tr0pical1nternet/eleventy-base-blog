@@ -12,4 +12,8 @@ tags: [WordPress, Custom Theme]
 ---
 {% imgScroll 'spruced_home', 'Full scrollable services page of spruced-dc.com' %}
 
-Spruced is a personal organizing company, so when we designed their website it was important to keep the structure and aesthetic as clean as possible. We had a great starting point with origami-inspired logo designed by [Walker Ink](https://walkerinkworks.com/). We worked closely with Cary, the owner, to distill the idea of Spruced into an attractive presentation that flows effortlessly from the home page to the contact page. Responsive design was must, we took great care to design each element flexibly so they display beautifully on all devices and screen widths.
+Spruced is a personal organization company in Washington, DC. I worked closely with Cary, the owner, on the visual design and content to create a website that would advertise her services and attract clients.
+
+It was important that the design communicate a clean, organized aesthetic. We had a great starting point with origami-inspired logo by [Walker Ink](https://walkerinkworks.com/) which helped establish the feel and color scheme. For the services page, we were able to the simplify the process to three easy to follow steps. When combined with stock photography it could be arranged nicely into an alternating 2 by 3 grid on larger screens.
+
+After the website launched, Cary advertised on Facebook and Google. Almost immediately she had more clients than her schedule permitted. We got feedback from clients that they chose Spruced because the website was clean and well organized. The design established a strong brand, clearly communicated her services, and gave potential customers a sense of trust that she could do what was advertised.
