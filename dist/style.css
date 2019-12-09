@@ -315,8 +315,8 @@ figcaption {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 5.5rem;
+    height: 5.5rem;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     margin: 0;
@@ -481,7 +481,7 @@ figcaption {
       .footer a {
         text-decoration: underline var(--color-base) 1px; } }
   .footer-container {
-    max-width: calc(70ch + 2 * var(--body-padding));
+    max-width: calc(40rem + 2 * var(--body-padding));
     margin: 0 auto var(--s1); }
   .footer-nav {
     display: flex;

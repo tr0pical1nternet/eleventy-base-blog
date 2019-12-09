@@ -42,6 +42,10 @@ loopers.forEach(looper => {
     looper.video.addEventListener('pause', () => updatePlayToggle(looper));
     looper.video.addEventListener('keydown', () => videoKeys(looper));
     looper.playToggle.addEventListener('click', () => togglePlay(looper));
+
+    // These attributes are initially in place incase JS does not load
+    looper.video.removeAttribute('controls');
+    looper.playToggle.removeAttribute('style');
 });
 
 
