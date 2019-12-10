@@ -149,8 +149,8 @@ main {
     margin: 0 auto; }
 
 @font-face {
-  font-family: Akzidenz Grotesk BQ Super;
-  src: url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"), url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
+  font-family: Grotesque Accident Super;
+  src: url("/fonts/GrotesqueAccidentSuper.woff2") format("woff2"), url("/fonts/GrotesqueAccidentSuper.woff") format("woff");
   font-weight: 900; }
 
 .body-font, body {
@@ -158,7 +158,7 @@ main {
   font-weight: normal; }
 
 .heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
-  font-family: Akzidenz Grotesk BQ Super, Helvetica Black, Arial Black, sans-serif;
+  font-family: Grotesque Accident Super, Helvetica Black, Arial Black, sans-serif;
   font-weight: 900; }
 
 body {
@@ -245,7 +245,7 @@ figcaption {
 .media, .video, .looper, .video-embed, .post-figure img, .img-scroll-window-wrap, .postlist-cover {
   display: block;
   background-color: var(--color-text);
-  border-radius: var(--s-1);
+  border-radius: var(--border-radius);
   border: var(--border-width) solid var(--color-text);
   overflow: hidden; }
   .media:focus, .video:focus, .looper:focus, .video-embed:focus, .post-figure img:focus, .img-scroll-window-wrap:focus, .postlist-cover:focus {
@@ -273,12 +273,15 @@ figcaption {
   width: 12rem;
   display: block;
   margin: var(--s1) auto var(--s2); }
+  .img-scroll-window-wrap:focus-within {
+    -moz-outline-radius: var(--outline-radius); }
   .img-scroll-window {
     position: relative;
     margin: 0;
     padding: 0 0 176%;
     overflow: auto;
-    scrollbar-width: none; }
+    scrollbar-width: none;
+    border-radius: var(--border-radius); }
     .img-scroll-window::-webkit-scrollbar {
       width: 0; }
     .img-scroll-window:focus {
@@ -288,8 +291,6 @@ figcaption {
       top: 0;
       left: 0;
       width: 100%; }
-    .img-scroll-window-wrap:focus-within {
-      -moz-outline-radius: var(--outline-radius); }
   .img-scroll-caption {
     position: absolute;
     font-size: 0.875rem;
@@ -542,7 +543,8 @@ figcaption {
   left: 0;
   transition: opacity var(--duration) linear;
   background-color: var(--color-background);
-  opacity: 0; }
+  opacity: 0;
+  z-index: 1; }
 
 .imhance-caption {
   font-size: 0.875rem;

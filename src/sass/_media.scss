@@ -2,7 +2,7 @@
     // box-sizing: content-box;
     display: block;
     background-color: var(--color-text);
-    border-radius: var(--s-1);
+    border-radius: var(--border-radius);
     border: var(--border-width) solid var(--color-text);
     overflow: hidden;
 
@@ -45,12 +45,22 @@
     display: block;
     margin: var(--s1) auto var(--s2);
     
+    &-window-wrap {
+        @extend .media;
+        &:focus-within {
+            @extend *:focus;
+            -moz-outline-radius: var(--outline-radius);
+        }
+    }
+
     &-window {
         position: relative;
         margin: 0;
         padding: 0 0 176%;
         overflow: auto;
         scrollbar-width: none;
+        border-radius: var(--border-radius);
+
         &::-webkit-scrollbar {
             width: 0;
         }
@@ -64,14 +74,6 @@
             top: 0;
             left: 0;
             width: 100%;
-        }
-
-        &-wrap {
-            @extend .media;
-            &:focus-within {
-                @extend *:focus;
-                -moz-outline-radius: var(--outline-radius);
-            }
         }
     }
 

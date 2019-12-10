@@ -39,6 +39,7 @@
         transition: opacity var(--duration) linear;
         background-color: var(--color-background);
         opacity: 0;
+        z-index: 1;
     }
 
     &-caption {
