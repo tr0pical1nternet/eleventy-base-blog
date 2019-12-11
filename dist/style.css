@@ -149,8 +149,8 @@ main {
     margin: 0 auto; }
 
 @font-face {
-  font-family: Grotesque Accident Super;
-  src: url("/fonts/GrotesqueAccidentSuper.woff2") format("woff2"), url("/fonts/GrotesqueAccidentSuper.woff") format("woff");
+  font-family: Akzidenz Grotesk BQ Super;
+  src: url("/fonts/AkzidenzGroteskBQ-Super.woff2") format("woff2"), url("/fonts/AkzidenzGroteskBQ-Super.woff") format("woff");
   font-weight: 900; }
 
 .body-font, body {
@@ -158,7 +158,7 @@ main {
   font-weight: normal; }
 
 .heading-font, h1, h2, h3, .home-intro-charles, .header-logo {
-  font-family: Grotesque Accident Super, Helvetica Black, Arial Black, sans-serif;
+  font-family: Akzidenz Grotesk BQ Super, Helvetica Black, Arial Black, sans-serif;
   font-weight: 900; }
 
 body {
@@ -448,15 +448,14 @@ figcaption {
   .postlist-taglist {
     --tag-margin: .375em;
     margin-top: var(--s-1);
+    margin-right: calc(-1 * var(--tag-margin) / 2);
     font-size: .875rem;
-    line-height: 1;
-    text-transform: lowercase; }
-    .postlist-taglist-inner {
-      text-align: right;
-      margin: calc(-1 * var(--tag-margin) / 2); }
+    line-height: 1.25;
+    text-transform: lowercase;
+    text-align: right; }
   .postlist-tag {
     display: inline-block;
-    padding: .25em .5em;
+    padding: .125em .25em;
     margin: calc(var(--tag-margin) / 2);
     background-color: var(--color-base); }
   @media screen and (min-width: 600px) {
