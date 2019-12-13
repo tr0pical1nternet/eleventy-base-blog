@@ -41,19 +41,22 @@
         // display: flex;
         @extend .clear-list;
         margin-top: var(--s-1);
-        margin-right: calc(-1 * var(--tag-margin) / 2);
+        // margin-right: calc(-1 * var(--tag-margin) / 2);
 
         font-size: .875rem;
         line-height: 1.25;
         text-transform: lowercase;
         text-align: right;
         
+        > * + * {
+            margin-left: .375em;
+        }
     }
 
     &-tag {
         display: inline-block;
         padding: .125em .25em;
-        margin: calc(var(--tag-margin) / 2);
+        // margin: calc(var(--tag-margin) / 2);
         background-color: var(--color-base);
     }
 

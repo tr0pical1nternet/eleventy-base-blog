@@ -21,7 +21,7 @@
 }
 
 .post-figure {
-    width: 12rem;
+    width: 14rem;
     display: block;
     margin: var(--s2) auto;
 
@@ -30,18 +30,26 @@
         // @include button-shadow;
     }
 
-    &--left {
+    &-left {
         @media screen and (min-width: 700px) {
             float: left;
             margin-top: var(--s-3); 
             margin-right: var(--s2);
         }
     }
+
+    &-right {
+        @media screen and (min-width: 700px) {
+            float: right;
+            margin-top: var(--s-3); 
+            margin-left: var(--s2);
+        }
+    }
 }
 
 .img-scroll {
     position: relative;
-    width: 12rem;
+    width: 14rem;
     display: block;
     margin: var(--s1) auto var(--s2);
     

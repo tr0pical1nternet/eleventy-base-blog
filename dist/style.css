@@ -259,18 +259,23 @@ figcaption {
   margin: var(--s2) auto; }
 
 .post-figure {
-  width: 12rem;
+  width: 14rem;
   display: block;
   margin: var(--s2) auto; }
   @media screen and (min-width: 700px) {
-    .post-figure--left {
+    .post-figure-left {
       float: left;
       margin-top: var(--s-3);
       margin-right: var(--s2); } }
+  @media screen and (min-width: 700px) {
+    .post-figure-right {
+      float: right;
+      margin-top: var(--s-3);
+      margin-left: var(--s2); } }
 
 .img-scroll {
   position: relative;
-  width: 12rem;
+  width: 14rem;
   display: block;
   margin: var(--s1) auto var(--s2); }
   .img-scroll-window-wrap:focus-within {
@@ -448,15 +453,15 @@ figcaption {
   .postlist-taglist {
     --tag-margin: .375em;
     margin-top: var(--s-1);
-    margin-right: calc(-1 * var(--tag-margin) / 2);
     font-size: .875rem;
     line-height: 1.25;
     text-transform: lowercase;
     text-align: right; }
+    .postlist-taglist > * + * {
+      margin-left: .375em; }
   .postlist-tag {
     display: inline-block;
     padding: .125em .25em;
-    margin: calc(var(--tag-margin) / 2);
     background-color: var(--color-base); }
   @media screen and (min-width: 600px) {
     .postlist-item {

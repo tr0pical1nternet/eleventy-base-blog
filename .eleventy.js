@@ -143,6 +143,11 @@ module.exports = function(eleventyConfig) {
       </button>
     </figure>`
   });
+
+  eleventyConfig.addPairedLiquidShortcode('textBlock', function(content) {
+    return `<div class="post-text-block">${content}</div>`;
+  });
+
   
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({

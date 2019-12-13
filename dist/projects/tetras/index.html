@@ -98,7 +98,31 @@
           </svg>
       </button>
     </figure>
-<p>A generative tetrahedral landscape proliferated with chromatic radiation. Created with <a href="http://snapsvg.io">Snap.svg</a>.</p>
+<p>Tetras is a generative landscape proliferated with chromatic radiation. Created with <a href="http://snapsvg.io">Snap.svg</a>. My first approach in making this was to map it in a three dimensional coordinate space and then render it isometrically. As I was sketching it out on paper, however, I realized I could approximate it as a stack of flat shapes and simplify the process significantly.</p>
+<div class="post-text-block">
+<div class="post-figure imhance post-figure-right">
+        <figure>
+          <picture>
+          <source srcset="/images/tetras_tile-sketch_360.webp 360w,/images/tetras_tile-sketch_480.webp 480w,/images/tetras_tile-sketch_640.webp 640w,/images/tetras_tile-sketch_800.webp 800w,/images/tetras_tile-sketch_1024.webp 1024w,/images/tetras_tile-sketch_1280.webp 1280w,/images/tetras_tile-sketch_1600.webp 1600w" type="image/webp">
+          <source srcset="/images/tetras_tile-sketch_360.jpg 360w,/images/tetras_tile-sketch_480.jpg 480w,/images/tetras_tile-sketch_640.jpg 640w,/images/tetras_tile-sketch_800.jpg 800w,/images/tetras_tile-sketch_1024.jpg 1024w,/images/tetras_tile-sketch_1280.jpg 1280w,/images/tetras_tile-sketch_1600.jpg 1600w" type="image/jpeg">
+          <img  src="/images/tetras_tile-sketch_480.jpg" srcset="/images/tetras_tile-sketch_360.jpg 360w, /images/tetras_tile-sketch_480.jpg 480w, /images/tetras_tile-sketch_640.jpg 640w, /images/tetras_tile-sketch_800.jpg 800w, /images/tetras_tile-sketch_1024.jpg 1024w, /images/tetras_tile-sketch_1280.jpg 1280w, /images/tetras_tile-sketch_1600.jpg 1600w"  alt="A sketch of the underlying map tiles." width="480" height="415">
+      </picture>
+        </figure>
+      </div>
+The first step was to create a map of rhombus-shaped tiles to serve as a coordinate system for placing the tetrahedrons. I've been calling them "tetras" for short. The number of columns and rows are calculated so that the map is always slightly larger than the viewport.
+</div>
+<div class="post-text-block">
+<div class="post-figure imhance post-figure-right">
+        <figure>
+          <picture>
+          <source srcset="/images/tetras_tetra-sketch_360.webp 360w,/images/tetras_tetra-sketch_480.webp 480w,/images/tetras_tetra-sketch_640.webp 640w,/images/tetras_tetra-sketch_800.webp 800w,/images/tetras_tetra-sketch_1024.webp 1024w,/images/tetras_tetra-sketch_1280.webp 1280w,/images/tetras_tetra-sketch_1600.webp 1600w" type="image/webp">
+          <source srcset="/images/tetras_tetra-sketch_360.jpg 360w,/images/tetras_tetra-sketch_480.jpg 480w,/images/tetras_tetra-sketch_640.jpg 640w,/images/tetras_tetra-sketch_800.jpg 800w,/images/tetras_tetra-sketch_1024.jpg 1024w,/images/tetras_tetra-sketch_1280.jpg 1280w,/images/tetras_tetra-sketch_1600.jpg 1600w" type="image/jpeg">
+          <img  src="/images/tetras_tetra-sketch_480.jpg" srcset="/images/tetras_tetra-sketch_360.jpg 360w, /images/tetras_tetra-sketch_480.jpg 480w, /images/tetras_tetra-sketch_640.jpg 640w, /images/tetras_tetra-sketch_800.jpg 800w, /images/tetras_tetra-sketch_1024.jpg 1024w, /images/tetras_tetra-sketch_1280.jpg 1280w, /images/tetras_tetra-sketch_1600.jpg 1600w"  alt="A sketch of a single tetra object." width="480" height="296">
+      </picture>
+        </figure>
+      </div>
+The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective.
+</div>
 
 
 
