@@ -94,6 +94,7 @@ button {
   margin: 0.625rem auto 0;
   border: 1px solid var(--color-text);
   border-radius: var(--s-2);
+  color: var(--color-text);
   background-color: var(--color-base);
   box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) 0 var(--color-shadow); }
   button:hover {
@@ -423,7 +424,9 @@ figcaption {
         padding: var(--s-1) 0 calc(var(--s-1) - 3px); } }
   @media screen and (min-width: 640px) {
     .header {
-      margin-top: var(--s2); } }
+      margin-top: var(--s2); }
+      .header-logo {
+        flex-grow: 2; } }
 
 .postlist {
   --item-gap-x: var(--s1);
