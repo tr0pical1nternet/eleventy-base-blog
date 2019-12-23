@@ -12,6 +12,29 @@ eleventyNavigation:
 ---
 ## Skills
 ### Front End Development
+<dl>
+  <div>
+    <dt>HTML</dt>
+    <dd>Writing symantic and accessible markup. Templating with Pug, Nunjucks, and Liquid.</dd>
+  </div>
+  <div>
+    <dt>CSS</dt>
+    <dd>Authoring responsive, cross-browser compatible stylesheets. Applying intrinsic layouts with flexbox and grid. Preprocessing with Sass and Stylus. Familiarity with BEM and Atomic methodologies.</dd>
+  </div>
+  <div>
+    <dt>JavaScript</dt>
+    <dd>Using ES6 conventions, postprocessing with Babel. Animating canvas and SVG elements. Component frameworks: Svelte.js. Libraries: Snap.svg, jQuery.</dd>
+  </div>
+  <div>
+    <dt>Accessibility</dt>
+    <dd>Building interfaces that prioritize users with vision impairments, cognitive impairments, and limited mobility.</dd>
+  </div>
+  <div>
+    <dt>Performance</dt>
+    <dd>Performance auditing with in-browser tools and Lighthouse. Automating media optimization.</dd>
+  </div>
+</dl>
+
 #### Concept
 Work with clients to identify organizational needs, match message to audience, and clarify design goals.
 

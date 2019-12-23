@@ -53,7 +53,7 @@ h1 {
     color: var(--color-base-dark);
 }
 
-p, ul, ol { margin: var(--s0) 0; }
+p, ul, ol, dl { margin: var(--s0) 0; }
 
 h1 {
     font-size: var(--s3);
@@ -101,6 +101,37 @@ figcaption {
     font-size: $font-size-small;
     text-align: center;
     margin-top: var(--s-5);
+}
+
+dl > div {
+    margin: var(--s-1) 0 var(--s0);
+}
+
+dt {
+    @extend h4;
+    margin-bottom: var(--s-1);
+}
+
+dd {
+    margin: var(--s-1) 0 var(--s0);
+}
+
+@media screen and (min-width: 700px) {
+    dl > div {
+        display: flex;
+
+    }
+
+    dt {
+        line-height: 1.5;
+        margin: 0;
+        width: 7rem;
+        flex-shrink: 0;
+    }
+
+    dd {
+        margin: 0 0 0 var(--s1);
+    }
 }
 
 .post-nav {
