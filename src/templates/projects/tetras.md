@@ -13,3 +13,5 @@ cover:
 {% looper 'tetras', 'A generative tetrahedral landscape proliferated with chromatic radiation' %}
 
 A generative tetrahedral landscape proliferated with chromatic radiation. Created with [Snap.svg](http://snapsvg.io).
+
+![Diagram of tile](/images/tetras_tile.svg)
