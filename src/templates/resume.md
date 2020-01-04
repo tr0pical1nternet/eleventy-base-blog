@@ -11,25 +11,53 @@ eleventyNavigation:
   order: 3
 ---
 ## Skills
+### Web Design
+<dl>
+  <div>
+    <dt>Concept</dt>
+    <dd>Working with clients to identify organizational needs, match message to audience, and clarify design goals.</dd>
+  </div>
+  <div>
+    <dt>UX</dt>
+    <dd>Creating user journeys, storyboards and wireframes. Protyping in Figma. Currently enrolled in a UX Certification program at UNO.</dd>
+  </div>
+  <div>
+    <dt>Visual Design</dt>
+    <dd>Designing comps establishing layout, color palette, and typography. Illustrating icons and graphic elements.</dd>
+  </div>
+</dl>
+
 ### Front End Development
-#### Concept
-Work with clients to identify organizational needs, match message to audience, and clarify design goals.
-
-#### UI/UX
-Design interfaces for conventional and touch-screen interaction. Create UX flows, storyboards, and wireframes.
-
-#### Visual Design
-Design comps for large and small screen sizes establishing color palette, typography, icons, graphic elements, and animation.
-
-### Graphic Design
-#### Concept
-Work with clients to identify organizational needs, match message to audience, and clarify design goals.
-
-#### UI/UX
-Design interfaces for conventional and touch-screen interaction. Create UX flows, storyboards, and wireframes.
-
-#### Visual Design
-Design comps for large and small screen sizes establishing color palette, typography, icons, graphic elements, and animation.
+<dl>
+  <div>
+    <dt>Accessibility</dt>
+    <dd>Building interfaces that prioritize users with vision impairments, cognitive impairments, and limited mobility.</dd>
+  </div>
+    <div>
+    <dt>Performance</dt>
+    <dd>Performance auditing with in-browser tools and Lighthouse. Automating media optimization.</dd>
+  </div>
+  <div>
+    <dt>HTML</dt>
+    <dd>Writing symantic and accessible markup. Templating with Pug, Nunjucks, Liquid, and Markdown.</dd>
+  </div>
+  <div>
+    <dt>CSS</dt>
+    <dd>Authoring responsive, cross-browser compatible stylesheets. Applying intrinsic layouts with flexbox and grid. Preprocessing with Sass and Stylus. Using BEM and Atomic methodologies.</dd>
+  </div>
+  <div>
+    <dt>JavaScript</dt>
+    <dd>Manipulating the DOM, animating canvas and SVG elements. Component frameworks: Svelte.js. Libraries: Snap.svg, jQuery.</dd>
+  </div>
+  <div>
+    <dt>WordPress</dt>
+    <dd>Writing custom themes, implementing e-commerce with WooCommerce and Stripe, staging and migrating sites.</dd>
+  </div>
+  <div>
+    <dt>Node.js</dt>
+    <dd>Generating static sites using Eleventy and Gulp.</dd>
+  </div>
+</dl>
 
 ## Work Experience
 ### Sediment Press<span class="h3-sub">Owner & Creative Director</span>
@@ -45,4 +73,22 @@ Turnaround Arts, Raven PMG, Center Staging, The American Society of Civil Engine
 - Manage the production of print materials and merchandise for clients, getting estimates and comparing services from different providers.
 - Develop products for retail and finding outlets for sale.
 - Small business administration: budgeting, accounting, inventory, shipping.
-- Setup and maintain file servers for project file archives to be accessible by SSH and AFP.
+- Setup and maintain file servers for project file archives.
+
+## Education
+### UX Certification Course<span class="h3-sub">University of New Orleans, 2019-2020</span>
+
+### BA &mdash; Fine Art<span class="h3-sub">University of New Orleans, 2002-2007</span>
+
+## Accomplishments
+### Most Valuable Lune<span class="h3-sub">Krewe du Lune, March 2018</span>
+Directed dozens of volunteers in the construction of giant lanterns for Pygmalion and Nyx parades.
+
+### Storefront Grant<span class="h3-sub">CulturalDC, July 2017</span>
+Created a pop-up screen printing studio and gallery at Flashpoint. The studio was open for the public to observe the creative process. Produced a series of large format prints and taught free weekly screen printing workshops.
+
+### Storefront Grant<span class="h3-sub">CulturalDC, September 2017</span>
+Created a pop-up sculpture studio and gallery in the NoMa neighborhood of DC. Partnered with Richard’s Carnival to create an exhibit of contemporary Caribbean Carnival Art. Hosted gallery opening for Art All Night.
+
+### Celebrating the Craftsman<span class="h3-sub">Worth Higgins & Associates, April 2015</span> 
+Sediment Press was invited to be a panelist for Celebrating the Craftsman Event at Artisphere in Rosslyn, VA.
