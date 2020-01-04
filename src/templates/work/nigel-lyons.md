@@ -8,7 +8,7 @@ order: 6
 cover:
     slug: nigel-lyons_cover
     alt: nigelyons.com homepage
-tags: [Video Portfolio, Static Site, Node.js, Logo Design]
+tags: [Static Site, Node.js, Logo Design]
 images:
     -   slug: nigel-lyons_home
         alt: Home page of nigelyons.com
