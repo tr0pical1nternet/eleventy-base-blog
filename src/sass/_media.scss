@@ -171,3 +171,23 @@
     }
 }
 
+.diagram {
+    width: 100%;
+    height: auto;
+    max-width: 30rem;
+    margin: var(--s1) auto;
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+    &-text-normal {
+        font-size: 1.5rem;
+    }
+
+    &-text-small {
+        font-size: 1.25rem;
+    }
+
+}
