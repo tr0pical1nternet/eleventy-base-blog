@@ -92,6 +92,7 @@ button {
     margin: 0.625rem auto 0;
     border: 1px solid var(--color-text);
     border-radius: var(--s-2);
+    color: var(--color-text);
     background-color: var(--color-base);
     @include button-shadow();
 
