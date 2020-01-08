@@ -172,14 +172,12 @@
 }
 
 .diagram {
-    width: 100%;
-    height: auto;
-    max-width: 30rem;
-    margin: var(--s1) auto;
 
     svg {
+        display: block;
         width: 100%;
         height: auto;
+        margin: var(--s1) auto;
     }
 
     &-text-normal {
