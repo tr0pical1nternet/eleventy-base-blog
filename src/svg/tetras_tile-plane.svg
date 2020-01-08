@@ -1,4 +1,6 @@
-<svg width="720" height="445" viewBox="0 0 720 445">
+<svg width="720" height="445" viewBox="0 0 720 445" role="img" aria-labelledby="tile-plane-id" aria-describedby="tile-plane-desc">
+  <title id="tile-plane-id">Tile plane diagram</title>
+  <desc id="tile-plane-desc">Diagram showing the coordinate system and the relationship between the tile plane and the viewport</desc>
   <defs>
     <clipPath id="b">
       <path d="M72.76 32.138v373.48h643.47V32.138zm85.187 52.477h472.15v271.71h-472.15z"/>

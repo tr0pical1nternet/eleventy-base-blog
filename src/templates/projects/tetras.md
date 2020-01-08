@@ -22,4 +22,8 @@ I wanted to create a geometric mountain range proliferated with chromatic radiat
 
 The first step was to create a map of rhombus-shaped tiles to serve as a coordinate system for placing the tetrahedral mountains. I've been calling them "tetras" for short. The number of columns and rows are calculated so that the map is always slightly larger than the viewport.
 
+<figure class="diagram">
+    {% include ../../svg/tetras_tetra.svg %}
+</figure>
+
 The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective. 
