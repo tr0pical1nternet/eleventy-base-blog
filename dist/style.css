@@ -376,18 +376,17 @@ dd {
   top: 0;
   left: 0; }
 
-.diagram {
+.diagram svg {
+  display: block;
   width: 100%;
   height: auto;
-  max-width: 30rem;
   margin: var(--s1) auto; }
-  .diagram svg {
-    width: 100%;
-    height: auto; }
-  .diagram-text-normal {
-    font-size: 1.5rem; }
-  .diagram-text-small {
-    font-size: 1.25rem; }
+
+.diagram-text-normal {
+  font-size: 1.5rem; }
+
+.diagram-text-small {
+  font-size: 1.25rem; }
 
 .header {
   line-height: 1;
