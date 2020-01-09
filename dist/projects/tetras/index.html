@@ -218,7 +218,9 @@
 </figure>
 <p>The first step was to create a map of rhombus-shaped tiles to serve as a coordinate system for placing the tetrahedral mountains. I've been calling them &quot;tetras&quot; for short. The number of columns and rows are calculated so that the map is always slightly larger than the viewport.</p>
 <figure class="diagram">
-    <svg width="720" height="445" viewBox="0 0 720 445">
+    <svg width="720" height="445" viewBox="0 0 720 445" role="img" aria-labelledby="tetra-id" aria-describedby="tetra-desc">
+  <title id="tetra-id">Tetra</title>
+  <desc>Diagram of a single tetra showing its construction using two faces connected to a tile.</desc>
   <defs>
     <marker id="g" overflow="visible" orient="auto">
       <path d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z" fill="currentColor"/ stroke="currentColor" stroke-width="1px">
@@ -254,14 +256,49 @@
     <text x="332.219" y="23.464">
       <tspan x="332.219" y="23.464">g</tspan>
     </text>
-    <text x="395.355" y="343.177">
-        <tspan x="395.355" y="343.177">(0, 0)</tspan>
+    <text x="393.355" y="339.177">
+        <tspan x="393.355" y="339.177">(0, 0)</tspan>
     </text>
   </g>
 </svg>
 </figure>
 <p>The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective.</p>
-
+<figure class="diagram">
+    <svg width="720" height="445" viewBox="0 0 720 445">
+  <defs>
+    <marker id="b" overflow="visible" orient="auto">
+      <path d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z" fill="#7bffd0" fill-opacity=".51" fill-rule="evenodd" stroke="#000" stroke-width=".2pt"/>
+    </marker>
+    <marker id="a" overflow="visible" orient="auto">
+      <path d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z" fill="#7bffd0" fill-opacity=".51" fill-rule="evenodd" stroke="#000" stroke-width=".2pt"/>
+    </marker>
+  </defs>
+  <g stroke="#000">
+    <g stroke-dasharray="8.0000001, 2.00000003" stroke-width="2">
+      <ellipse cx="360" cy="34.394" rx="326.7" ry="326.66" fill="#7bffd0" fill-opacity=".133" stroke-linejoin="round"/>
+      <ellipse cx="360" cy="411.27" rx="326.04" ry="326" fill="#7bffd0" fill-opacity=".133" stroke-linejoin="round"/>
+      <path d="M360 411.84l-163.7-94.346-163.7-94.336L360 34.488l327.4 188.67-163.7 94.336z" fill="none"/>
+    </g>
+    <path class="serlio epicenter-1 delay-0" d="M196.85 317.34a108.76 108.75 0 010-188.36 326.29 326.25 0 01326.29 0 108.76 108.75 0 010 188.36 326.29 326.25 0 01-326.29 0z" fill="#7bffd0" fill-opacity=".51" marker-mid="url(#a)" marker-start="url(#b)" stroke-width="3"/>
+  </g>
+  <g font-family="sans-serif" font-size="21.333" letter-spacing="0" text-anchor="middle" word-spacing="0">
+    <text x="184.395" y="119.516" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">
+      <tspan x="184.395" y="119.516">a</tspan>
+    </text>
+    <text x="181.333" y="334.323" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">
+      <tspan x="181.333" y="334.323">b</tspan>
+    </text>
+    <text x="538.615" y="333.953" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">
+      <tspan x="538.615" y="333.953">c</tspan>
+    </text>
+    <text x="532.083" y="120.823" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">
+      <tspan x="532.083" y="120.823">d</tspan>
+    </text>
+  </g>
+  <ellipse transform="scale(1 -1)" cx="469.62" cy="-223.16" rx="108.48" ry="108.47" fill="#7bffd0" fill-opacity=".133" stroke="#000" stroke-dasharray="7.99999981, 1.99999996" stroke-linejoin="round" stroke-width="2"/>
+  <ellipse transform="scale(1 -1)" cx="250.38" cy="-223.16" rx="108.48" ry="108.47" fill="#7bffd0" fill-opacity=".133" stroke="#000" stroke-dasharray="8.00000031, 2.00000007" stroke-linejoin="round" stroke-width="2"/>
+</svg>
+</figure>
 
 
     </main>
@@ -300,8 +337,8 @@
     <nav class="footer-nav">
       <div class="footer-menu">
         <h3 class="footer-heading">Site</h3>
-          <ul class="footer-nav-list"><li><a href="/work/">Work</a></li>
-<li><a href="/">Home</a></li>
+          <ul class="footer-nav-list"><li><a href="/">Home</a></li>
+<li><a href="/work/">Work</a></li>
 <li><a href="/projects/">Projects</a></li>
 <li><a href="/resume/">Resume</a></li></ul>
       </div>

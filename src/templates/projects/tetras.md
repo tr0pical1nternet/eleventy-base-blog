@@ -26,4 +26,8 @@ The first step was to create a map of rhombus-shaped tiles to serve as a coordin
     {% include ../../svg/tetras_tetra.svg %}
 </figure>
 
-The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective. 
+The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective.
+
+<figure class="diagram">
+    {% include ../../svg/tetras_ellipse.svg %}
+</figure>
