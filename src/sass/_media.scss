@@ -94,21 +94,32 @@
 }
 
 .looper {
-    @extend .video;
-    position: relative;
+    margin-bottom: var(--s2);
 
-    &:focus-within {
-        @extend *:focus;
-        -moz-outline-radius: var(--outline-radius);
-    
-        .looper-toggle {
-            opacity: 0;
+    &-video {
+        @extend .video;
+        position: relative;
+        margin-bottom: 0;
+
+        &:focus-within {
+            @extend *:focus;
+            -moz-outline-radius: var(--outline-radius);
+        
+            .looper-toggle {
+                opacity: 0;
+            }
         }
-    }
 
-    &-paused:focus-within {
-        .looper-toggle {
-            opacity: .5;
+        &:hover {
+            .looper-toggle {
+                opacity: .5;
+            }
+        }
+
+        &-paused:focus-within {
+            .looper-toggle {
+                opacity: .5;
+            }
         }
     }
 
@@ -145,10 +156,11 @@
         }
     }
 
-    &:hover {
-        .looper-toggle {
-            opacity: .5;
-        }
+    
+
+    &-caption {
+        max-width: 30rem;
+        margin: var(--s-1) auto 0;
     }
 }
 
@@ -172,12 +184,13 @@
 }
 
 .diagram {
+    margin: var(--s2) 0; 
 
     svg {
         display: block;
         width: 100%;
         height: auto;
-        margin: var(--s1) auto;
+        margin: 0 auto;
     }
 
     &-text-normal {

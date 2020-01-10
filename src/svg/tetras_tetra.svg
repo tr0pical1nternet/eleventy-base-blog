@@ -8,8 +8,8 @@
  </defs>
  <ellipse cx="141" cy="214" rx="3" ry="3" fill="currenColor"/>
  <g stroke="currentColor">
-  <g fill="none" stroke-dasharray="6, 2" stroke-width="1">
-   <path d="m8.83 227s164-93.2 164-93.2m-63.5 161 164-93.2m-100 93.2s-164-93.2-164-93.2m264 25.6s-164-93.2-164-93.2" stroke-width="1"/>
+  <g fill="none" stroke-dasharray="6, 2" stroke-width="1.5">
+   <path d="m8.83 227s164-93.2 164-93.2m-63.5 161 164-93.2m-100 93.2s-164-93.2-164-93.2m264 25.6s-164-93.2-164-93.2"/>
   </g>
   <path d="m135 9.92-10.1 187s15.8 79.5 15.8 79.5l110-62.4-64.2-138s-51.1-66.4-51.1-66.4" fill="var(--color-base)" fill-opacity=".25" marker-mid="url(#g)" stroke-linejoin="round" stroke-width="2"/>
   <path d="m141 276-110-62.4 90-136s13.9-68 13.9-68l-10.1 187 15.8 79.5" fill="var(--color-base)" fill-opacity=".5" marker-mid="url(#g)" stroke-linejoin="round" stroke-width="2"/>

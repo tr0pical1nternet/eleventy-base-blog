@@ -124,23 +124,25 @@ module.exports = function(eleventyConfig) {
       sources[index] = `<source src="/videos/${slug}_${size}.mp4" type="video/mp4" data-width="${size}">`;
     });
 
-    // if (caption) {
-    //   figcaption = `\n<figcaption>${caption}</figcaption>`;
-    // } else {
-    //   figcaption = '';
-    // }
+    if (caption) {
+      figcaption = `\n<figcaption class="looper-caption">${caption}</figcaption>`;
+    } else {
+      figcaption = '';
+    }
 
     return `<figure class="looper">
-      <video src="/videos/${slug}_${looperSizes[3]}.mp4" class="post-video" width="960" height="640" loop autoplay playsinline muted controls>
-        ${sources.join('\n')}
-        Sorry, your browser doesn't support embedded videos.
-      </video>
-      <button class="looper-toggle" title="Pause" tabindex="-1" style="display: none;">
-          <svg width="25" height="20" role="img" aria-labelledby="pause-title" focusable="false">
-              <title id="pause-title">Pause</title>
-              <use xlink:href="#icon-pause"></use>
-          </svg>
-      </button>
+      <div class="looper-video">
+        <video src="/videos/${slug}_${looperSizes[3]}.mp4" width="960" height="640" loop autoplay playsinline muted controls>
+          ${sources.join('\n')}
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+        <button class="looper-toggle" title="Pause" tabindex="-1" style="display: none;">
+            <svg width="25" height="20" role="img" aria-labelledby="pause-title" focusable="false">
+                <title id="pause-title">Pause</title>
+                <use xlink:href="#icon-pause"></use>
+            </svg>
+        </button>
+      </div>${figcaption}
     </figure>`
   });
   
