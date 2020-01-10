@@ -6,11 +6,11 @@ const playIcon = '<title id="play-title">Play</title><use xlink:href="#icon-play
 function togglePlay(looper) {
     if (looper.video.paused) {
         looper.video.play();
-        looper.classList.remove('looper-paused');
+        looper.classList.remove('looper-video-paused');
         looper.playToggle.setAttribute('title', 'Pause');
     } else {
         looper.video.pause();
-        looper.classList.add('looper-paused');
+        looper.classList.add('looper-video-paused');
         looper.playToggle.setAttribute('title', 'Play');
     }
 }

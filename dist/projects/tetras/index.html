@@ -84,45 +84,197 @@
 </div>
 
 <figure class="looper">
-      <video src="/videos/tetras_960.mp4" class="post-video" width="960" height="640" loop autoplay playsinline muted controls>
-        <source src="/videos/tetras_384.mp4" type="video/mp4" data-width="384">
+      <div class="looper-video">
+        <video src="/videos/tetras_960.mp4" width="960" height="640" loop autoplay playsinline muted controls>
+          <source src="/videos/tetras_384.mp4" type="video/mp4" data-width="384">
 <source src="/videos/tetras_480.mp4" type="video/mp4" data-width="480">
 <source src="/videos/tetras_768.mp4" type="video/mp4" data-width="768">
 <source src="/videos/tetras_960.mp4" type="video/mp4" data-width="960">
-        Sorry, your browser doesn't support embedded videos.
-      </video>
-      <button class="looper-toggle" title="Pause" tabindex="-1" style="display: none;">
-          <svg width="25" height="20" role="img" aria-labelledby="pause-title" focusable="false">
-              <title id="pause-title">Pause</title>
-              <use xlink:href="#icon-pause"></use>
-          </svg>
-      </button>
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+        <button class="looper-toggle" title="Pause" tabindex="-1" style="display: none;">
+            <svg width="25" height="20" role="img" aria-labelledby="pause-title" focusable="false">
+                <title id="pause-title">Pause</title>
+                <use xlink:href="#icon-pause"></use>
+            </svg>
+        </button>
+      </div>
+<figcaption class="looper-caption">A generative tetrahedral landscape proliferated with chromatic radiation.</figcaption>
     </figure>
-<p>Tetras is a generative landscape proliferated with chromatic radiation. Created with <a href="http://snapsvg.io">Snap.svg</a>. My first approach in making this was to map it in a three dimensional coordinate space and then render it isometrically. As I was sketching it out on paper, however, I realized I could approximate it as a stack of flat shapes and simplify the process significantly.</p>
-<div class="post-text-block">
-<div class="post-figure imhance post-figure-right">
-        <figure>
-          <picture>
-          <source srcset="/images/tetras_tile-sketch_360.webp 360w,/images/tetras_tile-sketch_480.webp 480w,/images/tetras_tile-sketch_640.webp 640w,/images/tetras_tile-sketch_800.webp 800w,/images/tetras_tile-sketch_1024.webp 1024w,/images/tetras_tile-sketch_1280.webp 1280w,/images/tetras_tile-sketch_1600.webp 1600w" type="image/webp">
-          <source srcset="/images/tetras_tile-sketch_360.jpg 360w,/images/tetras_tile-sketch_480.jpg 480w,/images/tetras_tile-sketch_640.jpg 640w,/images/tetras_tile-sketch_800.jpg 800w,/images/tetras_tile-sketch_1024.jpg 1024w,/images/tetras_tile-sketch_1280.jpg 1280w,/images/tetras_tile-sketch_1600.jpg 1600w" type="image/jpeg">
-          <img  src="/images/tetras_tile-sketch_480.jpg" srcset="/images/tetras_tile-sketch_360.jpg 360w, /images/tetras_tile-sketch_480.jpg 480w, /images/tetras_tile-sketch_640.jpg 640w, /images/tetras_tile-sketch_800.jpg 800w, /images/tetras_tile-sketch_1024.jpg 1024w, /images/tetras_tile-sketch_1280.jpg 1280w, /images/tetras_tile-sketch_1600.jpg 1600w"  alt="A sketch of the underlying map tiles." width="480" height="415">
-      </picture>
-        </figure>
-      </div>
-The first step was to create a map of rhombus-shaped tiles to serve as a coordinate system for placing the tetrahedrons. I've been calling them "tetras" for short. The number of columns and rows are calculated so that the map is always slightly larger than the viewport.
-</div>
-<div class="post-text-block">
-<div class="post-figure imhance post-figure-right">
-        <figure>
-          <picture>
-          <source srcset="/images/tetras_tetra-sketch_360.webp 360w,/images/tetras_tetra-sketch_480.webp 480w,/images/tetras_tetra-sketch_640.webp 640w,/images/tetras_tetra-sketch_800.webp 800w,/images/tetras_tetra-sketch_1024.webp 1024w,/images/tetras_tetra-sketch_1280.webp 1280w,/images/tetras_tetra-sketch_1600.webp 1600w" type="image/webp">
-          <source srcset="/images/tetras_tetra-sketch_360.jpg 360w,/images/tetras_tetra-sketch_480.jpg 480w,/images/tetras_tetra-sketch_640.jpg 640w,/images/tetras_tetra-sketch_800.jpg 800w,/images/tetras_tetra-sketch_1024.jpg 1024w,/images/tetras_tetra-sketch_1280.jpg 1280w,/images/tetras_tetra-sketch_1600.jpg 1600w" type="image/jpeg">
-          <img  src="/images/tetras_tetra-sketch_480.jpg" srcset="/images/tetras_tetra-sketch_360.jpg 360w, /images/tetras_tetra-sketch_480.jpg 480w, /images/tetras_tetra-sketch_640.jpg 640w, /images/tetras_tetra-sketch_800.jpg 800w, /images/tetras_tetra-sketch_1024.jpg 1024w, /images/tetras_tetra-sketch_1280.jpg 1280w, /images/tetras_tetra-sketch_1600.jpg 1600w"  alt="A sketch of a single tetra object." width="480" height="296">
-      </picture>
-        </figure>
-      </div>
-The tetras themselves are generated as two shapes and use a randomizing function to create a little variety and give them a little personality. They increase in size towards the top of the viewport and a color function creates a sense of distance through atmospheric perspective.
-</div>
+<p>This is a recreation of a design I made while taking Color and Design at the New Orleans Academy of Fine Arts. The original I drew with a ruler and a compass. It was illustrated with gouache, using subtle color mixing to create the illusion of transparency. Even if it wasn't animated, it gave the impression that there was a process happening over time. To create the scene in SVG I followed more or less the same steps as I did sketching it by hand, just with a lot more attention paid to coordinates.</p>
+<figure class="diagram">
+    <svg width="480" height="297" aria-describedby="tile-plane-desc" aria-labelledby="tile-plane-title" role="img" viewBox="0 0 480 297" style="max-width: 30rem">
+ <title id="tile-plane-title">Tile plane diagram</title>
+ <desc id="tile-plane-desc">Diagram showing the coordinate system and the relationship between the tile plane and the viewport</desc>
+ <defs>
+  <clipPath id="clipPath1848">
+   <path d="m40.6 18.5v254h438v-254zm57.9 35.7h321v185h-321z"/>
+  </clipPath>
+  <clipPath id="clipPath1852">
+   <path d="m98.5 54.2h321v185h-321z"/>
+  </clipPath>
+ </defs>
+ <g clip-path="url(#clipPath1848)">
+  <path d="m87.6 24.8-42.8 24.3 42.8 24.3v0.0014l-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3" fill="var(--color-base)" fill-opacity=".15"/>
+  <g fill="none" stroke="currentColor" stroke-dasharray="6, 2" stroke-width="1.5">
+   <path d="m173 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m259 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m345 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-257-48.7-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m87.6 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m343 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m430 171-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m0-48.7-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m430 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-343 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m87.6 122-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m0-97.4-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m85.7 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m259 24.8-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m345 24.8-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m85.7 6.8e-4 -42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+  </g>
+ </g>
+ <g clip-path="url(#clipPath1852)">
+  <path d="m87.6 24.8-42.8 24.3 42.8 24.3v0.0014l-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3 42.8 24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3 42.8-24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3-42.8 24.3-42.8-24.3" fill="var(--color-base)" fill-opacity=".5"/>
+  <g fill="none" stroke="currentColor" stroke-width="1">
+   <path d="m173 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m216 244-42.8-24.3 42.8-24.3 42.8 24.3-42.8 24.3"/>
+   <path d="m259 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m345 220-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-129-73-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m302 147-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-214-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-85.7 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m130 195-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8 24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m343 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m430 171-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m345 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m85.7 48.7-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m430 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-214 73-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m173 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m85.7 48.7-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m259 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m302 97.9-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-171 0-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m87.6 73.5-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m87.6 122-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m42.8-73-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-42.8-24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m173 24.8-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m129 24.3-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m259 24.8-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+   <path d="m345 24.8-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m85.7 6.8e-4 -42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m-214 73-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m171 97.4-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3m0-97.4-42.8 24.3 42.8 24.3 42.8-24.3-42.8-24.3"/>
+  </g>
+ </g>
+ <path d="m98.5 54.2v185h321v-185z" fill="none" stroke="currentColor" stroke-width="2"/>
+ <g class="body-font" font-size="12px">
+  <g text-anchor="middle">
+   <text x="87.287987" y="11.201637"><tspan x="87.287987" y="11.201637">col -4</tspan></text>
+   <text x="260.86108" y="11.201637"><tspan x="260.86108" y="11.201637">col 0</tspan></text>
+   <text x="345.26511" y="11.201637"><tspan x="345.26511" y="11.201637">col 2</tspan></text>
+   <text x="131.53188" y="11.201637"><tspan x="131.53188" y="11.201637">col -3</tspan></text>
+   <text x="173.73389" y="11.201637"><tspan x="173.73389" y="11.201637">col -2</tspan></text>
+   <text x="217.97845" y="11.201637"><tspan x="217.97845" y="11.201637">col -1</tspan></text>
+   <text x="303.74374" y="11.201637"><tspan x="303.74374" y="11.201637">col 1</tspan></text>
+   <text x="388.8284" y="11.201637"><tspan x="388.8284" y="11.201637">col 3</tspan></text>
+   <text x="430.34976" y="11.201637"><tspan x="430.34976" y="11.201637">col 4</tspan></text>
+  </g>
+  <g class="body-font" text-anchor="end">
+   <text x="32.160938" y="247.373"><tspan x="32.160938" y="247.373">row -4</tspan></text>
+   <text x="32.160938" y="223.01608"><tspan x="32.160938" y="223.01608">row -3</tspan></text>
+   <text x="32.160938" y="198.58778"><tspan x="32.160938" y="198.58778">row -2</tspan></text>
+   <text x="32.160938" y="174.08809"><tspan x="32.160938" y="174.08809">row -1</tspan></text>
+   <text x="32.160938" y="149.73184"><tspan x="32.160938" y="149.73184">row -0</tspan></text>
+   <text x="32.160938" y="125.30354"><tspan x="32.160938" y="125.30354">row 1</tspan></text>
+   <text x="32.160938" y="100.87522"><tspan x="32.160938" y="100.87522">row 2</tspan></text>
+   <text x="32.160938" y="76.446915"><tspan x="32.160938" y="76.446915">row 3</tspan></text>
+   <text x="32.160938" y="52.018608"><tspan x="32.160938" y="52.018608">row 4</tspan></text>
+  </g>
+  <path d="m420 275 12-30.4m-104 31.2v-37.1" fill="none" stroke="currentColor"/>
+  <text class="body-font" x="327.539" y="291.6434" font-size="14px" text-anchor="middle">viewport</text>
+  <text class="body-font" x="417.12827" y="291.6434" font-size="14px" text-anchor="middle">tile plane</text>
+ </g>
+</svg>
+</figure>
+<p>The first step was to create a map of rhombus-shaped tiles to serve as a coordinate system for placing the tetrahedral mountains (I'll be referring to them as &quot;tetras&quot; for short). The number of columns and rows are calculated so that the map is always slightly larger than the viewport.</p>
+<figure class="diagram">
+    <svg width="280" height="300" style="max-width: 17.5rem" aria-describedby="tetra-desc" aria-labelledby="tetra-title" role="img" viewBox="0 0 280 300">
+ <title id="tetra-id">Tetra diagram</title>
+ <desc id="tetra-desc">Diagram of a single tetra showing its construction using two faces connected to a tile.</desc>
+ <defs>
+  <marker id="g" overflow="visible" orient="auto">
+   <path d="m0.98 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" fill="currentColor" stroke="currentColor" stroke-width="1pt" />
+  </marker>
+ </defs>
+ <g stroke="currentColor">
+  <g fill="none" stroke-dasharray="6, 2" stroke-width="1.5">
+   <path d="m8.83 227s164-93.2 164-93.2m-63.5 161 164-93.2m-100 93.2s-164-93.2-164-93.2m264 25.6s-164-93.2-164-93.2"/>
+  </g>
+  <path d="m135 9.92-10.1 187s15.8 79.5 15.8 79.5l110-62.4-64.2-138s-51.1-66.4-51.1-66.4" fill="var(--color-base)" fill-opacity=".25" marker-mid="url(#g)" stroke-linejoin="round" stroke-width="2"/>
+  <path d="m141 276-110-62.4 90-136s13.9-68 13.9-68l-10.1 187 15.8 79.5" fill="var(--color-base)" fill-opacity=".5" marker-mid="url(#g)" stroke-linejoin="round" stroke-width="2"/>
+ </g>
+ <g class="body-font" font-size="14px" text-anchor="middle">
+  <text x="139.56776" y="294.88818"><tspan x="139.56776" y="294.88818">b</tspan></text>
+  <text x="12.15195" y="217.6505"><tspan x="12.15195" y="217.6505">a</tspan></text>
+  <text x="271.11697" y="218.47447"><tspan x="271.11697" y="218.47447">c</tspan></text>
+  <text x="106.16454" y="82.521492"><tspan x="106.16454" y="82.521492">d</tspan></text>
+  <text x="114.57127" y="200.81673"><tspan x="114.57127" y="200.81673">e</tspan></text>
+  <text x="196.30801" y="80.793098"><tspan x="196.30801" y="80.793098">f</tspan></text>
+  <text x="122.14118" y="3.332345"><tspan x="122.14118" y="13.332345">g</tspan></text>
+ </g>
+</svg>
+</figure>
+<p>The tetras themselves are generated as two polygons that share a side. They increase in height towards the top of the viewport and decrease in contrast to create a sense of depth through atmospheric perspective.</p>
+<figure class="diagram">
+    <svg width="480" height="280" viewBox="0 0 480 280" style="max-width: 30rem; overflow: hidden;" aria-labelledby="ellipse-title" aria-describedby="ellipse-desc" role="img">
+    <title id="ellipse-title">Ellipse diagram</title>
+    <desc id="ellipse-desc">Diagram of an ellipse constructed from the arcs of four circles</desc>
+ <defs>
+  <marker id="a" overflow="visible" orient="auto">
+   <path d="m0.98 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  </marker>
+ </defs>
+ <path d="m122.85 208.46a78.505 78.498 0 0 1 0-135.96 235.52 235.49 0 0 1 235.52 0 78.505 78.498 0 0 1 0 135.96 235.52 235.49 0 0 1-235.52 0z" fill="var(--color-base)" fill-opacity=".5" marker-mid="url(#a)" marker-start="url(#a)" stroke="currentColor" stroke-width="2"/>
+ <g class="body-font" font-size="14px" text-anchor="middle">
+  <text x="112.09374" y="66.606651"><tspan x="112.09374" y="66.606651">a</tspan></text>
+  <text x="111.65013" y="220.71445"><tspan x="111.65013" y="220.71445">b</tspan></text>
+  <text x="369.54214" y="220.75954"><tspan x="369.54214" y="220.75954">c</tspan></text>
+  <text x="369.72263" y="66.606651"><tspan x="369.72263" y="66.606651">d</tspan></text>
+ </g>
+ <g fill="none" stroke="currentColor">
+  <g stroke-linejoin="round" stroke-dasharray="6, 2" stroke-width="1.5">
+   <ellipse cx="240.61" cy="4.2208" rx="235.82" ry="235.82" />
+   <ellipse cx="240.61" cy="276.26" rx="235.82" ry="235.2"/>
+   <ellipse cx="319.133" cy="140.48" rx="78.531" ry="78.531"/>
+   <ellipse cx="162.130" cy="140.48" rx="78.531" ry="78.531"/>
+  </g>
+  <g stroke-dasharray="3, 2" stroke-width="1.5">
+   <path d="m240.61 276.67-118.16-68.1-118.16-68.093 236.32-136.19 236.32 136.19-118.16 68.093z"/>
+   <path d="m122.85 72.495 117.76 204.17 117.76-204.17"/>
+   <path d="m122.85 208.46 117.76-204.17 117.76 204.17"/>
+  </g>
+ </g>
+</svg>
+</figure>
+<p>In the original compass-drawn design, the ellipses were approximated using a construction of circular arcs. After trying and failing to recreate this by adding and intersecting circles, I referred to the SVG documentation. It turns out SVG has a path syntax specifically for describing curves as a series of elliptical arcs, which was the perfect tool for the job.</p>
+<figure class="diagram">
+    <svg viewBox="0 0 380 300" width="380" height="300" style="max-width: 23.75rem" aria-labelledby="radiation-title" aria-describedby="radiation-desc" role="img">
+ <title id="radiation-title">Radiation</title>
+ <desc id="radiation-desc">Diagram of radiation bands emminating from epicenter</desc>
+ <defs>
+  <marker id="TriangleOutM" overflow="visible" orient="auto">
+   <path d="m5.77 0-8.65 5v-10z" fill="currentColor"/>
+  </marker>
+ </defs>
+ <g fill="none" stroke="currentColor" stroke-dasharray="6, 2" stroke-width="1.5">
+  <path d="m169.09 251.49 61.081 35.199"/>
+  <path d="m169.09 286.69 61.081-35.201"/>
+  <path d="m151.16 261.83 61.081 35.199"/>
+  <path d="m187.04 241.1 61.081 35.199"/>
+  <path d="m212.24 241.16-61.081 35.199"/>
+  <path d="m248.22 261.8-61.081 35.199"/>
+ </g>
+ <circle cx="199.69" cy="269.09" r="2.759" fill="currentColor" />
+ <g fill="var(--color-base)" fill-opacity=".25" stroke="currentColor" stroke-width="2">
+  <path d="m181.65 255.65a12.024 11.907 0 0 1 0-20.624 36.073 35.722 0 0 1 36.073 0 12.024 11.907 0 0 1 0 20.624 36.073 35.722 0 0 1-36.073 0z"/>
+  <path d="m155.46 243.95a29.486 29.442 0 0 1 0-50.994 88.463 88.329 0 0 1 88.463 0 29.486 29.442 0 0 1 0 50.994 88.463 88.329 0 0 1-88.463 0z"/>
+  <path d="m122.7 227.37a51.327 51.396 0 0 1 0-89.02 153.98 154.19 0 0 1 153.98 0 51.327 51.396 0 0 1 0 89.02 153.98 154.19 0 0 1-153.98 0z"/>
+  <path d="m93.604 209.53a70.722 70.899 0 0 1 0-122.8 212.18 212.7 0 0 1 212.18 0 70.722 70.899 0 0 1 0 122.8 212.18 212.7 0 0 1-212.18 0z"/>
+  <path d="m68.389 191.23a87.531 87.807 0 0 1 0-152.08 262.6 263.43 0 0 1 262.6 0 87.531 87.807 0 0 1 0 152.08 262.6 263.43 0 0 1-262.6 0z"/>
+ </g>
+ <path d="m15.697 116.84h-10.384v152.52h176.69" fill="none" marker-end="url(#TriangleOutM)" stroke="currentColor" stroke-width="2"/>
+ <text x="260.79175" y="273.71179" fill="currentColor" class="body-font">epicenter</text>
+ <path d="m206.93 268.99h48.539" fill="none" stroke="currentColor" stroke-width="1px"/>
+</svg>
+</figure>
+<p>These psuedo-ellipses then become bands in a radiation field. The epicenter is chosen from a random intersection at the corner of four tetras where one band radiates out every two seconds. It expands until it reaches a maximum size and then it returns to the bottom of the stack to radiate all over again.</p>
+<h2>Lessons Learned</h2>
+<p>Snap.svg is an amazing library for creating generative and interactive vector graphics for the web. It greatly simplified the process of creating this design and I feel like I barely scratched the surface of what it can do.</p>
+<p>Snap.svg animates using JavaScript, which is great and fine for many use cases, really any situation that doesn't demand GPU acceleration. In this case, because the ellipses grow so large, on larger screens I see some performance issues, and it makes the fan on my Macbook kick into high gear in Firefox. If one was inclined they could rebuild this in a way that uses CSS or canvas animation which both natively take advantage of hardware acceleration.</p>
 
 
 
