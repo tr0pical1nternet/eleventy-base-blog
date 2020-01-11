@@ -17,8 +17,18 @@ navItems:
     <link rel="stylesheet" href="{{ '/style.css' | url }}">
     {# <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"> #}
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    {% if (title) and (summary) and (cover.slug) and (cover.desc)  %}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{{ metadata.author.twitter }}" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ summary }}" />
+    <meta name="twitter:image" content="{{ metadata.url }}/images/{{ cover.slug }}_1600.jpg" />
+    <meta name="twitter:image:alt" content="{{ cover.desc }}" />
+    {% endif %}
   </head>
   <body id="page-top">
+    
     <svg style="display:none">
       <symbol id="icon-cocohost" viewbox="0 0 16 16" style="overflow: visible;">
         <path d="M9.78 4.135c2.635 1.522 4.233 3.691 3.567 4.845-.666 1.153-3.343.854-5.98-.668C4.733 6.79 3.136 4.622 3.8 3.468c.666-1.153 3.343-.855 5.98.667z"/><path d="M4.288 13.649A8.574 8.574 0 0016 10.51c-1.036 1.794-5.201 1.329-9.302-1.039C2.645 7.132.171 3.81 1.114 2a8.574 8.574 0 003.174 11.649z"/>

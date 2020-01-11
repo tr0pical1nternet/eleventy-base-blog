@@ -26,6 +26,12 @@ const browserSync = require('browser-sync');
 //     .pipe(gulp.dest('dist/favicons'));
 // });
 
+// Copy favicons to dist
+gulp.task('root', function () {
+  return gulp.src('src/root/{*,.*}')
+    .pipe(gulp.dest('dist'));
+});
+
 // Copy fonts to dist
 gulp.task('fonts', function() {
     return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'));
