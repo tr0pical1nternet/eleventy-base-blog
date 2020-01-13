@@ -21,15 +21,15 @@ const browserSync = require('browser-sync');
 // Begin Gulp task definitions
 
 // Copy favicons to dist
-// gulp.task('favicons', function () {
-//   return gulp.src('src/favicons/*')
-//     .pipe(gulp.dest('dist/favicons'));
-// });
+gulp.task('favicons', function () {
+    return gulp.src('src/favicons/*')
+        .pipe(gulp.dest('dist/favicons'));
+});
 
-// Copy favicons to dist
+// Copy root files to dist
 gulp.task('root', function () {
-  return gulp.src('src/root/{*,.*}')
-    .pipe(gulp.dest('dist'));
+    return gulp.src('src/root/{*,.*}')
+        .pipe(gulp.dest('dist'));
 });
 
 // Copy fonts to dist
