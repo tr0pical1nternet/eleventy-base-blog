@@ -8,7 +8,7 @@ order: 1
 cover:
     slug: sediment-press_cover
     alt: sedimentpress.com homepage
-tags: [WordPress, WooCommerce, Custom Theme, Logo Design]
+tags: [WordPress, WooCommerce, Modified Theme, Logo Design]
 ---
 {% imgScroll 'sediment-press_home', 'Full scrollable homepage of sedimentpress.com' %}
 

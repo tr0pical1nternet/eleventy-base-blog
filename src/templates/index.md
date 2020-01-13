@@ -4,13 +4,14 @@ title: Home
 slug: home
 tags: top
 order: 4
-eleventyNavigation:
-  key: home
-  title: Home
-  order: 1
+cover:
+    slug: home_cover_square
+    alt: Screenshot of charlesrobertson.io home page
+    cardAlt: Screenshot of charlesrobertson.io home page
+description: Charles Robertson is web designer and developer working to build a better web.
 ---
 <!-- <h1 class="visually-hidden">Introduction</h1> -->
-<p class="home-intro"><span class="home-intro-hi">Hi, I'm</span> <span class="home-intro-charles">Charles<br>Robertson.</span> <span class="home-intro-desc">I am a front end developer working to make the web a better place.</span></p>
+<p class="home-intro"><span class="home-intro-hi">Hi, I'm</span> <span class="home-intro-charles">Charles<br>Robertson.</span> <span class="home-intro-desc">I am a front end developer working to make a better web.</span></p>
 
 I help creative teams build websites and apps that are easy to use, fast to load, and look good on any device. You can see sites that I have built for clients in the [Work](work) section.
 

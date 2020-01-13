@@ -33,8 +33,21 @@ $font-size-large: 1.25rem;
     font-weight: 900;
 }
 
-html {
-    // background: linear-gradient(#E8E5D8, #99DFC5);
+@mixin outline-font {
+    text-shadow:
+        1px 1px 0 var(--color-text),
+        -1px -1px 0 var(--color-text),
+        -1px 1px 0 var(--color-text),
+        1px -1px 0 var(--color-text),
+        1px 0 0 var(--color-text),
+        -1px 0 0 var(--color-text),
+        0 1px 0 var(--color-text),
+        0 -1px 0 var(--color-text);
+
+    @supports (-webkit-text-stroke: 1px black) {
+        -webkit-text-stroke: 1px var(--color-text);
+        text-shadow: unset;
+    }
 }
 
 body {
@@ -49,15 +62,14 @@ h1, h2, h3 {
     @extend .heading-font;
 }
 
-h1 {
-    color: var(--color-base-dark);
-}
-
 p, ul, ol, dl { margin: var(--s0) 0; }
 
 h1 {
     font-size: var(--s3);
     margin: var(--s4) 0 var(--s3);
+    color: var(--color-base);
+
+    @include outline-font();
 }
 
 h2 {
@@ -156,7 +168,9 @@ dd {
         font-size: var(--s3);
         line-height: 1;
         margin: var(--s1) 0;
-        color: var(--color-base-dark);
+        color: var(--color-base);
+
+        @include outline-font();
     }
 
     &-desc {

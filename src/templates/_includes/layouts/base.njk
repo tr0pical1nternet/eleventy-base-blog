@@ -12,19 +12,24 @@ navItems:
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ renderData.title or title or metadata.title }}</title>
-    <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
+    {% if (slug !== 'home') %}
+    <title>{{ metadata.title }} :: {{ title }}</title>
+    {% else %}
+    <title>{{ metadata.title }}</title>
+    {% endif %}
+    {# <title>{{ renderData.title or title or metadata.title }}</title> #}
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}">
     <link rel="stylesheet" href="{{ '/style.css' | url }}">
     {# <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"> #}
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    {% if (title) and (summary) and (cover.slug) and (cover.desc)  %}
+    {# <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"> #}
+    {% if (description) and (cover.slug) and (cover.cardAlt)  %}
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="{{ metadata.author.twitter }}" />
-    <meta name="twitter:title" content="{{ title }}" />
-    <meta name="twitter:description" content="{{ summary }}" />
+    <meta name="twitter:title" content="{{ title or metadata.title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
     <meta name="twitter:image" content="{{ metadata.url }}/images/{{ cover.slug }}_1600.jpg" />
-    <meta name="twitter:image:alt" content="{{ cover.desc }}" />
+    <meta name="twitter:image:alt" content="{{ cover.cardAlt or cover.alt }}" />
     {% endif %}
   </head>
   <body id="page-top">
