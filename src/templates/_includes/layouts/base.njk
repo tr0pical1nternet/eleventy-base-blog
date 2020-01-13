@@ -12,10 +12,10 @@ navItems:
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
+    {% if (slug !== 'home') %}
     <title>{{ metadata.title }} :: {{ title }}</title>
     {% else %}
-    <title>{{ title }}</title>
+    <title>{{ metadata.title }}</title>
     {% endif %}
     {# <title>{{ renderData.title or title or metadata.title }}</title> #}
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
