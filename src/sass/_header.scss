@@ -122,10 +122,16 @@
         &-nav {
             font-size: $font-size-normal;
         }
+
+        &-nav-list {
+            * + * {
+                margin-left: var(--s-2);
+            }
+        }
     
         &-nav-item {
             padding: 0 var(--s-1);
-           
+
             &-inner {
                 padding: var(--s-1) 0 calc(var(--s-1) - 3px);
             }
