@@ -34,11 +34,11 @@ navItems:
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    {% if (description) and (cover.slug) and (cover.cardAlt)  %}
+    {% if (description) and (cover.slug) and (cover.alt)  %}
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="{{ metadata.author.twitter }}" />
-    <meta name="twitter:title" content="{{ title or metadata.title }}" />
+    <meta name="twitter:title" content="{{ metadata.title }} :: {{ title }}" />
     <meta name="twitter:description" content="{{ description }}" />
     <meta name="twitter:image" content="{{ metadata.url }}/images/{{ cover.slug }}_1600.jpg" />
     <meta name="twitter:image:alt" content="{{ cover.cardAlt or cover.alt }}" />
