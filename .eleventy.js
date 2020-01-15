@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const fs = require("fs");
 const sizeOf = require('image-size');
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
@@ -10,7 +11,7 @@ const looperSizes = [384, 480, 768, 960];
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
-
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addFilter("getPostIndexFromSlug", (postlist, slug) => {
