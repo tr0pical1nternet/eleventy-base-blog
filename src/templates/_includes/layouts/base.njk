@@ -87,18 +87,13 @@ navItems:
         <ul class="header-nav-list">
           {% for navItem in navItems %}
             <li class="header-nav-item {%- if (navItem.slug | isActive(page.fileSlug, tags[0])) %} current{% endif %}">
-              <div class="header-nav-item-inner">
-                <a href="/{{ navItem.slug }}/">{{ navItem.title }}</a>
-              </div>
+              <a href="/{{ navItem.slug }}/">
+                <div class="header-nav-item-inner">
+                  {{ navItem.title }}
+                </div>
+              </a>
             </li>
           {% endfor %}
-          {# {{ collections.all | eleventyNavigation | console }} #}
-          {# {{ collections.all | eleventyNavigation | notFilter('home') | eleventyNavigationToHtml({
-              listClass: "header-nav-list",
-              listItemClass: "header-nav-item",
-              activeListItemClass: "header-nav-item--active",
-              activeKey: eleventyNavigation.key
-            }) | safe }} #}
         </ul>
       </nav>
       {# </div> #}

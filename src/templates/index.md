@@ -11,9 +11,9 @@ cover:
 description: Charles Robertson is web designer and developer working to build a better web.
 ---
 <!-- <h1 class="visually-hidden">Introduction</h1> -->
-<p class="home-intro"><span class="home-intro-hi">Hi, I'm</span> <span class="home-intro-charles">Charles<br>Robertson.</span> <span class="home-intro-desc">I am a front end developer working to make a better web.</span></p>
+<p class="home-intro"><span class="home-intro-hi">Hi, I'm</span> <span class="home-intro-charles">Charles<br>Robertson.</span> <span class="home-intro-desc">I am a designer and developer who creates beautiful, resilient, and accessible websites.</span></p>
 
-I help creative teams build websites and apps that are easy to use, fast to load, and look good on any device. You can see sites that I have built for clients in the [Work](work) section.
+For clients I have built sites using Node.js and WordPress. You can see those in the [Work](work) section.
 
 I often experiment with different facets of web design. You are welcome to take look at those on the [Projects](projects) page.
 

@@ -6,7 +6,6 @@
     a {
         text-decoration: none;
         color: var(--color-text);
-        
     }
   
     &-logo {
@@ -51,7 +50,6 @@
 
     &-nav-item {
         display: inline-block;
-        padding: 0 var(--s-2);
         // margin: 0 calc(var(--header-gap) / 2);
 
         &:hover {
@@ -74,6 +72,8 @@
         }
 
         a {
+            padding: 0 var(--s-2);
+
             &:focus {
                 outline: none;
             }   

@@ -12,7 +12,10 @@ eleventyNavigation:
   order: 1
   title: Work
 ---
-<h1>{{ title }}</h1>
+<div class="post-heading">
+  <h1>{{ title }}</h1>
+  <p>The following is a collection case studies for sites I have built for clients.</p>  
+</div>
 
 {% set postlist = (collections.work | sortByOrder(true)) %}
 {% include "postlist.njk" %}

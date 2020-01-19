@@ -432,8 +432,7 @@ dd {
     display: flex;
     justify-content: space-between; }
   .header-nav-item {
-    display: inline-block;
-    padding: 0 var(--s-2); }
+    display: inline-block; }
     .header-nav-item:hover {
       background-color: var(--color-base); }
     .header-nav-item.current {
@@ -442,8 +441,10 @@ dd {
         background-color: var(--color-base-light); }
         .header-nav-item.current:hover .header-nav-item-inner {
           border-bottom: none; }
-    .header-nav-item a:focus {
-      outline: none; }
+    .header-nav-item a {
+      padding: 0 var(--s-2); }
+      .header-nav-item a:focus {
+        outline: none; }
     .header-nav-item-inner {
       padding: var(--s-2) 0 calc(var(--s-2) - 3px);
       border-bottom: 3px solid var(--color-base); }
