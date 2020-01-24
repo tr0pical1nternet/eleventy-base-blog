@@ -162,12 +162,12 @@ dd {
         
     }
 
-    &-charles {
+    &-name {
         display: block;
         @extend .heading-font;
         font-size: var(--s3);
         line-height: 1;
-        margin: var(--s1) 0;
+        margin: var(--s1) 0 var(--s0);
         color: var(--color-base);
 
         @include outline-font();
