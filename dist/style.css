@@ -442,6 +442,7 @@ dd {
         .header-nav-item.current:hover .header-nav-item-inner {
           border-bottom: none; }
     .header-nav-item a {
+      display: block;
       padding: 0 var(--s-2); }
       .header-nav-item a:focus {
         outline: none; }
@@ -475,8 +476,9 @@ dd {
     .header-nav {
       font-size: 1rem; }
     .header-nav-item {
-      padding: 0 var(--s-1);
       margin-left: auto; }
+      .header-nav-item a {
+        padding: 0 var(--s-1); }
       .header-nav-item-inner {
         padding: var(--s-1) 0 calc(var(--s-1) - 3px); } }
   @media screen and (min-width: 640px) {
