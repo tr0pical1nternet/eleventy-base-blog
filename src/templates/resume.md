@@ -19,7 +19,7 @@ eleventyNavigation:
   </div>
   <div>
     <dt>UX</dt>
-    <dd>Creating user journeys, storyboards and wireframes. Protyping in Figma. Currently enrolled in a UX Certification program at UNO.</dd>
+    <dd>Journey mapping, storyboarding and wireframing. Protyping in Figma. Currently enrolled in a UX Certification program at UNO.</dd>
   </div>
   <div>
     <dt>Visual Design</dt>
@@ -47,25 +47,20 @@ eleventyNavigation:
   </div>
   <div>
     <dt>JavaScript</dt>
-    <dd>Manipulating the DOM, animating canvas and SVG elements. Component frameworks: Svelte.js. Libraries: Snap.svg, jQuery.</dd>
-  </div>
-  <div>
-    <dt>WordPress</dt>
-    <dd>Writing custom themes, implementing e-commerce with WooCommerce and Stripe, staging and migrating sites.</dd>
-  </div>
-  <div>
-    <dt>Node.js</dt>
-    <dd>Generating static sites using Eleventy and Gulp.</dd>
+    <dd>Manipulating the DOM, animating canvas and SVG elements. Component frameworks: Svelte.js. Libraries: Snap.svg, jQuery. Generating static sites using Eleventy and Gulp.</dd>
   </div>
 </dl>
 
 ## Work Experience
 ### Sediment Press<span class="h3-sub">Owner & Creative Director</span>
 
-I founded Sediment Press in 2012 as a design and screen printing company. We provide web and graphic design for small businesses as well as produce screen printed artwork, posters, and cards which we sell online, in stores, and at art festivals.
+I founded Sediment Press in 2012 as a design and screen printing company. We provide web and graphic design for small businesses as well as produce screen printed artwork, posters, and cards which we sell online, in stores, and at art festivals. We:
+- Attracted national businesses and organizations as clients.
+- Recieved over $6,000 in grants.
+- Designed and sold tens of thousands of dollars worth of products.
 
 #### Client List
-Turnaround Arts, Raven PMG, Center Staging, The American Society of Civil Engineers, Live Nation, Muriel Bowser, American Federation of State, Federal, and Municipal Employees, The Del Ray Business Association, DC Modern Design + Build
+Turnaround Arts, World Food Program USA, Live Nation, The American Society of Civil Engineers, Muriel Bowser's Campaign for City Council, The Del Ray Business Association, Raven PMG, Center Staging, DC Modern Design + Build
 
 #### Responsibilites
 - Design websites, banners, logos, product packaging, posters, advertisements, and business cards.
@@ -82,7 +77,7 @@ Turnaround Arts, Raven PMG, Center Staging, The American Society of Civil Engine
 
 ## Accomplishments
 ### Most Valuable Lune<span class="h3-sub">Krewe du Lune, March 2018</span>
-Directed dozens of volunteers in the construction of giant lanterns for Pygmalion and Nyx parades.
+Designed and managed the construction of giant lanterns seen in the Pygmalion and Nyx parades.
 
 ### Storefront Grant<span class="h3-sub">CulturalDC, July 2017</span>
 Created a pop-up screen printing studio and gallery at Flashpoint. The studio was open for the public to observe the creative process. Produced a series of large format prints and taught free weekly screen printing workshops.

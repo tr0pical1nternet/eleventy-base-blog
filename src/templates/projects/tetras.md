@@ -9,8 +9,8 @@ tags: [Snap.svg, SVG Animation]
 cover:
     slug: tetras_cover
     alt: Tetras
-    desc: An SVG animation of a geometric landscape with blue fields of color radiating from it
-summary: The geometry behind Tetras, a generative tetrahedral landscape proliferated with chromatic radiation.
+    cardAlt: An SVG animation of a geometric landscape with blue fields of color radiating from it
+description: The geometry behind Tetras, a generative tetrahedral landscape proliferated with chromatic radiation.
 
 ---
 {% looper 'tetras', 'A generative tetrahedral landscape proliferated with chromatic radiation.' %}

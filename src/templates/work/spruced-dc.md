@@ -8,7 +8,7 @@ order: 2
 cover:
     slug: spruced_cover
     alt: spruced-dc.com homepage
-tags: [WordPress, Custom Theme]
+tags: [WordPress, Modified Theme]
 ---
 {% imgScroll 'spruced_home', 'Full scrollable services page of spruced-dc.com' %}
 

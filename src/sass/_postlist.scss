@@ -37,10 +37,10 @@
     }
 
     &-taglist {
-        --tag-margin: .375em;
+        --tag-margin: var(--s-3);
         // display: flex;
         @extend .clear-list;
-        margin-top: var(--s-1);
+        margin-top: var(--s-2);
         // margin-right: calc(-1 * var(--tag-margin) / 2);
 
         font-size: .875rem;
@@ -49,14 +49,14 @@
         text-align: right;
         
         > * + * {
-            margin-left: .375em;
+            margin-left: var(--tag-margin);
         }
     }
 
     &-tag {
         display: inline-block;
         padding: .125em .25em;
-        // margin: calc(var(--tag-margin) / 2);
+        margin-top: var(--tag-margin);
         background-color: var(--color-base);
     }
 
