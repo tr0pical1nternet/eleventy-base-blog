@@ -15,11 +15,11 @@ eleventyNavigation:
 <dl>
   <div>
     <dt>Concept</dt>
-    <dd>Working with clients to identify organizational needs, match message to audience, and clarify design goals.</dd>
+    <dd>Brand strategy, customer research.</dd>
   </div>
   <div>
     <dt>UX</dt>
-    <dd>Journey mapping, storyboarding and wireframing. Protyping in Figma. Currently enrolled in a UX Certification program at UNO.</dd>
+    <dd>Journey mapping, storyboarding and wire-framing. Prototyping in Figma. Currently enrolled in a UX Certification program at UNO.</dd>
   </div>
   <div>
     <dt>Visual Design</dt>
@@ -39,7 +39,7 @@ eleventyNavigation:
   </div>
   <div>
     <dt>HTML</dt>
-    <dd>Writing symantic and accessible markup. Templating with Pug, Nunjucks, Liquid, and Markdown.</dd>
+    <dd>Writing semantic and accessible markup. Templating with Pug, Nunjucks, Liquid, and Markdown.</dd>
   </div>
   <div>
     <dt>CSS</dt>
@@ -56,13 +56,13 @@ eleventyNavigation:
 
 I founded Sediment Press in 2012 as a design and screen printing company. We provide web and graphic design for small businesses as well as produce screen printed artwork, posters, and cards which we sell online, in stores, and at art festivals. We:
 - Attracted national businesses and organizations as clients.
-- Recieved over $6,000 in grants.
+- Received over $6,000 in grants.
 - Designed and sold tens of thousands of dollars worth of products.
 
 #### Client List
 Turnaround Arts, World Food Program USA, Live Nation, The American Society of Civil Engineers, Muriel Bowser's Campaign for City Council, The Del Ray Business Association, Raven PMG, Center Staging, DC Modern Design + Build
 
-#### Responsibilites
+#### Responsibilities
 - Design websites, banners, logos, product packaging, posters, advertisements, and business cards.
 - Customer service: clear communication, anticipating client needs, quick response time.
 - Manage the production of print materials and merchandise for clients, getting estimates and comparing services from different providers.
