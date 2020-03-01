@@ -148,6 +148,12 @@ gulp.task('sass', function() {
     );
 });
 
+// Copy supplemental styles to dist
+gulp.task('styles', function () {
+    return gulp.src('src/styles/*')
+        .pipe(gulp.dest('dist/styles'));
+});
+
 // JavaScript
 gulp.task('js', () =>
     gulp.src('src/js/*.js')

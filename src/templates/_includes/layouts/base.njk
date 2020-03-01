@@ -20,6 +20,7 @@ navItems:
     {# <title>{{ renderData.title or title or metadata.title }}</title> #}
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
     <link rel="stylesheet" href="{{ '/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/hero.css' | url }}">
     {# <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"> #}
     {# <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"> #}
     
@@ -107,6 +108,7 @@ navItems:
     <script src="/js/imhance.js"></script>
     <script src="/js/looper.js"></script>
     <script src="/js/selectvid.js"></script>
+    <script src="/js/hero.js"></script>
     {# </div> #}
     {% include "footer.njk" %}
   </body>
