@@ -14,7 +14,7 @@ nav ol, nav ul {
   padding: 0;
   list-style: none; }
 
-img, iframe, picture, video {
+img, iframe, picture, video, canvas {
   display: block;
   width: 100%;
   height: auto; }
@@ -36,6 +36,7 @@ svg {
   --s4: calc(var(--s3) * var(--scale));
   --s5: calc(var(--s4) * var(--scale));
   --body-padding: var(--s1);
+  --main-width: calc(40rem + 2 * var(--body-padding));
   --space: s0;
   --color-background: #FEF9E6;
   --color-text: #222;
@@ -245,7 +246,7 @@ dd {
   font-size: var(--s2);
   line-height: 1;
   font-weight: 600;
-  margin: var(--s0) 0; }
+  margin: var(--s3) 0 var(--s0); }
 
 .home-intro-name {
   display: block;
