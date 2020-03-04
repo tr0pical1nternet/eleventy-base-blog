@@ -1248,7 +1248,7 @@ for(let n = 0; n < drawLayer.length; n++) {
 prepScene();
 prepFace();
 drawScene();
-updateTagline();
+// updateTagline();
 
 window.addEventListener('scroll', handleScroll);
 window.addEventListener('resize', handleResize);
