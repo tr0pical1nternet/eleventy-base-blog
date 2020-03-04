@@ -1,31 +1,28 @@
-var illo = document.querySelector('.canvas');
+var illo = document.querySelector('.hero-home canvas');
 var camera = {}, grid = {}, face = {}, layer = [], ctx = {};
 illo.offscreen = [];
 var taglineCurrent = document.querySelector('.tagline');
 
 // Tagline data
 const taglines = [
-   '<span class="tagline-top" contenteditable="true">Websites</span> <span class="tagline-bottom" contenteditable="true">built for tomorrow\'s future</span>',
-   '<span class="tagline-top" contenteditable="true">The Websites</span> <span class="tagline-bottom" contenteditable="true">of tomorrow...<br><span style="display: block; text-align: right; justify-self: flex-end;">...today</span></span>',
-   '<span class="tagline-top" contenteditable="true">Websites</span> <span class="tagline-bottom" contenteditable="true">for the future of tomorrow</span>',
-   '<span class="tagline-top" contenteditable="true">The future</span> <span class="tagline-bottom" contenteditable="true">of tomorrow is here today</span>',
-   '<span class="tagline-top" contenteditable="true">The future</span> <span class="tagline-bottom" contenteditable="true">of websites is now</span>',
-   '<span class="tagline-top" contenteditable="true">Websites</span> <span class="tagline-bottom" contenteditable="true">span the global platform</span>',
-   '<span class="tagline-top" contenteditable="true">Websites</span> <span class="tagline-bottom" contenteditable="true">are the future of digital communication</span>'
+   '<span class="tagline-top" >Websites</span> <span class="tagline-bottom" >built for the future of tomorrow</span>',
+   '<span class="tagline-top" >The Websites</span> <span class="tagline-bottom" >of tomorrow...<br><span style="display: block; text-align: right; justify-self: flex-end;">...today</span></span>',
+   '<span class="tagline-top" >The future</span> <span class="tagline-bottom" >of websites is now</span>',
+   '<span class="tagline-top" >Websites</span> <span class="tagline-bottom" >that span the global information platform</span>',
+   '<span class="tagline-top" >Websites</span> <span class="tagline-bottom" >the future of digital communication</span>'
 ]
 
-function setupCanvas(canvas, width = 1, height = 1, useAlpha = true) {
+function setupCanvas(canvas, percentOfWidth = 1, percentOfHeight = 1, useAlpha = true) {
   // Get the device pixel ratio, falling back to 1.
   var dpr = window.devicePixelRatio || 1;
-//   var dpr = 1;
   
   // Get the size of the illustration in CSS pixels.
   var canvasBounds = illo.getBoundingClientRect();
 
   // Give the canvas pixel dimensions of their CSS
   // size * the device pixel ratio.
-  canvas.width = canvasBounds.width * dpr * width;
-  canvas.height = canvasBounds.height * dpr * height;
+  canvas.width = canvasBounds.width * dpr * percentOfWidth;
+  canvas.height = canvasBounds.height * dpr * percentOfHeight;
   var context = canvas.getContext( '2d', { alpha: useAlpha });
   
   // Scale all drawing operations by the device pixel ratio, so you
@@ -37,6 +34,9 @@ function setupCanvas(canvas, width = 1, height = 1, useAlpha = true) {
 
 function prepScene() {
    ctx = setupCanvas(illo, 1, 1, false);
+   // var taglineTop = taglineCurrent.children[0];
+   // var taglineBottom = taglineCurrent.children[1];
+   
    camera = {
       x: illo.width / 2,
       y: illo.height / 2,
@@ -44,22 +44,27 @@ function prepScene() {
    }
 
    grid = {
-      maxColumns: 51,
-      columnWidth: 200 + ((illo.width - 600) / 2),
-      maxRows: 100,
+      maxColumns: 21,
+      columnWidth: 200,
+      maxRows: 50,
    }
    grid.rowHeight = grid.columnWidth;
    grid.maxWidth = grid.maxColumns * grid.columnWidth;
+
+   illo.parentElement.style.setProperty('--hero-width', illo.width + 'px');
+   // illo.style=""
+   // taglineCurrent.children[0].style.fontSize = (.095 * illo.width).toFixed(2) + 'px';
+   // taglineCurrent.children[1].style.fontSize = (.0625 * illo.width).toFixed(2) + 'px';
 }
 
 function prepFace() {
    face = { 
       x: .05 * illo.height,
-      y: .025 * illo.height,
+      y: .04 * illo.height,
       z: -.05 * illo.height,
       width: 675,
       height: 858,
-      layerThickness: 6,
+      layerThickness: .016 * illo.height
    }
    face.scale = .85 * illo.height / face.height;
 
@@ -111,11 +116,11 @@ function drawScene() {
    
    // Draw background grid lines
    rowYTop = 0, rowYBottom = illo.height;
-   for (let row = 0; row < grid.maxRows; row++) {
+   for (let row = 1; row < grid.maxRows; row++) {
          rowYTopPrev = rowYTop;
-         rowYTop = .5 + Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
+         rowYTop = .5 + Math.round(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
          rowYBottomPrev = rowYBottom;
-         rowYBottom = .5 + Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
+         rowYBottom = .5 + Math.round(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
          
          if ((row > 0) && (rowYTopPrev === rowYTop) && (rowYBottomPrev === rowYBottomPrev)) {
             break;

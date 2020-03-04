@@ -183,6 +183,7 @@ gulp.task('serve', function() {
     // gulp.watch(['src/pug/*.pug', 'src/svg/*.svg'], gulp.series('pug'));
     gulp.watch('src/sass/*.scss', gulp.series('sass'));
     // gulp.watch('src/js/inline.js', gulp.series('js', 'pug'));
+    gulp.watch('src/styles/*.css', gulp.series('styles'));
     gulp.watch('src/js/*.js', gulp.series('js'));
     gulp.watch(['dist/index.html', 'dist/js/*']).on('change', browserSync.reload);
 });

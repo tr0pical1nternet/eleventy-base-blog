@@ -105,11 +105,15 @@ navItems:
     </main>
 
     {% include "post-nav.njk" %}
+
+    {% include "footer.njk" %}
+    
+    <script>
+      document.querySelector('body').classList.remove('no-js');
+    </script>
     <script src="/js/imhance.js"></script>
     <script src="/js/looper.js"></script>
     <script src="/js/selectvid.js"></script>
     <script src="/js/hero.js"></script>
-    {# </div> #}
-    {% include "footer.njk" %}
   </body>
 </html>
