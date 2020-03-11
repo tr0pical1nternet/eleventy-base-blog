@@ -95,6 +95,11 @@ function webp(cb) {
 }
 gulp.task('webp', webp);
 
+gulp.task('svgCopy', function() {
+    return gulp.src('src/images/*.svg')
+        .pipe(gulp.dest('dist/images'));
+});
+
 // Copy videos to dist
 // function mp4(cb) {
 //     [
@@ -181,6 +186,7 @@ gulp.task('serve', function() {
 
     gulp.watch('src/images/*.{jpg,jpeg,png}', gulp.series('images'));
     // gulp.watch(['src/pug/*.pug', 'src/svg/*.svg'], gulp.series('pug'));
+    gulp.watch('src/images/*.svg', gulp.series('svgCopy'));
     gulp.watch('src/sass/*.scss', gulp.series('sass'));
     // gulp.watch('src/js/inline.js', gulp.series('js', 'pug'));
     gulp.watch('src/styles/*.css', gulp.series('styles'));

@@ -14,7 +14,7 @@ description: Charles Robertson is web designer and developer working to build a 
 
 <div class="hero hero-home">
     <canvas class="canvas" width="1920" height="960"></canvas>
-    <h2 class="tagline"><span class="tagline-top">Websites</span> <span class="tagline-bottom">built for the future of tomorrow</span></h2>
+    <h2 class="tagline"><span class="tagline-top"></span> <span class="tagline-bottom">the FUTURE of websites is TODAY</span></h2>
 </div>
 
 <p class="home-intro"><span class="home-intro-hi">Hi, I'm</span> <span class="home-intro-name">Charles<br>Robertson.</span> <span class="home-intro-desc">I am a front-end developer and graphic designer who creates resilient, accessible and beautiful interfaces for the web.</span></p>

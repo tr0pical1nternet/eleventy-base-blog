@@ -1,3 +1,4 @@
+var dpr = window.devicePixelRatio || 1;
 var illo = document.querySelector('.hero-home canvas');
 var camera = {}, grid = {}, face = {}, layer = [], ctx = {};
 illo.offscreen = [];
@@ -14,7 +15,7 @@ const taglines = [
 
 function setupCanvas(canvas, percentOfWidth = 1, percentOfHeight = 1, useAlpha = true) {
   // Get the device pixel ratio, falling back to 1.
-  var dpr = window.devicePixelRatio || 1;
+  dpr = window.devicePixelRatio || 1;
   
   // Get the size of the illustration in CSS pixels.
   var canvasBounds = illo.getBoundingClientRect();
@@ -40,7 +41,7 @@ function prepScene() {
    camera = {
       x: illo.width / 2,
       y: illo.height / 2,
-      z: 900
+      z: 900 * dpr
    }
 
    grid = {
@@ -51,7 +52,7 @@ function prepScene() {
    grid.rowHeight = grid.columnWidth;
    grid.maxWidth = grid.maxColumns * grid.columnWidth;
 
-   illo.parentElement.style.setProperty('--hero-width', illo.width + 'px');
+   illo.parentElement.style.setProperty('--hero-width', (illo.width / dpr) + 'px');
    // illo.style=""
    // taglineCurrent.children[0].style.fontSize = (.095 * illo.width).toFixed(2) + 'px';
    // taglineCurrent.children[1].style.fontSize = (.0625 * illo.width).toFixed(2) + 'px';
@@ -1252,4 +1253,4 @@ drawScene();
 
 window.addEventListener('scroll', handleScroll);
 window.addEventListener('resize', handleResize);
-illo.addEventListener('click', handleClick);
+// illo.addEventListener('click', handleClick);

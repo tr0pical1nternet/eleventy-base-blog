@@ -12,6 +12,10 @@
     font-style: normal;
   }
 
+.no-js .hero-home {
+  background: url('../hero-fallback.svg');
+}
+
 .no-js .hero-home canvas {
   display: none;
 }

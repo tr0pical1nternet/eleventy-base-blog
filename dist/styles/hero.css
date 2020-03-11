@@ -12,6 +12,13 @@
     font-style: normal;
   }
 
+.no-js .hero-home {
+  background: url('../images/hero-fallback.svg');
+  padding-bottom: 50%;
+  background-size: 100%;
+  border-radius: var(--border-radius);
+}
+
 .no-js .hero-home canvas {
   display: none;
 }
