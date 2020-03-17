@@ -205,7 +205,6 @@ gulp.task('serve', function() {
     gulp.watch('src/sass/alt/*.scss', gulp.series('sass-alt')); 
     gulp.watch('src/sass/alt/*.css', gulp.series('copy-css')); 
     // gulp.watch('src/js/inline.js', gulp.series('js', 'pug'));
-    gulp.watch('src/styles/*.css', gulp.series('styles'));
     gulp.watch('src/js/*.js', gulp.series('js'));
     gulp.watch(['dist/index.html', 'dist/js/*']).on('change', browserSync.reload);
 });
