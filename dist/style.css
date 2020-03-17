@@ -75,7 +75,7 @@ svg {
   html {
     font-size: 1.25rem; } }
 
-.visually-hidden {
+.invisible {
   position: absolute;
   width: 1px;
   height: 1px;

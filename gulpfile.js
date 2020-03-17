@@ -139,10 +139,10 @@ gulp.task('svgCopy', function() {
 // Compile SCSS files to CSS
 sass.compiler = require('node-sass');
 
-gulp.task('sass', function() {
+gulp.task('sass-main', function() {
     return (
         gulp
-            .src('src/sass/style.scss')
+            .src('src/sass/main/style.scss')
             .pipe(sass().on('error', sass.logError))
         // .pipe(gulp.dest('src/scss'))
         // .pipe(cleanCSS())
@@ -153,10 +153,24 @@ gulp.task('sass', function() {
     );
 });
 
+gulp.task('sass-alt', function() {
+    return (
+        gulp
+            .src('src/sass/alt/*.scss')
+            .pipe(sass().on('error', sass.logError))
+        // .pipe(gulp.dest('src/scss'))
+        // .pipe(cleanCSS())
+        // .pipe(rename(function (path) {path.basename = `${path.basename}.min`}))
+        // .pipe(gulp.dest('src/sass'))
+            .pipe(gulp.dest('dist/css'))
+            .pipe(browserSync.stream())
+    );
+});
+
 // Copy supplemental styles to dist
-gulp.task('styles', function () {
-    return gulp.src('src/styles/*')
-        .pipe(gulp.dest('dist/styles'));
+gulp.task('copy-css', function () {
+    return gulp.src('src/sass/alt/*.css')
+        .pipe(gulp.dest('dist/css'));
 });
 
 // JavaScript
@@ -187,7 +201,9 @@ gulp.task('serve', function() {
     gulp.watch('src/images/*.{jpg,jpeg,png}', gulp.series('images'));
     // gulp.watch(['src/pug/*.pug', 'src/svg/*.svg'], gulp.series('pug'));
     gulp.watch('src/images/*.svg', gulp.series('svgCopy'));
-    gulp.watch('src/sass/*.scss', gulp.series('sass'));
+    gulp.watch('src/sass/main/*.scss', gulp.series('sass-main'));
+    gulp.watch('src/sass/alt/*.scss', gulp.series('sass-alt')); 
+    gulp.watch('src/sass/alt/*.css', gulp.series('copy-css')); 
     // gulp.watch('src/js/inline.js', gulp.series('js', 'pug'));
     gulp.watch('src/styles/*.css', gulp.series('styles'));
     gulp.watch('src/js/*.js', gulp.series('js'));

@@ -75,29 +75,26 @@ navItems:
         <rect width="7" height="20" x="15"/>
       </symbol>
     </svg>
-    {# <div class="site-container"> #}
     <header class="header">
-      {# <div class="header-inner"> #}
-      <a class="header-logo" href="{{ '/' | url }}" title="Home">
-        {# <div class="header-logo-text"> #}
-              Charles Robertson
-            {# </div> #}</a>
+      <a class="header-logo" href="{{ '/' | url }}" title="Home">Charles Robertson</a>
 
-      {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
       <nav class="header-nav">
         <ul class="header-nav-list">
           {% for navItem in navItems %}
-            <li class="header-nav-item {%- if (navItem.slug | isActive(page.fileSlug, tags[0])) %} current{% endif %}">
-              <a href="/{{ navItem.slug }}/">
-                <div class="header-nav-item-inner">
-                  {{ navItem.title }}
-                </div>
-              </a>
-            </li>
+          <li class="header-nav-item {%- if (navItem.slug | isActive(page.fileSlug, tags[0])) %} current{% endif %}">
+            <a href="/{{ navItem.slug }}/">
+              <div class="header-nav-item-inner">{{ navItem.title }}</div>
+            </a>
+          </li>
           {% endfor %}
         </ul>
       </nav>
-      {# </div> #}
+      {% if slug === 'home' %}
+      <div class="hero hero-home">
+        <canvas class="canvas" width="1920" height="960"></canvas>
+        <h2 class="tagline"><span class="tagline-top"></span> <span class="tagline-bottom">the FUTURE of websites is NOW</span></h2>
+      </div>
+      {% endif %}
     </header>
 
     <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>
