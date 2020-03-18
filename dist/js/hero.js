@@ -14,7 +14,7 @@ const taglines = [
 ]
 
 function setupCanvas(canvas, percentOfWidth = 1, percentOfHeight = 1, useAlpha = true) {
-  // Get the device pixel ratio, falling back to 1.
+   // Get the device pixel ratio, falling back to 1.
   dpr = window.devicePixelRatio || 1;
   
   // Get the size of the illustration in CSS pixels.
@@ -22,8 +22,8 @@ function setupCanvas(canvas, percentOfWidth = 1, percentOfHeight = 1, useAlpha =
 
   // Give the canvas pixel dimensions of their CSS
   // size * the device pixel ratio.
-  canvas.width = canvasBounds.width * dpr * percentOfWidth;
-  canvas.height = canvasBounds.height * dpr * percentOfHeight;
+  canvas.width = window.innerWidth * dpr * percentOfWidth;
+  canvas.height = window.innerHeight * dpr * percentOfHeight;
   var context = canvas.getContext( '2d', { alpha: useAlpha });
   
   // Scale all drawing operations by the device pixel ratio, so you
@@ -59,15 +59,28 @@ function prepScene() {
 }
 
 function prepFace() {
-   face = { 
-      x: .05 * illo.height,
-      y: .04 * illo.height,
-      z: -.05 * illo.height,
+   face = {
       width: 675,
-      height: 858,
-      layerThickness: .016 * illo.height
+      height: 858
    }
-   face.scale = .85 * illo.height / face.height;
+   // face.aspect = face.height / face.width;
+   illo.aspect = illo.height / illo.width;
+
+   if (illo.aspect > 1 && window.innerWidth < 480) {
+      face.scale = .85 * illo.width / face.width;
+      face.scaledWidth = face.scale * face.width;
+      face.scaledHeight = face.scale * face.height;
+      face.x = 0 //(illo.width - face.scaledWidth) / 2;
+      face.y = 0 //illo.height - face.x - face.scaledHeight;
+   } else {
+      face.scale = .85 * illo.height / face.height;
+      face.x = .05 * illo.height;
+      face.y = .04 * illo.height;
+      face.z = -.05 * illo.height; 
+   }
+
+   face.layerThickness = .016 * face.scaledWidth;
+
 
    layer.height = face.height * face.scale;
    layer.heightAbove = camera.y - face.y;
@@ -78,7 +91,7 @@ function prepFace() {
    ctx.offscreen = [];
 
    for (let n = 0; n < drawLayer.length; n++) {
-      ctx.offscreen[n] = setupCanvas(illo.offscreen[n], .4, 1, true);
+      ctx.offscreen[n] = setupCanvas(illo.offscreen[n], 1, 1, true);
       layer[n] = {depth: camera.z - ((n * face.layerThickness) + face.z)}
       let projection = {};
       projection.heightAbove = (camera.z * layer.heightAbove) / layer[n].depth;
