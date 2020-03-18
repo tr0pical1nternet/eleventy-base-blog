@@ -1,8 +1,10 @@
 var dpr = window.devicePixelRatio || 1;
-var illo = document.querySelector('.hero-home canvas');
+var hero = document.querySelector('.hero-home');
+var illo = hero.querySelector('canvas');
 var camera = {}, grid = {}, face = {}, layer = [], ctx = {};
 illo.offscreen = [];
 var taglineCurrent = document.querySelector('.tagline');
+var windowWidth = window.innerWidth;
 
 // Tagline data
 const taglines = [
@@ -14,16 +16,19 @@ const taglines = [
 ]
 
 function setupCanvas(canvas, percentOfWidth = 1, percentOfHeight = 1, useAlpha = true) {
+   // For referencing change later in handleResize function
+   windowWidth = window.innerWidth;
+
    // Get the device pixel ratio, falling back to 1.
   dpr = window.devicePixelRatio || 1;
   
   // Get the size of the illustration in CSS pixels.
-  var canvasBounds = illo.getBoundingClientRect();
+  hero.bounds = hero.getBoundingClientRect();
 
   // Give the canvas pixel dimensions of their CSS
   // size * the device pixel ratio.
-  canvas.width = window.innerWidth * dpr * percentOfWidth;
-  canvas.height = window.innerHeight * dpr * percentOfHeight;
+  canvas.width = hero.bounds.width * dpr * percentOfWidth;
+  canvas.height = hero.bounds.height * dpr * percentOfHeight;
   var context = canvas.getContext( '2d', { alpha: useAlpha });
   
   // Scale all drawing operations by the device pixel ratio, so you
@@ -41,18 +46,20 @@ function prepScene() {
    camera = {
       x: illo.width / 2,
       y: illo.height / 2,
-      z: 900 * dpr
+      // z: (illo.width + illo.height) / 2
+      z: Math.floor(Math.sqrt(Math.pow(illo.width, 2) + Math.pow(illo.height, 2)))
    }
 
    grid = {
-      maxColumns: 21,
-      columnWidth: 200,
-      maxRows: 50,
+      columnWidth: Math.floor(illo.width / 4.5),
+      maxRows: 50
    }
    grid.rowHeight = grid.columnWidth;
+   grid.maxColumns = Math.floor(illo.width * 7 / grid.columnWidth);
    grid.maxWidth = grid.maxColumns * grid.columnWidth;
 
-   illo.parentElement.style.setProperty('--hero-width', (illo.width / dpr) + 'px');
+
+   // illo.parentElement.style.setProperty('--hero-width', (illo.width / dpr) + 'px');
    // illo.style=""
    // taglineCurrent.children[0].style.fontSize = (.095 * illo.width).toFixed(2) + 'px';
    // taglineCurrent.children[1].style.fontSize = (.0625 * illo.width).toFixed(2) + 'px';
@@ -66,20 +73,23 @@ function prepFace() {
    // face.aspect = face.height / face.width;
    illo.aspect = illo.height / illo.width;
 
-   if (illo.aspect > 1 && window.innerWidth < 480) {
-      face.scale = .85 * illo.width / face.width;
+   if (illo.aspect > 1) {
+      face.scale = .75 * illo.width / face.width;
       face.scaledWidth = face.scale * face.width;
       face.scaledHeight = face.scale * face.height;
-      face.x = 0 //(illo.width - face.scaledWidth) / 2;
-      face.y = 0 //illo.height - face.x - face.scaledHeight;
+      face.x = Math.floor((illo.width - face.scaledWidth) / 2);
+      face.y = Math.floor((illo.height - face.scaledHeight) / 6);
+      face.z = -.05 * illo.height; 
    } else {
       face.scale = .85 * illo.height / face.height;
-      face.x = .05 * illo.height;
+      face.scaledWidth = face.scale * face.width;
+      face.scaledHeight = face.scale * face.height;
+      face.x = .075 * illo.height;
       face.y = .04 * illo.height;
       face.z = -.05 * illo.height; 
    }
 
-   face.layerThickness = .016 * face.scaledWidth;
+   face.layerThickness = .02 * face.scaledWidth;
 
 
    layer.height = face.height * face.scale;
@@ -100,13 +110,13 @@ function prepFace() {
       projection.scale = projection.height / layer.height;
       projection.scaleProduct = face.scale * projection.scale;
       
-      projection.x = Math.round(face.x - ((camera.z - layer[n].depth) * (layer.widthLeft)) / layer[n].depth);
-      projection.y = Math.round(face.y + camera.y - projection.heightAbove);
+      projection.x = Math.floor(face.x - ((camera.z - layer[n].depth) * (layer.widthLeft)) / layer[n].depth);
+      projection.y = Math.floor(face.y + camera.y - projection.heightAbove);
 
       ctx.offscreen[n].fillStyle = "#222";
       ctx.offscreen[n].strokeStyle ="#36FFB4";
       ctx.offscreen[n].setTransform(projection.scaleProduct, 0, 0, projection.scaleProduct, projection.x, 0);
-      ctx.offscreen[n].lineWidth = 1 / projection.scaleProduct;
+      ctx.offscreen[n].lineWidth = dpr / projection.scaleProduct;
    
       // ctx.offscreen.clearRect(0, 0, .4 * illo.width, illo.height);
       drawLayer[n](ctx.offscreen[n]);
@@ -117,12 +127,12 @@ function prepFace() {
 function drawScene() {
    ctx.strokeStyle = "#36FFB4";
    
-   camera.y = illo.height / 2 + window.scrollY;
+   camera.y = illo.height / 2 + window.scrollY * dpr;
    
    // Keeps face transforms from applying to entire canvas
    ctx.resetTransform();
    ctx.fillStyle = "#222";
-   ctx.lineWidth = 1;
+   ctx.lineWidth = dpr;
    
    // Clear canvas
    ctx.fillRect(0, 0, illo.width, illo.height);
@@ -132,9 +142,9 @@ function drawScene() {
    rowYTop = 0, rowYBottom = illo.height;
    for (let row = 1; row < grid.maxRows; row++) {
          rowYTopPrev = rowYTop;
-         rowYTop = .5 + Math.round(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
+         rowYTop = .5 + Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
          rowYBottomPrev = rowYBottom;
-         rowYBottom = .5 + Math.round(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
+         rowYBottom = .5 + Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
          
          if ((row > 0) && (rowYTopPrev === rowYTop) && (rowYBottomPrev === rowYBottomPrev)) {
             break;
@@ -183,11 +193,15 @@ function drawScene() {
 }
 
 function handleScroll() {
-   window.requestAnimationFrame(drawScene);
+   // Only render when on screen
+   if (window.scrollY < hero.bounds.height) {
+      window.requestAnimationFrame(drawScene);
+   }
 }
 
 function handleResize() {
-   if (window.scrollY < illo.height) {
+   // Only resize canvas if the window width was changed, height doesn't matter
+   if (window.innerWidth !== windowWidth) {
       prepScene();
       prepFace();
       drawScene();
