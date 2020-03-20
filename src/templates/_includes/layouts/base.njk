@@ -78,6 +78,17 @@ navItems:
       </symbol>
     </svg>
     <header class="header">
+      {% if slug === 'home' %}
+      <div class="hero hero-home">
+        <canvas class="hero-home-canvas" width="1920" height="960" moz-opaque></canvas>
+        <div class="hero-home-overlay">
+          <div class="hero-home-text">
+            <p class="hero-home-text-inner"><span class="hero-home-text-top">Design <i class="hero-home-text-plus">+</i></span><span class="hero-home-text-bottom">Code</span></p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
       <a class="header-logo" href="{{ '/' | url }}" title="Home">Charles Robertson</a>
 
       <nav class="header-nav">
@@ -91,12 +102,7 @@ navItems:
           {% endfor %}
         </ul>
       </nav>
-      {% if slug === 'home' %}
-      <div class="hero hero-home">
-        <canvas class="canvas" width="1920" height="960" moz-opaque></canvas>
-        <h2 class="tagline"><span class="tagline-top"></span><span class="tagline-bottom">the FUTURE of websites is NOW</span></h2>
-      </div>
-      {% endif %}
+
     </header>
 
     <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>

@@ -44,25 +44,21 @@ function prepScene() {
    // var taglineBottom = taglineCurrent.children[1];
    
    camera = {
-      x: illo.width / 2,
+      // x: illo.width / 2,
       y: illo.height / 2,
       // z: (illo.width + illo.height) / 2
-      z: Math.floor(Math.sqrt(Math.pow(illo.width, 2) + Math.pow(illo.height, 2)))
+      z: Math.min(illo.width, illo.height)
    }
 
    grid = {
-      columnWidth: Math.floor(illo.width / 4.5),
-      maxRows: 50
+      // columnWidth: Math.floor(Math.min(illo.width, illo.height) / 2),
+      columnWidth: Math.floor(100 + (illo.width / 10)),
+      maxRows: 5
    }
    grid.rowHeight = grid.columnWidth;
-   grid.maxColumns = Math.floor(illo.width * 7 / grid.columnWidth);
-   grid.maxWidth = grid.maxColumns * grid.columnWidth;
-
-
-   // illo.parentElement.style.setProperty('--hero-width', (illo.width / dpr) + 'px');
-   // illo.style=""
-   // taglineCurrent.children[0].style.fontSize = (.095 * illo.width).toFixed(2) + 'px';
-   // taglineCurrent.children[1].style.fontSize = (.0625 * illo.width).toFixed(2) + 'px';
+   // grid.maxColumns = 2 * Math.floor((Math.pow(illo.width, 2)) / 300000) + 1;
+   // console.log(grid.maxColumns);
+   // grid.maxWidth = grid.maxColumns * grid.columnWidth;
 }
 
 function prepFace() {
@@ -73,25 +69,38 @@ function prepFace() {
    // face.aspect = face.height / face.width;
    illo.aspect = illo.height / illo.width;
 
-   if (illo.aspect > 1) {
-      face.scale = .75 * illo.width / face.width;
-      face.scaledWidth = face.scale * face.width;
-      face.scaledHeight = face.scale * face.height;
-      face.x = Math.floor((illo.width - face.scaledWidth) / 2);
-      face.y = Math.floor((illo.height - face.scaledHeight) / 6);
-      face.z = -.05 * illo.height; 
-   } else {
+   // if (illo.aspect > 1.5) {
+   //    face.scale = .75 * illo.width / face.width;
+   //    face.scaledWidth = face.scale * face.width;
+   //    face.scaledHeight = face.scale * face.height;
+   //    face.x = Math.floor((illo.width - face.scaledWidth) / 2);
+   //    face.y = Math.floor((illo.height - face.scaledHeight) / 6);
+   //    face.z = Math.floor(-.05 * illo.height); 
+   // } else
+
+   if (illo.aspect > .75) {
       face.scale = .85 * illo.height / face.height;
       face.scaledWidth = face.scale * face.width;
       face.scaledHeight = face.scale * face.height;
-      face.x = .075 * illo.height;
-      face.y = .04 * illo.height;
-      face.z = -.05 * illo.height; 
+      face.x = Math.floor((illo.width - face.scaledWidth) / 2);
+      face.y = - (face.scaledHeight / 15);
+      face.z = Math.floor(-.5 * illo.height); 
+   } else {
+      if (window.innerWidth < 768) {
+         face.x = Math.floor(.075 * illo.height);
+      } else {
+         face.x = Math.floor(illo.width / 2 - .85 * illo.height);
+      }
+      face.y = Math.floor(.04 * illo.height);
+      face.z = Math.floor(-.05 * illo.height);
+      face.scale = .85 * illo.height / face.height;
+      face.scaledWidth = face.scale * face.width;
+      face.scaledHeight = face.scale * face.height;
    }
 
-   face.layerThickness = .02 * face.scaledWidth;
+   camera.x = face.x + face.scaledWidth / 2;
 
-
+   layer.thickness = .012 * face.scaledWidth;
    layer.height = face.height * face.scale;
    layer.heightAbove = camera.y - face.y;
    layer.widthLeft = camera.x - face.x;
@@ -102,7 +111,7 @@ function prepFace() {
 
    for (let n = 0; n < drawLayer.length; n++) {
       ctx.offscreen[n] = setupCanvas(illo.offscreen[n], 1, 1, true);
-      layer[n] = {depth: camera.z - ((n * face.layerThickness) + face.z)}
+      layer[n] = {depth: camera.z - ((n * layer.thickness) + face.z)}
       let projection = {};
       projection.heightAbove = (camera.z * layer.heightAbove) / layer[n].depth;
       projection.heightBelow = (camera.z * layer.heightBelow) / layer[n].depth;
@@ -125,7 +134,8 @@ function prepFace() {
 }
 
 function drawScene() {
-   ctx.strokeStyle = "#36FFB4";
+   var lineColor = "#5555FF"
+   ctx.strokeStyle = lineColor;
    
    camera.y = illo.height / 2 + window.scrollY * dpr;
    
@@ -138,58 +148,149 @@ function drawScene() {
    ctx.fillRect(0, 0, illo.width, illo.height);
    ctx.beginPath();
    
-   // Draw background grid lines
-   rowYTop = 0, rowYBottom = illo.height;
-   for (let row = 1; row < grid.maxRows; row++) {
-         rowYTopPrev = rowYTop;
-         rowYTop = .5 + Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
-         rowYBottomPrev = rowYBottom;
-         rowYBottom = .5 + Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
+   // // Draw background grid lines
+   // rowYTop = 0, rowYBottom = illo.height;
+   // for (let row = 1; row < grid.maxRows; row++) {
+   //       rowYTopPrev = rowYTop;
+   //       rowYTop = .5 + Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
+   //       rowYBottomPrev = rowYBottom;
+   //       rowYBottom = .5 + Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
          
-         if ((row > 0) && (rowYTopPrev === rowYTop) && (rowYBottomPrev === rowYBottomPrev)) {
-            break;
-         }
+   //       if ((row > 0) && (rowYTopPrev === rowYTop) && (rowYBottomPrev === rowYBottomPrev)) {
+   //          break;
+   //       }
 
-         // Draw top horizontal
-         ctx.moveTo(0, rowYTop);
-         ctx.lineTo(illo.width, rowYTop);
+   //       // Draw top horizontal
+   //       ctx.moveTo(0, rowYTop);
+   //       ctx.lineTo(illo.width, rowYTop);
 
-         // Draw bottom horizontal
-         ctx.moveTo(0, rowYBottom);
-         ctx.lineTo(illo.width, rowYBottom);
+   //       // Draw bottom horizontal
+   //       ctx.moveTo(0, rowYBottom);
+   //       ctx.lineTo(illo.width, rowYBottom);
+   // }
+
+   // // Draw lines to vanishing point
+   // for (let column = 0; column < grid.maxColumns; column++) {
+   //    let columnX = camera.x - (grid.maxWidth / 2) + (column * grid.columnWidth);
+   //    ctx.moveTo(columnX, 0);
+   //    ctx.lineTo(camera.x, camera.y);
+   //    ctx.lineTo(columnX, illo.height);
+   // }
+  
+   //  ctx.stroke();
+    
+   // // Fill in horizon color
+   // ctx.fillStyle = lineColor;
+   // ctx.moveTo(0, 0);
+   // ctx.fillRect(0, rowYTopPrev, illo.width, (rowYBottomPrev - rowYTopPrev));
+
+   // // Draw background grid lines
+   // rowYTop = 0, rowYBottom = illo.height;
+   // let row = 0;
+   // let topCount = 0, bottomCount = 0;
+
+   // while (true) {
+   //    rowYTopPrev = rowYTop;
+   //    rowYTop = Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (row * grid.rowHeight)));
+
+   //    // Test if outside drawing area
+   //    if (rowYTop > illo.height) { break }
+
+   //    // Test for maximum drawable distance
+   //    if ((row > 0) && (Math.floor((rowYTopPrev / dpr)) === Math.floor((rowYTop / dpr)))) {
+   //       break;
+   //    }
+
+   //    // Draw top horizontal
+   //    ctx.moveTo(0, rowYTop);
+   //    ctx.lineTo(illo.width, rowYTop);
+
+   //    topCount = row;
+   //    row++
+   // }
+
+   // row = 0;
+   // isMaxDistance = false;
+
+   // while (true) {
+   //    if (camera.y > illo.height) { break }
+
+   //    rowYBottomPrev = rowYBottom;
+   //    rowYBottom = Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (row * grid.rowHeight)));
+
+   //    // Test for maximum drawable distance
+   //    if ((row > 0) && (Math.floor(rowYBottomPrev / dpr) === Math.floor(rowYBottom / dpr))) {
+   //       break;
+   //    }
+
+   //    // Draw bottom horizontal
+   //    ctx.moveTo(0, rowYBottom);
+   //    ctx.lineTo(illo.width, rowYBottom);
+   
+   //    bottomCount = row;
+   //    row++
+   // }
+
+   let row = grid.maxRows, rowYTop, rowYBottom;
+   while (--row) {
+      let denominator = camera.z + (row * grid.rowHeight);
+      rowYTop = Math.floor(camera.y - (camera.z * camera.y) / denominator);
+      rowYBottom = Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / denominator);
+      ctx.lineWidth = Math.floor()
+      ctx.moveTo(0, rowYTop);
+      ctx.lineTo(illo.width, rowYTop);
+      ctx.moveTo(0, rowYBottom);
+      ctx.lineTo(illo.width, rowYBottom);
    }
 
    // Draw lines to vanishing point
-   for (let column = 0; column < grid.maxColumns; column++) {
-      let columnX = camera.x - (grid.maxWidth / 2) + (column * grid.columnWidth);
-      ctx.moveTo(columnX, 0);
-      ctx.lineTo(camera.x, camera.y);
-      ctx.lineTo(columnX, illo.height);
-   }
-  
-    ctx.stroke();
-    
-   // Fill in horizon green
-   ctx.fillStyle = "#36FFB4";
+   // for (let column = 0; column < grid.maxColumns; column++) {
+   //    let columnX = camera.x - (grid.maxWidth / 2) + (column * grid.columnWidth);
+   //    ctx.moveTo(columnX, 0);
+   //    ctx.lineTo(camera.x, camera.y);
+   //    ctx.lineTo(columnX, illo.height);
+   // }
+   
+   // Draw lines to vanishing point
+   rowYTop = Math.floor(camera.y - (camera.z * camera.y) / (camera.z + (grid.maxRows * grid.rowHeight)));
+   rowYBottom = Math.floor(camera.y + (camera.z * (illo.height - camera.y)) / (camera.z + (grid.maxRows * grid.rowHeight)));
+   // grid.maxWidth = (camera.y * illo.width) / (camera.y - rowYTop);
+   // grid.maxColumns = Math.floor(grid.maxWidth / grid.columnWidth);
+   // let column = grid.maxColumns;
+   // while(--column) {
+   //    column.x1 = camera.x + column * grid.columnWidth;
+   //    column.x2 = camera.x - column * grid.columnWidth;
+   //    ctx.moveTo(column.x1, 0);
+   //    ctx.lineTo(camera.x, camera.y);
+   //    ctx.lineTo(column.x1, illo.height);
+   //    ctx.moveTo(column.x2, 0);
+   //    ctx.lineTo(camera.x, camera.y);
+   //    ctx.lineTo(column.x2, illo.height);
+   //    console.log(column, column.x1, column.x2);
+   // }
+   
+   ctx.stroke();
+      
+   // Fill in horizon color
+   ctx.fillStyle = lineColor;
    ctx.moveTo(0, 0);
-   ctx.fillRect(0, rowYTopPrev, illo.width, (rowYBottomPrev - rowYTopPrev));
+   ctx.fillRect(0, rowYTop, illo.width, (rowYBottom - rowYTop));
+
+   // Draw lines to vanishing point
+
 
    // Render face
-   layer.heightAbove = camera.y - face.y;
-   layer.heightBelow = face.y + layer.height - camera.y;
+   // layer.heightAbove = camera.y - face.y;
+   // layer.heightBelow = face.y + layer.height - camera.y;
    
-   // Stack rendered layers and transform y into place based on camera position
-   for (let n = 0; n < drawLayer.length; n++) {
-      let projection = {};
-      projection.heightAbove = (camera.z * layer.heightAbove) / layer[n].depth;
-      projection.y = Math.round(face.y + camera.y - projection.heightAbove);
+   // // Stack rendered layers and transform y into place based on camera position
+   // for (let n = 0; n < drawLayer.length; n++) {
+   //    let projection = {};
+   //    projection.heightAbove = (camera.z * layer.heightAbove) / layer[n].depth;
+   //    projection.y = Math.floor(face.y + camera.y - projection.heightAbove);
 
-      ctx.drawImage(illo.offscreen[n], 0, projection.y);
-      // console.log(projection.y, face.y, camera.y, projection.heightAbove);
-   }
-
-   // ctx.drawImage(illo.offscreen, 0, 0);
-
+   //    ctx.drawImage(illo.offscreen[n], 0, projection.y);
+   // }
 }
 
 function handleScroll() {
