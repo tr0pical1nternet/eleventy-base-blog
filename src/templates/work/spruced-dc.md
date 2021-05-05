@@ -9,6 +9,7 @@ cover:
     slug: spruced_cover
     alt: spruced-dc.com homepage
 tags: [WordPress, Modified Theme]
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'spruced_home', 'Full scrollable services page of spruced-dc.com' %}
 

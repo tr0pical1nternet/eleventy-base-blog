@@ -8,7 +8,8 @@ order: 3
 cover:
     slug: cdesigns-inc_cover
     alt: CDesigns, Inc. homepage
-tags: [WordPress, Modified Theme, Logo Design] 
+tags: [WordPress, Modified Theme, Logo Design]
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'cdesigns-inc_home', 'Full scrollable homepage of cdesignsinc.com' %}
 

@@ -13,6 +13,7 @@ images:
     -   slug: nigel-lyons_home
         alt: Home page of nigelyons.com
         classes: post-image
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'nigel-lyons_home', 'Home page of nigelyons.com' %}
 

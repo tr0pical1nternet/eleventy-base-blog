@@ -9,6 +9,9 @@ cover:
     slug: fun-with-arrays_cover
     alt: Fun with Arrays
 tags: [ Svelte.js, Public Speaking ]
+scripts:
+    - /js/selectvid.js
+    - /js/looper.js
 ---
 {% looper 'fun-with-arrays' %}
 

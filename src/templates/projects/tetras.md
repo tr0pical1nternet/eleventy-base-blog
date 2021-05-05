@@ -11,7 +11,9 @@ cover:
     alt: Tetras
     cardAlt: An SVG animation of a geometric landscape with blue fields of color radiating from it
 description: The geometry behind Tetras, a generative tetrahedral landscape proliferated with chromatic radiation.
-
+scripts:
+    - /js/selectvid.js
+    - /js/looper.js
 ---
 {% looper 'tetras', 'A generative tetrahedral landscape proliferated with chromatic radiation.' %}
 

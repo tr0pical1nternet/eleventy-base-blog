@@ -12,15 +12,18 @@ navItems:
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if (slug !== 'home') %}
+    {%- if (slug !== 'home') -%}
     <title>{{ metadata.title }} :: {{ title }}</title>
-    {% else %}
+    {%- else -%}
     <title>{{ metadata.title }}</title>
-    {% endif %}
+    {%- endif -%}
     {# <title>{{ renderData.title or title or metadata.title }}</title> #}
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ '/style.css' | url }}">
-    <link rel="stylesheet" href="{{ '/styles/hero.css' | url }}">
+    {%- for stylesheet in stylesheets -%}
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    {%- endfor -%}
     {# <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"> #}
     {# <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"> #}
     
@@ -35,7 +38,7 @@ navItems:
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    {% if (description) and (cover.slug) and (cover.alt)  %}
+    {%- if (description) and (cover.slug) and (cover.alt)  -%}
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="{{ metadata.author.twitter }}" />
@@ -43,7 +46,12 @@ navItems:
     <meta name="twitter:description" content="{{ description }}" />
     <meta name="twitter:image" content="{{ metadata.url }}/images/{{ cover.slug }}_1600.jpg" />
     <meta name="twitter:image:alt" content="{{ cover.cardAlt or cover.alt }}" />
-    {% endif %}
+    {%- endif -%}
+
+    {%- if scripts -%}<!-- Scripts -->{%- endif -%}
+    {%- for script in scripts -%}
+    <script src="{{ script }}" defer></script>
+    {%- endfor -%}
   </head>
   <body id="page-top" class="no-js">
     
@@ -104,16 +112,11 @@ navItems:
       {{ content | safe }}
     </main>
 
-    {% include "post-nav.njk" %}
+    {%- include "post-nav.njk" -%}
+    {%- include "footer.njk" -%}
 
-    {% include "footer.njk" %}
-    
-    <script>
+    <script defer>
       document.querySelector('body').classList.remove('no-js');
     </script>
-    <script src="/js/imhance.js"></script>
-    <script src="/js/looper.js"></script>
-    <script src="/js/selectvid.js"></script>
-    <script src="/js/hero.js"></script>
   </body>
 </html>

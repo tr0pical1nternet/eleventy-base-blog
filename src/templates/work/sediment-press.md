@@ -9,6 +9,7 @@ cover:
     slug: sediment-press_cover
     alt: sedimentpress.com homepage
 tags: [WordPress, WooCommerce, Modified Theme, Logo Design]
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'sediment-press_home', 'Full scrollable homepage of sedimentpress.com' %}
 

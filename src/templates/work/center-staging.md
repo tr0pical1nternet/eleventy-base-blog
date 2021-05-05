@@ -9,6 +9,7 @@ cover:
     slug: center-staging_cover
     alt: centerstaging.net homepage
 tags: [Wordpress, Custom Theme, Logo Design]
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'center-staging_home', 'Full scrollable home page of centerstaging.net' %}
 

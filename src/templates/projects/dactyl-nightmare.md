@@ -9,6 +9,9 @@ cover:
     slug: dactyl-nightmare_cover
     alt: Dactyl Nightmare
 tags: [ Adventure Game ]
+scripts:
+    - /js/selectvid.js
+    - /js/looper.js
 ---
 {% looper 'dactyl-nightmare' %}
 

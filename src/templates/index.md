@@ -9,6 +9,8 @@ cover:
     alt: Screenshot of charlesrobertson.io home page
     cardAlt: Screenshot of charlesrobertson.io home page
 description: Charles Robertson is web designer and developer working to build a better web.
+scripts: [/js/hero.js]
+stylesheets: [/styles/hero.css]
 ---
 <!-- <h1 class="visually-hidden">Introduction</h1> -->
 

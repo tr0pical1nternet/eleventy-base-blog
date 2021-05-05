@@ -9,6 +9,7 @@ cover:
     slug: raven-pmg_cover
     alt: ravenpmg.com homepage
 tags: [WordPress, Custom Theme]
+scripts: [/js/imhance.js]
 ---
 {% imgScroll 'raven-pmg_home', 'Full scrollable homepage of ravenpmg.com'%}
 
