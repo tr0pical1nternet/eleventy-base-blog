@@ -104,7 +104,7 @@ function prepFace() {
 function drawScene() {
    ctx.strokeStyle = "#36FFB4";
    
-   camera.y = illo.height / 2 + window.scrollY;
+   camera.y = illo.height / 2 + (window.scrollY * dpr);
    
    // Keeps face transforms from applying to entire canvas
    ctx.resetTransform();
